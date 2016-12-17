@@ -1,0 +1,31 @@
+{
+  "resources": [
+    {
+      "name": "Orders",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "Creating an order",
+          "link": "orders/creating_an_order.json",
+          "groups": "all",
+          "route": "/orders",
+          "method": "post"
+        },
+        {
+          "description": "Viewing an order",
+          "link": "orders/viewing_an_order.json",
+          "groups": "all",
+          "route": "/orders/9",
+          "method": "get"
+        },
+        {
+          "description": "Deleting an order",
+          "link": "orders/deleting_an_order.json",
+          "groups": "all",
+          "route": "/orders/9",
+          "method": "get"
+        }
+      ]
+    }
+  ]
+}

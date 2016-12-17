@@ -1,0 +1,40 @@
+{
+  "resource": "Orders",
+  "resource_explanation": null,
+  "http_method": "GET",
+  "route": "/orders/9",
+  "description": "Deleting an order",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/orders/9",
+      "request_body": null,
+      "request_headers": {
+        "Cookie": "",
+        "Host": "example.org"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\"email\":\"email@example.com\",\"name\":\"Order 1\",\"paid\":true}",
+      "response_headers": {
+        "Content-Type": "text/html;charset=utf-8",
+        "Content-Length": "58",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "SAMEORIGIN"
+      },
+      "response_content_type": "text/html;charset=utf-8",
+      "curl": null
+    }
+  ]
+}
