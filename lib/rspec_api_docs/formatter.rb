@@ -21,7 +21,7 @@ module RspecApiDocs
     end
 
     def close(null_notification)
-      JSONRender.new(resources).render
+      JSONRenderer.new(resources).render
     end
   end
 end

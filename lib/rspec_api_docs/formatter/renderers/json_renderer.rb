@@ -1,8 +1,8 @@
-require 'rspec_api_docs/formatter/index_serializer'
-require 'rspec_api_docs/formatter/resource_serializer'
+require 'rspec_api_docs/formatter/renderer/json_renderer/index_serializer'
+require 'rspec_api_docs/formatter/renderer/json_renderer/resource_serializer'
 
 module RspecApiDocs
-  class JSONRender
+  class JSONRenderer
     attr_reader :resources
 
     def initialize(resources)
