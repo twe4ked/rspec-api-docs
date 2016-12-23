@@ -7,7 +7,3 @@ require 'pry'
 RSpec.configure do |config|
   config.after &RspecApiDocs::After
 end
-
-RspecApiDocs.configure do |config|
-  config.output_dir = File.expand_path('../../spec/integration/output', __FILE__)
-end
