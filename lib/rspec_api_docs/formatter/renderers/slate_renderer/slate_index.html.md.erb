@@ -1,0 +1,43 @@
+---
+title: API Reference
+search: true
+---
+
+<% resources.each do |name, examples| %>
+# <%= name %>
+
+<% examples.each do |resource| %>
+## <%= resource.example_name %>
+
+```json
+<% response_body = JSON.parse(resource.requests.first[:response_body]) if resource.requests.first[:response_body] %>
+<%= JSON.pretty_generate(response_body) if response_body %>
+```
+
+<%= resource.description %>
+
+### HTTP Request
+
+`<%= resource.requests.first[:request_method] %> http://example.com<%= resource.requests.first[:request_path] %>`
+
+<% unless resource.parameters.empty? -%>
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+<% resource.parameters.each do |parameter| -%>
+<%= parameter[:name] %> | <%= !!parameter[:required] %> | <%= parameter[:description] %>
+<% end -%>
+<% end -%>
+
+<% unless resource.response_fields.empty? -%>
+### Response Fields
+
+Parameter | Type | Description
+--------- | ------- | -----------
+<% resource.response_fields.each do |parameter| -%>
+<%= parameter[:name] %> | <%= parameter[:Type] %> | <%= parameter[:description] %>
+<% end -%>
+<% end -%>
+<% end -%>
+<% end -%>

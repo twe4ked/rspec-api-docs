@@ -3,6 +3,7 @@ require 'json'
 
 require 'rspec_api_docs/formatter/resource'
 require 'rspec_api_docs/formatter/renderers/json_renderer'
+require 'rspec_api_docs/formatter/renderers/slate_renderer'
 
 module RspecApiDocs
   UnknownRenderer = Class.new(BaseError)
@@ -34,6 +35,8 @@ module RspecApiDocs
       case value
       when :json
         JSONRenderer
+      when :slate
+        SlateRenderer
       when Class
         value
       else
