@@ -1,7 +1,7 @@
 module RspecApiDocs
   class JSONRenderer
     class IndexSerializer
-      class ResourceSerializer
+      class ExampleSerializer
         attr_reader :resource
 
         def initialize(resource)
@@ -31,7 +31,7 @@ module RspecApiDocs
             {
               name: name,
               explanation: nil,
-              examples: examples.map { |resource| ResourceSerializer.new(resource).to_h },
+              examples: examples.map { |resource| ExampleSerializer.new(resource).to_h },
             }
           end
         }
