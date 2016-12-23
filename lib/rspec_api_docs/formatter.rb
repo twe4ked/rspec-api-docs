@@ -5,6 +5,8 @@ require 'rspec_api_docs/formatter/resource'
 require 'rspec_api_docs/formatter/renderers/json_renderer'
 
 module RspecApiDocs
+  UnknownRenderer = Class.new(BaseError)
+
   class Formatter < RSpec::Core::Formatters::BaseFormatter
     RSpec::Core::Formatters.register self, :example_passed, :close
 
@@ -21,7 +23,22 @@ module RspecApiDocs
     end
 
     def close(null_notification)
-      JSONRenderer.new(resources).render
+      renderer.new(resources).render
+    end
+
+    private
+
+    def renderer
+      value = RspecApiDocs.configuration.renderer
+
+      case value
+      when :json
+        JSONRenderer
+      when Class
+        value
+      else
+        raise UnknownRenderer, "unknown renderer #{value.inspect}"
+      end
     end
   end
 end

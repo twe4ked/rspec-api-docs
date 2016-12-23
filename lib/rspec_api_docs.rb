@@ -3,6 +3,8 @@ require 'rspec_api_docs/version'
 module RspecApiDocs
   METADATA_NAMESPACE = :rspec_api_docs
 
+  BaseError = Class.new(StandardError)
+
   class << self
     attr_accessor :configuration
   end
@@ -13,10 +15,13 @@ module RspecApiDocs
   end
 
   class Config
-    attr_accessor :output_dir
+    attr_accessor \
+      :output_dir,
+      :renderer
 
     def initialize
       @output_dir = 'docs'
+      @renderer = :json
     end
   end
 end
