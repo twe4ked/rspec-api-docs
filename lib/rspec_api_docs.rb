@@ -7,6 +7,10 @@ module RspecApiDocs
 
   class << self
     attr_accessor :configuration
+
+    def configuration
+      @configuration ||= Config.new
+    end
   end
 
   def self.configure
