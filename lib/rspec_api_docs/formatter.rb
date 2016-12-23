@@ -2,7 +2,7 @@ require 'rspec/core/formatters/base_formatter'
 require 'json'
 
 require 'rspec_api_docs/formatter/resource'
-require 'rspec_api_docs/formatter/renderers/json_renderer'
+require 'rspec_api_docs/formatter/renderers/raddocs_renderer'
 require 'rspec_api_docs/formatter/renderers/slate_renderer'
 
 module RspecApiDocs
@@ -33,8 +33,8 @@ module RspecApiDocs
       value = RspecApiDocs.configuration.renderer
 
       case value
-      when :json
-        JSONRenderer
+      when :raddocs
+        RaddocsRenderer
       when :slate
         SlateRenderer
       when Class

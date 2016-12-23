@@ -1,5 +1,5 @@
 module RspecApiDocs
-  class JSONRenderer
+  class RaddocsRenderer
     class ResourceSerializer
       attr_reader :resource
 
