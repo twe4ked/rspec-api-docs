@@ -115,18 +115,16 @@ module RspecApiDocs
 
         it 'returns the response fields' do
           expect(resource.response_fields).to eq [
-            {
-              name: :id,
+            Resource::ResponseField.new(:id, {
               description: 'The character id',
-              scope: 'character',
-              'Type': 'integer',
-            },
-            {
-              name: :name,
+              scope: ['character'],
+              type: 'integer',
+            }),
+            Resource::ResponseField.new(:name, {
               description: 'The name of character',
-              scope: 'character',
-              'Type': 'string',
-            },
+              scope: ['character'],
+              type: 'string',
+            }),
           ]
         end
       end

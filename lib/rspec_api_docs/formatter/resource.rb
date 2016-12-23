@@ -1,4 +1,5 @@
 require 'active_support/inflector'
+require 'rspec_api_docs/formatter/resource/response_field'
 
 module RspecApiDocs
   class Resource
@@ -35,12 +36,7 @@ module RspecApiDocs
 
     def response_fields
       metadata.fetch(:fields, []).map do |name, field|
-        {
-          scope: field[:scope].join,
-          Type: field[:type],
-          name: name,
-          description: field[:description],
-        }
+        ResponseField.new(name, field)
       end
     end
 

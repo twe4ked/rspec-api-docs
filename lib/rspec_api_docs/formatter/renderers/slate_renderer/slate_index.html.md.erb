@@ -38,7 +38,7 @@ Parameter | Required | Description
 Parameter | Type | Description
 --------- | ------- | -----------
 <% resource.response_fields.each do |parameter| -%>
-<%= parameter[:name] %> | <%= parameter[:Type] %> | <%= parameter[:description] %>
+<%= parameter.name %> | <%= parameter.type %> | <%= parameter.description %>
 <% end -%>
 <% end -%>
 <% end -%>
