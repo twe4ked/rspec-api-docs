@@ -9,16 +9,29 @@ search: true
 
 ## Creating an order
 
+First, create an order, then make a later request to get it back
+
 ```json
 
 
 ```
 
-First, create an order, then make a later request to get it back
-
 ### HTTP Request
 
 `POST http://example.com/orders`
+
+```json
+
+{
+  "email": "email@example.com",
+  "name": "Order 1",
+  "paid": true
+}
+```
+
+### HTTP Request
+
+`GET http://example.com/orders/9`
 
 ### Query Parameters
 
@@ -38,6 +51,8 @@ email | string | Email of the user that placed the order
 
 ## Viewing an order
 
+Make a request to get an order
+
 ```json
 
 {
@@ -46,8 +61,6 @@ email | string | Email of the user that placed the order
   "paid": true
 }
 ```
-
-Make a request to get an order
 
 ### HTTP Request
 
@@ -64,6 +77,8 @@ email | string | Email of the user that placed the order
 
 ## Deleting an order
 
+
+
 ```json
 
 {
@@ -72,8 +87,6 @@ email | string | Email of the user that placed the order
   "paid": true
 }
 ```
-
-
 
 ### HTTP Request
 

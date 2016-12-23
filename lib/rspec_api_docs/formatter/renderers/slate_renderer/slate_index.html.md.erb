@@ -9,17 +9,19 @@ search: true
 <% examples.each do |resource| %>
 ## <%= resource.example_name %>
 
+<%= resource.description %>
+
+<% resource.requests.each do |request| -%>
 ```json
-<% response_body = JSON.parse(resource.requests.first[:response_body]) if resource.requests.first[:response_body] %>
+<% response_body = JSON.parse(request[:response_body]) if request[:response_body] %>
 <%= JSON.pretty_generate(response_body) if response_body %>
 ```
 
-<%= resource.description %>
-
 ### HTTP Request
 
-`<%= resource.requests.first[:request_method] %> http://example.com<%= resource.requests.first[:request_path] %>`
+`<%= request[:request_method] %> http://example.com<%= request[:request_path] %>`
 
+<% end -%>
 <% unless resource.parameters.empty? -%>
 ### Query Parameters
 
