@@ -1,3 +1,5 @@
+require 'json'
+
 require 'rspec_api_docs/formatter/renderers/raddocs_renderer/index_serializer'
 require 'rspec_api_docs/formatter/renderers/raddocs_renderer/resource_serializer'
 

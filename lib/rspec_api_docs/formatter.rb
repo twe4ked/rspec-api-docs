@@ -1,5 +1,4 @@
 require 'rspec/core/formatters/base_formatter'
-require 'json'
 
 require 'rspec_api_docs/formatter/resource'
 require 'rspec_api_docs/formatter/renderers/raddocs_renderer'
