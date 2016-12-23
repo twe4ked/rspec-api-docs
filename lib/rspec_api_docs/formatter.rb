@@ -1,5 +1,6 @@
 require 'rspec/core/formatters/base_formatter'
 
+require 'rspec_api_docs'
 require 'rspec_api_docs/formatter/resource'
 require 'rspec_api_docs/formatter/renderers/raddocs_renderer'
 require 'rspec_api_docs/formatter/renderers/slate_renderer'
