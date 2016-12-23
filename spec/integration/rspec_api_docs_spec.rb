@@ -45,10 +45,9 @@ RSpec.describe RspecApiDocs do
     end
 
     post '/orders'
-    doc << [last_request, last_response]
+    doc << [last_response, last_request] # NOTE: Wrong order
 
     get '/orders/9'
-    doc << [last_response, last_request] # NOTE: Wrong order
   end
 
   it 'Viewing an order' do
