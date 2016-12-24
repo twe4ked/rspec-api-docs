@@ -1,0 +1,196 @@
+{
+  "Orders": [
+    {
+      "description": "First, create an order, then make a later request to get it back",
+      "name": "Creating an order",
+      "groups": "all",
+      "http_method": "POST",
+      "parameters": [
+        {
+          "name": "name",
+          "description": "Name of order",
+          "scope": "order",
+          "required": true
+        },
+        {
+          "name": "paid",
+          "description": "If the order has been paid for",
+          "scope": "order",
+          "required": true
+        },
+        {
+          "name": "email",
+          "description": "Email of the user that placed the order",
+          "scope": "order",
+          "required": false
+        }
+      ],
+      "path": "/orders",
+      "requests": [
+        {
+          "request_method": "POST",
+          "request_path": "/orders",
+          "request_body": null,
+          "request_headers": {
+            "Cookie": "",
+            "Host": "example.org"
+          },
+          "request_query_parameters": {
+          },
+          "request_content_type": "application/x-www-form-urlencoded",
+          "response_status": 201,
+          "response_status_text": "Created",
+          "response_body": null,
+          "response_headers": {
+            "Content-Type": "text/html;charset=utf-8",
+            "Content-Length": "0",
+            "X-XSS-Protection": "1; mode=block",
+            "X-Content-Type-Options": "nosniff",
+            "X-Frame-Options": "SAMEORIGIN"
+          },
+          "response_content_type": "text/html;charset=utf-8",
+          "curl": null
+        },
+        {
+          "request_method": "GET",
+          "request_path": "/orders/9",
+          "request_body": null,
+          "request_headers": {
+            "Cookie": "",
+            "Host": "example.org"
+          },
+          "request_query_parameters": {
+          },
+          "request_content_type": null,
+          "response_status": 200,
+          "response_status_text": "OK",
+          "response_body": "{\"email\":\"email@example.com\",\"name\":\"Order 1\",\"paid\":true}",
+          "response_headers": {
+            "Content-Type": "text/html;charset=utf-8",
+            "Content-Length": "58",
+            "X-XSS-Protection": "1; mode=block",
+            "X-Content-Type-Options": "nosniff",
+            "X-Frame-Options": "SAMEORIGIN"
+          },
+          "response_content_type": "text/html;charset=utf-8",
+          "curl": null
+        }
+      ],
+      "response_fields": [
+        {
+          "name": "name",
+          "description": "Name of order",
+          "scope": "order",
+          "type": "string"
+        },
+        {
+          "name": "paid",
+          "description": "If the order has been paid for",
+          "scope": "order",
+          "type": "integer"
+        },
+        {
+          "name": "email",
+          "description": "Email of the user that placed the order",
+          "scope": "order",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "description": "Make a request to get an order",
+      "name": "Viewing an order",
+      "groups": "all",
+      "http_method": "GET",
+      "parameters": [
+
+      ],
+      "path": "/orders/9",
+      "requests": [
+        {
+          "request_method": "GET",
+          "request_path": "/orders/9",
+          "request_body": null,
+          "request_headers": {
+            "Cookie": "",
+            "Host": "example.org"
+          },
+          "request_query_parameters": {
+          },
+          "request_content_type": null,
+          "response_status": 200,
+          "response_status_text": "OK",
+          "response_body": "{\"email\":\"email@example.com\",\"name\":\"Order 1\",\"paid\":true}",
+          "response_headers": {
+            "Content-Type": "text/html;charset=utf-8",
+            "Content-Length": "58",
+            "X-XSS-Protection": "1; mode=block",
+            "X-Content-Type-Options": "nosniff",
+            "X-Frame-Options": "SAMEORIGIN"
+          },
+          "response_content_type": "text/html;charset=utf-8",
+          "curl": null
+        }
+      ],
+      "response_fields": [
+        {
+          "name": "name",
+          "description": "Name of order",
+          "scope": "order",
+          "type": "string"
+        },
+        {
+          "name": "paid",
+          "description": "If the order has been paid for",
+          "scope": "order",
+          "type": "integer"
+        },
+        {
+          "name": "email",
+          "description": "Email of the user that placed the order",
+          "scope": "order",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "description": null,
+      "name": "Deleting an order",
+      "groups": "all",
+      "http_method": "GET",
+      "parameters": [
+
+      ],
+      "path": "/orders/9",
+      "requests": [
+        {
+          "request_method": "GET",
+          "request_path": "/orders/9",
+          "request_body": null,
+          "request_headers": {
+            "Cookie": "",
+            "Host": "example.org"
+          },
+          "request_query_parameters": {
+          },
+          "request_content_type": null,
+          "response_status": 200,
+          "response_status_text": "OK",
+          "response_body": "{\"email\":\"email@example.com\",\"name\":\"Order 1\",\"paid\":true}",
+          "response_headers": {
+            "Content-Type": "text/html;charset=utf-8",
+            "Content-Length": "58",
+            "X-XSS-Protection": "1; mode=block",
+            "X-Content-Type-Options": "nosniff",
+            "X-Frame-Options": "SAMEORIGIN"
+          },
+          "response_content_type": "text/html;charset=utf-8",
+          "curl": null
+        }
+      ],
+      "response_fields": [
+
+      ]
+    }
+  ]
+}

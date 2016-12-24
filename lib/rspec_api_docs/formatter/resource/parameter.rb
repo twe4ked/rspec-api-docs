@@ -13,7 +13,7 @@ module RspecApiDocs
       end
 
       def required
-        parameter[:required]
+        !!parameter[:required]
       end
 
       def description
