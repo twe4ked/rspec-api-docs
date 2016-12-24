@@ -1,4 +1,11 @@
-# rspec-api-docs
+<h1 align="center">rspec-api-docs</h1>
+
+<p align="center">Generate API documentation using RSpec</a>
+
+<p align="center">
+  <a href="https://travis-ci.org/twe4ked/rspec-api-docs"><img src="https://img.shields.io/travis/twe4ked/rspec-api-docs.svg?style=flat-square" /></a>
+  <a href="https://rubygems.org/gems/rspec-api-docs"><img src="https://img.shields.io/gem/v/rspec-api-docs.svg?style=flat-square" /></a>
+</p>
 
 ## Installation
 
