@@ -22,7 +22,7 @@ For now see the integration specs.
 
 ```
 rm -rf spec/integration/output
-rspec spec/integration/rspec_api_docs_spec.rb --format=RspecApiDocs::Formatter
+rake generate_integration_docs
 ```
 
 ## Development
