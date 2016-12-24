@@ -15,13 +15,26 @@ module RspecApiDocs
           route: resource.path,
           description: resource.example_name,
           explanation: resource.description,
-          parameters: resource.parameters,
+          parameters: parameters(resource.parameters),
           response_fields: response_fields(resource.response_fields),
           requests: resource.requests,
         }
       end
 
       private
+
+      def parameters(parameters)
+        parameters.map do |parameter|
+          result = {}
+          result[:required] = true if parameter.required
+          result[:scope] = parameter.scope
+          result = result.merge(
+            name: parameter.name,
+            description: parameter.description,
+          )
+          result
+        end
+      end
 
       def response_fields(fields)
         fields.map do |field|

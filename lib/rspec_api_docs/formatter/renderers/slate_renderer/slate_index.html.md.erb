@@ -28,7 +28,7 @@ search: true
 Parameter | Required | Description
 --------- | ------- | -----------
 <% resource.parameters.each do |parameter| -%>
-<%= parameter[:name] %> | <%= !!parameter[:required] %> | <%= parameter[:description] %>
+<%= parameter.name %> | <%= !!parameter.required %> | <%= parameter.description %>
 <% end -%>
 <% end -%>
 

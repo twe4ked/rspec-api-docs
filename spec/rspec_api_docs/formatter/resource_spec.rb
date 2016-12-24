@@ -60,13 +60,11 @@ module RspecApiDocs
               id: {
                 description: 'The character id',
                 scope: ['character'],
-                type: 'integer',
                 required: true,
               },
               name: {
                 description: 'The name of character',
                 scope: ['character'],
-                type: 'string',
               },
             }
           }
@@ -74,17 +72,15 @@ module RspecApiDocs
 
         it 'returns the parameters' do
           expect(resource.parameters).to eq [
-            {
-              name: :id,
+            Resource::Parameter.new(:id, {
               description: 'The character id',
-              scope: 'character',
+              scope: ['character'],
               required: true,
-            },
-            {
-              name: :name,
+            }),
+            Resource::Parameter.new(:name, {
               description: 'The name of character',
-              scope: 'character',
-            },
+              scope: ['character'],
+            }),
           ]
         end
       end

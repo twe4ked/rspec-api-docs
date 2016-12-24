@@ -1,4 +1,5 @@
 require 'active_support/inflector'
+require 'rspec_api_docs/formatter/resource/parameter'
 require 'rspec_api_docs/formatter/resource/response_field'
 
 module RspecApiDocs
@@ -22,15 +23,8 @@ module RspecApiDocs
     end
 
     def parameters
-      metadata.fetch(:parameters, []).map do |name, field|
-        result = {}
-        result[:required] = true if field[:required]
-        result[:scope] = field[:scope].join unless field[:scope].empty?
-        result = result.merge(
-          name: name,
-          description: field[:description],
-        )
-        result
+      metadata.fetch(:parameters, []).map do |name, parameter|
+        Parameter.new(name, parameter)
       end
     end
 
