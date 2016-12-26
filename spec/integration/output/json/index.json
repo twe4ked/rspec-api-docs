@@ -103,7 +103,7 @@
       "parameters": [
 
       ],
-      "path": "/orders/9",
+      "path": "/orders/:id",
       "requests": [
         {
           "request_method": "GET",
@@ -158,7 +158,7 @@
       "parameters": [
 
       ],
-      "path": "/orders/9",
+      "path": "/orders/:id",
       "requests": [
         {
           "request_method": "GET",

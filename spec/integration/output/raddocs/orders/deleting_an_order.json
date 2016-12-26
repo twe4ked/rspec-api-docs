@@ -2,7 +2,7 @@
   "resource": "Orders",
   "resource_explanation": null,
   "http_method": "GET",
-  "route": "/orders/9",
+  "route": "/orders/:id",
   "description": "Deleting an order",
   "explanation": null,
   "parameters": [

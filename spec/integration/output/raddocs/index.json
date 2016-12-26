@@ -15,14 +15,14 @@
           "description": "Viewing an order",
           "link": "orders/viewing_an_order.json",
           "groups": "all",
-          "route": "/orders/9",
+          "route": "/orders/:id",
           "method": "get"
         },
         {
           "description": "Deleting an order",
           "link": "orders/deleting_an_order.json",
           "groups": "all",
-          "route": "/orders/9",
+          "route": "/orders/:id",
           "method": "get"
         }
       ]

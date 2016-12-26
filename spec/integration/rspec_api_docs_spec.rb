@@ -53,6 +53,7 @@ RSpec.describe RspecApiDocs do
   it 'Viewing an order' do
     doc do
       description 'Make a request to get an order'
+      path '/orders/:id'
 
       field :name, 'Name of order', scope: ['order'], type: 'string'
       field :paid, 'If the order has been paid for', scope: ['order'], type: 'integer'
@@ -63,7 +64,9 @@ RSpec.describe RspecApiDocs do
   end
 
   it 'Deleting an order' do
-    doc
+    doc do
+      path '/orders/:id'
+    end
 
     get '/orders/9'
   end

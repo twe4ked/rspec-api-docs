@@ -2,7 +2,7 @@
   "resource": "Orders",
   "resource_explanation": null,
   "http_method": "GET",
-  "route": "/orders/9",
+  "route": "/orders/:id",
   "description": "Viewing an order",
   "explanation": "Make a request to get an order",
   "parameters": [
