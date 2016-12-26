@@ -1,6 +1,7 @@
 require 'json'
 
 require 'rspec_api_docs/formatter/renderers/raddocs_renderer/index_serializer'
+require 'rspec_api_docs/formatter/renderers/raddocs_renderer/link'
 require 'rspec_api_docs/formatter/renderers/raddocs_renderer/resource_serializer'
 
 module RspecApiDocs
@@ -19,9 +20,9 @@ module RspecApiDocs
       end
 
       resources.each do |resource|
-        FileUtils.mkdir_p output_dir + Pathname.new(link(resource)).dirname
+        FileUtils.mkdir_p output_dir + Pathname.new(Link.(resource)).dirname
 
-        File.open(output_dir + link(resource), 'w') do |f|
+        File.open(output_dir + Link.(resource), 'w') do |f|
           f.write JSON.pretty_generate(ResourceSerializer.new(resource).to_h) + "\n"
         end
       end
@@ -31,10 +32,6 @@ module RspecApiDocs
 
     def output_dir
       Pathname.new RspecApiDocs.configuration.output_dir
-    end
-
-    def link(resource)
-      "#{resource.name.downcase}/#{resource.example_name.parameterize.underscore}.json"
     end
   end
 end

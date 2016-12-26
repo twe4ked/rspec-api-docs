@@ -1,3 +1,5 @@
+require 'rspec_api_docs/formatter/renderers/raddocs_renderer/link'
+
 module RspecApiDocs
   class RaddocsRenderer
     class IndexSerializer
@@ -21,7 +23,7 @@ module RspecApiDocs
         private
 
         def link
-          "#{resource.name.downcase}/#{resource.example_name.parameterize.underscore}.json"
+          Link.(resource)
         end
       end
 
