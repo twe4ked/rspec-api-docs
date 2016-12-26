@@ -7,10 +7,10 @@ RSpec.describe RspecApiDocs do
   include RspecApiDocs::Dsl
 
   class TestApp < Sinatra::Base
-    get '/orders/9' do
+    get '/orders/:id' do
       JSON.dump(
         email: 'email@example.com',
-        name: 'Order 1',
+        name: "Order #{params[:id]}",
         paid: true,
       )
     end
@@ -47,7 +47,7 @@ RSpec.describe RspecApiDocs do
     post '/orders'
     doc << [last_response, last_request] # NOTE: Wrong order
 
-    get '/orders/9'
+    get '/orders/1'
   end
 
   it 'Viewing an order' do
@@ -60,7 +60,7 @@ RSpec.describe RspecApiDocs do
       field :email, 'Email of the user that placed the order', scope: ['order'], type: 'string'
     end
 
-    get '/orders/9'
+    get '/orders/1'
   end
 
   it 'Deleting an order' do
@@ -68,12 +68,12 @@ RSpec.describe RspecApiDocs do
       path '/orders/:id'
     end
 
-    get '/orders/9'
+    get '/orders/1'
   end
 
   it 'not included' do
     no_doc
 
-    get '/orders/9'
+    get '/orders/1'
   end
 end

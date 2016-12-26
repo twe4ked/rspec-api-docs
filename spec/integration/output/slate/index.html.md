@@ -31,7 +31,7 @@ First, create an order, then make a later request to get it back
 
 ### HTTP Request
 
-`GET http://example.com/orders/9`
+`GET http://example.com/orders/1`
 
 ### Query Parameters
 
@@ -64,7 +64,7 @@ Make a request to get an order
 
 ### HTTP Request
 
-`GET http://example.com/orders/9`
+`GET http://example.com/orders/1`
 
 
 ### Response Fields
@@ -90,6 +90,6 @@ email | string | Email of the user that placed the order
 
 ### HTTP Request
 
-`GET http://example.com/orders/9`
+`GET http://example.com/orders/1`
 
 
