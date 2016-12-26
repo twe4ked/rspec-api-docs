@@ -19,9 +19,9 @@ module RspecApiDocs
       end
 
       resources.each do |resource|
-        FileUtils.mkdir_p output_dir + Pathname.new(resource.link).dirname
+        FileUtils.mkdir_p output_dir + Pathname.new(link(resource)).dirname
 
-        File.open(output_dir + resource.link, 'w') do |f|
+        File.open(output_dir + link(resource), 'w') do |f|
           f.write JSON.pretty_generate(ResourceSerializer.new(resource).to_h) + "\n"
         end
       end
@@ -31,6 +31,10 @@ module RspecApiDocs
 
     def output_dir
       Pathname.new RspecApiDocs.configuration.output_dir
+    end
+
+    def link(resource)
+      "#{resource.name.downcase}/#{resource.example_name.parameterize.underscore}.json"
     end
   end
 end

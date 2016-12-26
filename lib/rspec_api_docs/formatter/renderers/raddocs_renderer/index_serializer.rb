@@ -11,11 +11,17 @@ module RspecApiDocs
         def to_h
           {
             description: resource.example_name,
-            link: resource.link,
+            link: link,
             groups: resource.groups,
             route: resource.path,
             method: resource.http_method.downcase,
           }
+        end
+
+        private
+
+        def link
+          "#{resource.name.downcase}/#{resource.example_name.parameterize.underscore}.json"
         end
       end
 

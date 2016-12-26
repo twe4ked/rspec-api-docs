@@ -211,18 +211,6 @@ module RspecApiDocs
       end
     end
 
-    describe '#link' do
-      let(:_example) do
-        double :example,
-          metadata: example_metadata.merge(example_group: {description: 'Character'}),
-          description: 'Viewing a character'
-      end
-
-      it 'returns a link' do
-        expect(resource.link).to eq 'character/viewing_a_character.json'
-      end
-    end
-
     describe '#groups' do
       it 'returns all' do
         expect(resource.groups).to eq 'all'

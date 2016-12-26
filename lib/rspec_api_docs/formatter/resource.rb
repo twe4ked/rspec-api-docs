@@ -98,10 +98,6 @@ module RspecApiDocs
       reqs.first.first.request_method
     end
 
-    def link
-      "#{name.downcase}/#{example_name.parameterize.underscore}.json"
-    end
-
     def groups
       'all'
     end
