@@ -98,10 +98,6 @@ module RspecApiDocs
       reqs.first.first.request_method
     end
 
-    def groups
-      'all'
-    end
-
     private
 
     # http://stackoverflow.com/a/33235714/826820

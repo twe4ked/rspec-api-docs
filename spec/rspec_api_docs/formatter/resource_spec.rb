@@ -210,11 +210,5 @@ module RspecApiDocs
         ]
       end
     end
-
-    describe '#groups' do
-      it 'returns all' do
-        expect(resource.groups).to eq 'all'
-      end
-    end
   end
 end

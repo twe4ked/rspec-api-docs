@@ -26,7 +26,6 @@ module RspecApiDocs
             {
               description: resource.description,
               name: resource.example_name,
-              groups: resource.groups,
               http_method: resource.http_method,
               parameters: parameters(resource.parameters),
               path: resource.path,

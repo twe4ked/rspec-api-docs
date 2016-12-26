@@ -3,7 +3,6 @@
     {
       "description": "First, create an order, then make a later request to get it back",
       "name": "Creating an order",
-      "groups": "all",
       "http_method": "POST",
       "parameters": [
         {
@@ -100,7 +99,6 @@
     {
       "description": "Make a request to get an order",
       "name": "Viewing an order",
-      "groups": "all",
       "http_method": "GET",
       "parameters": [
 
@@ -156,7 +154,6 @@
     {
       "description": null,
       "name": "Deleting an order",
-      "groups": "all",
       "http_method": "GET",
       "parameters": [
 

@@ -14,7 +14,7 @@ module RspecApiDocs
           {
             description: resource.example_name,
             link: link,
-            groups: resource.groups,
+            groups: groups,
             route: resource.path,
             method: resource.http_method.downcase,
           }
@@ -24,6 +24,10 @@ module RspecApiDocs
 
         def link
           Link.(resource)
+        end
+
+        def groups
+          'all'
         end
       end
 
