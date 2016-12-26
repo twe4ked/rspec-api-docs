@@ -6,21 +6,18 @@
       "http_method": "POST",
       "parameters": [
         {
-          "name": "name",
+          "name": "order[name]",
           "description": "Name of order",
-          "scope": "order",
           "required": true
         },
         {
-          "name": "paid",
+          "name": "order[paid]",
           "description": "If the order has been paid for",
-          "scope": "order",
           "required": true
         },
         {
-          "name": "email",
+          "name": "order[email]",
           "description": "Email of the user that placed the order",
-          "scope": "order",
           "required": false
         }
       ],
@@ -77,21 +74,18 @@
       ],
       "response_fields": [
         {
-          "name": "name",
+          "name": "order[name]",
           "description": "Name of order",
-          "scope": "order",
           "type": "string"
         },
         {
-          "name": "paid",
+          "name": "order[paid]",
           "description": "If the order has been paid for",
-          "scope": "order",
           "type": "integer"
         },
         {
-          "name": "email",
+          "name": "order[email]",
           "description": "Email of the user that placed the order",
-          "scope": "order",
           "type": "string"
         }
       ]
@@ -132,21 +126,18 @@
       ],
       "response_fields": [
         {
-          "name": "name",
+          "name": "order[name]",
           "description": "Name of order",
-          "scope": "order",
           "type": "string"
         },
         {
-          "name": "paid",
+          "name": "order[paid]",
           "description": "If the order has been paid for",
-          "scope": "order",
           "type": "integer"
         },
         {
-          "name": "email",
+          "name": "order[email]",
           "description": "Email of the user that placed the order",
-          "scope": "order",
           "type": "string"
         }
       ]

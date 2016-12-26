@@ -1,4 +1,5 @@
 require 'json'
+require 'rspec_api_docs/formatter/renderers/json_renderer/name'
 
 module RspecApiDocs
   class JSONRenderer
@@ -40,9 +41,8 @@ module RspecApiDocs
     def parameters(parameters)
       parameters.map do |parameter|
         {
-          name: parameter.name,
+          name: Name.(name: parameter.name, scope: parameter.scope),
           description: parameter.description,
-          scope: parameter.scope,
           required: parameter.required,
         }
       end
@@ -51,9 +51,8 @@ module RspecApiDocs
     def response_fields(fields)
       fields.map do |field|
         {
-          name: field.name,
+          name: Name.(name: field.name, scope: field.scope),
           description: field.description,
-          scope: field.scope,
           type: field.type,
         }
       end
