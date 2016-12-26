@@ -10,30 +10,54 @@ module RspecApiDocs
       @example = example
     end
 
+    # The name of the resource.
+    #
+    # E.g. "Characters"
+    #
+    # @return [String]
     def name
       metadata.fetch(:resource_name, example.metadata[:example_group][:description])
     end
 
+    # The name of the example.
+    #
+    # E.g. "Returns a Character"
+    #
+    # @return [String]
     def example_name
       metadata.fetch(:example_name, example.description)
     end
 
+    # The description of the example.
+    #
+    # E.g. "For getting information about a Character."
+    #
+    # @return [String]
     def description
       metadata[:description]
     end
 
+    # Parameters for the example.
+    #
+    # @return [Array<Parameter>]
     def parameters
       metadata.fetch(:parameters, []).map do |name, parameter|
         Parameter.new(name, parameter)
       end
     end
 
+    # Response fields for the example.
+    #
+    # @return [Array<ResponseField>]
     def response_fields
       metadata.fetch(:fields, []).map do |name, field|
         ResponseField.new(name, field)
       end
     end
 
+    # Requests stored for the example.
+    #
+    # @return [Array<Hash>]
     def requests
       reqs = metadata.fetch(:requests, []).reject { |x| x.any?(&:nil?) }
       reqs.map do |request, response|
@@ -54,7 +78,9 @@ module RspecApiDocs
       end
     end
 
-    # NOTE: returns the first route requested
+    # Path stored on the example OR the path of first route requested.
+    #
+    # @return [String, nil]
     def path
       metadata.fetch(:path) do
         reqs = metadata.fetch(:requests, []).reject { |x| x.any?(&:nil?) }
@@ -63,7 +89,9 @@ module RspecApiDocs
       end
     end
 
-    # NOTE: returns the first HTTP method used
+    # The HTTP method of first route requested.
+    #
+    # @return [String, nil]
     def http_method
       reqs = metadata.fetch(:requests, []).reject { |x| x.any?(&:nil?) }
       return if reqs.empty?
