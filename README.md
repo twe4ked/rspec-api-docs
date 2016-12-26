@@ -5,6 +5,7 @@
 <p align="center">
   <a href="https://travis-ci.org/twe4ked/rspec-api-docs"><img src="https://img.shields.io/travis/twe4ked/rspec-api-docs.svg?style=flat-square" /></a>
   <a href="https://rubygems.org/gems/rspec-api-docs"><img src="https://img.shields.io/gem/v/rspec-api-docs.svg?style=flat-square" /></a>
+  <a href="http://www.rubydoc.info/github/twe4ked/rspec-api-docs/master"><img src="https://img.shields.io/badge/docs-master-lightgrey.svg?style=flat-square" /></a>
 </p>
 
 ## Installation
@@ -25,7 +26,9 @@ Or install it yourself as:
 
 ## Usage
 
-For now see the integration specs.
+See [the documentation](http://www.rubydoc.info/github/twe4ked/rspec-api-docs/master).
+
+See the integration specs for some examples.
 
 ```
 rm -rf spec/integration/output
