@@ -25,7 +25,7 @@ module RspecApiDocs
 
     def initialize
       @output_dir = 'docs'
-      @renderer = :raddocs
+      @renderer = :json
     end
   end
 end
