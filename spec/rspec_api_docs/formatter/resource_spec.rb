@@ -191,7 +191,6 @@ module RspecApiDocs
             response_body: '{"character":{"id":1,"name":"Earl of Lemongrab"}}',
             response_headers: {},
             response_content_type: 'application/json',
-            curl: nil,
           },
           {
             request_method: 'GET',
@@ -205,7 +204,6 @@ module RspecApiDocs
             response_body: '{"character":{"id":1,"name":"Princess Bubblegum"}}',
             response_headers: {},
             response_content_type: 'application/json',
-            curl: nil,
           },
         ]
       end

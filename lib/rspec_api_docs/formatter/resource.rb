@@ -73,7 +73,6 @@ module RspecApiDocs
           response_body: response_body(response.body),
           response_headers: response.headers,
           response_content_type: response.content_type,
-          curl: curl,
         }
       end
     end
@@ -127,10 +126,6 @@ module RspecApiDocs
 
     def response_status_text(status)
       Rack::Utils::HTTP_STATUS_CODES[status]
-    end
-
-    # TODO
-    def curl
     end
 
     def metadata

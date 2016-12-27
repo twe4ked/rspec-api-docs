@@ -17,11 +17,15 @@ module RspecApiDocs
           explanation: resource.description,
           parameters: parameters(resource.parameters),
           response_fields: response_fields(resource.response_fields),
-          requests: resource.requests,
+          requests: requests,
         }
       end
 
       private
+
+      def requests
+        resource.requests.map { |request| request.merge(curl: nil) }
+      end
 
       def parameters(parameters)
         parameters.map do |parameter|
