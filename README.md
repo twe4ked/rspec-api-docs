@@ -1,6 +1,6 @@
 <h1 align="center">rspec-api-docs</h1>
 
-<p align="center">Generate API documentation using RSpec</a>
+<p align="center">Generate API documentation using RSpec</p>
 
 <p align="center">
   <a href="https://travis-ci.org/twe4ked/rspec-api-docs"><img src="https://img.shields.io/travis/twe4ked/rspec-api-docs.svg?style=flat-square" /></a>
