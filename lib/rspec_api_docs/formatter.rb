@@ -2,9 +2,9 @@ require 'rspec/core/formatters/base_formatter'
 
 require 'rspec_api_docs'
 require 'rspec_api_docs/formatter/resource'
-require 'rspec_api_docs/formatter/renderers/json_renderer'
-require 'rspec_api_docs/formatter/renderers/raddocs_renderer'
-require 'rspec_api_docs/formatter/renderers/slate_renderer'
+require 'rspec_api_docs/formatter/renderer/json_renderer'
+require 'rspec_api_docs/formatter/renderer/raddocs_renderer'
+require 'rspec_api_docs/formatter/renderer/slate_renderer'
 
 module RspecApiDocs
   # Unknown renderer configured.
@@ -47,11 +47,11 @@ module RspecApiDocs
 
       case value
       when :json
-        JSONRenderer
+        Renderer::JSONRenderer
       when :raddocs
-        RaddocsRenderer
+        Renderer::RaddocsRenderer
       when :slate
-        SlateRenderer
+        Renderer::SlateRenderer
       when Class
         value
       else
