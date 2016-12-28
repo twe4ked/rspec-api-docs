@@ -1,232 +1,236 @@
-{
-  "Orders": [
-    {
-      "description": "First, create an order, then make a later request to get it back",
-      "resourceDescription": "Orders can be created, viewed, and deleted",
-      "name": "Creating an order",
-      "httpMethod": "POST",
-      "parameters": [
-        {
-          "name": "order[name]",
-          "description": "Name of order",
-          "required": true
-        },
-        {
-          "name": "order[paid]",
-          "description": "If the order has been paid for",
-          "required": true
-        },
-        {
-          "name": "order[email]",
-          "description": "Email of the user that placed the order",
-          "required": false
-        }
-      ],
-      "path": "/orders",
-      "requests": [
-        {
-          "request_method": "POST",
-          "request_path": "/orders",
-          "request_body": null,
-          "request_headers": {
-            "Cookie": "",
-            "Host": "example.org"
+[
+  {
+    "name": "Orders",
+    "description": "Orders can be created, viewed, and deleted",
+    "examples": [
+      {
+        "description": "First, create an order, then make a later request to get it back",
+        "name": "Creating an order",
+        "httpMethod": "POST",
+        "parameters": [
+          {
+            "name": "order[name]",
+            "description": "Name of order",
+            "required": true
           },
-          "request_query_parameters": {
+          {
+            "name": "order[paid]",
+            "description": "If the order has been paid for",
+            "required": true
           },
-          "request_content_type": "application/x-www-form-urlencoded",
-          "response_status": 201,
-          "response_status_text": "Created",
-          "response_body": null,
-          "response_headers": {
-            "Content-Type": "text/html;charset=utf-8",
-            "Content-Length": "0",
-            "X-XSS-Protection": "1; mode=block",
-            "X-Content-Type-Options": "nosniff",
-            "X-Frame-Options": "SAMEORIGIN"
+          {
+            "name": "order[email]",
+            "description": "Email of the user that placed the order",
+            "required": false
+          }
+        ],
+        "path": "/orders",
+        "requests": [
+          {
+            "request_method": "POST",
+            "request_path": "/orders",
+            "request_body": null,
+            "request_headers": {
+              "Cookie": "",
+              "Host": "example.org"
+            },
+            "request_query_parameters": {
+            },
+            "request_content_type": "application/x-www-form-urlencoded",
+            "response_status": 201,
+            "response_status_text": "Created",
+            "response_body": null,
+            "response_headers": {
+              "Content-Type": "text/html;charset=utf-8",
+              "Content-Length": "0",
+              "X-XSS-Protection": "1; mode=block",
+              "X-Content-Type-Options": "nosniff",
+              "X-Frame-Options": "SAMEORIGIN"
+            },
+            "response_content_type": "text/html;charset=utf-8"
           },
-          "response_content_type": "text/html;charset=utf-8"
-        },
-        {
-          "request_method": "GET",
-          "request_path": "/orders/1",
-          "request_body": null,
-          "request_headers": {
-            "Cookie": "",
-            "Host": "example.org"
+          {
+            "request_method": "GET",
+            "request_path": "/orders/1",
+            "request_body": null,
+            "request_headers": {
+              "Cookie": "",
+              "Host": "example.org"
+            },
+            "request_query_parameters": {
+            },
+            "request_content_type": null,
+            "response_status": 200,
+            "response_status_text": "OK",
+            "response_body": "{\"email\":\"email@example.com\",\"name\":\"Order 1\",\"paid\":true}",
+            "response_headers": {
+              "Content-Type": "text/html;charset=utf-8",
+              "Content-Length": "58",
+              "X-XSS-Protection": "1; mode=block",
+              "X-Content-Type-Options": "nosniff",
+              "X-Frame-Options": "SAMEORIGIN"
+            },
+            "response_content_type": "text/html;charset=utf-8"
+          }
+        ],
+        "responseFields": [
+          {
+            "name": "order[name]",
+            "description": "Name of order",
+            "type": "string"
           },
-          "request_query_parameters": {
+          {
+            "name": "order[paid]",
+            "description": "If the order has been paid for",
+            "type": "integer"
           },
-          "request_content_type": null,
-          "response_status": 200,
-          "response_status_text": "OK",
-          "response_body": "{\"email\":\"email@example.com\",\"name\":\"Order 1\",\"paid\":true}",
-          "response_headers": {
-            "Content-Type": "text/html;charset=utf-8",
-            "Content-Length": "58",
-            "X-XSS-Protection": "1; mode=block",
-            "X-Content-Type-Options": "nosniff",
-            "X-Frame-Options": "SAMEORIGIN"
-          },
-          "response_content_type": "text/html;charset=utf-8"
-        }
-      ],
-      "responseFields": [
-        {
-          "name": "order[name]",
-          "description": "Name of order",
-          "type": "string"
-        },
-        {
-          "name": "order[paid]",
-          "description": "If the order has been paid for",
-          "type": "integer"
-        },
-        {
-          "name": "order[email]",
-          "description": "Email of the user that placed the order",
-          "type": "string"
-        }
-      ]
-    },
-    {
-      "description": "Make a request to get an order",
-      "resourceDescription": "Orders can be created, viewed, and deleted",
-      "name": "Viewing an order",
-      "httpMethod": "GET",
-      "parameters": [
+          {
+            "name": "order[email]",
+            "description": "Email of the user that placed the order",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "description": "Make a request to get an order",
+        "name": "Viewing an order",
+        "httpMethod": "GET",
+        "parameters": [
 
-      ],
-      "path": "/orders/:id",
-      "requests": [
-        {
-          "request_method": "GET",
-          "request_path": "/orders/1",
-          "request_body": null,
-          "request_headers": {
-            "Cookie": "",
-            "Host": "example.org"
+        ],
+        "path": "/orders/:id",
+        "requests": [
+          {
+            "request_method": "GET",
+            "request_path": "/orders/1",
+            "request_body": null,
+            "request_headers": {
+              "Cookie": "",
+              "Host": "example.org"
+            },
+            "request_query_parameters": {
+            },
+            "request_content_type": null,
+            "response_status": 200,
+            "response_status_text": "OK",
+            "response_body": "{\"email\":\"email@example.com\",\"name\":\"Order 1\",\"paid\":true}",
+            "response_headers": {
+              "Content-Type": "text/html;charset=utf-8",
+              "Content-Length": "58",
+              "X-XSS-Protection": "1; mode=block",
+              "X-Content-Type-Options": "nosniff",
+              "X-Frame-Options": "SAMEORIGIN"
+            },
+            "response_content_type": "text/html;charset=utf-8"
+          }
+        ],
+        "responseFields": [
+          {
+            "name": "order[name]",
+            "description": "Name of order",
+            "type": "string"
           },
-          "request_query_parameters": {
+          {
+            "name": "order[paid]",
+            "description": "If the order has been paid for",
+            "type": "integer"
           },
-          "request_content_type": null,
-          "response_status": 200,
-          "response_status_text": "OK",
-          "response_body": "{\"email\":\"email@example.com\",\"name\":\"Order 1\",\"paid\":true}",
-          "response_headers": {
-            "Content-Type": "text/html;charset=utf-8",
-            "Content-Length": "58",
-            "X-XSS-Protection": "1; mode=block",
-            "X-Content-Type-Options": "nosniff",
-            "X-Frame-Options": "SAMEORIGIN"
-          },
-          "response_content_type": "text/html;charset=utf-8"
-        }
-      ],
-      "responseFields": [
-        {
-          "name": "order[name]",
-          "description": "Name of order",
-          "type": "string"
-        },
-        {
-          "name": "order[paid]",
-          "description": "If the order has been paid for",
-          "type": "integer"
-        },
-        {
-          "name": "order[email]",
-          "description": "Email of the user that placed the order",
-          "type": "string"
-        }
-      ]
-    },
-    {
-      "description": null,
-      "resourceDescription": "Orders can be created, viewed, and deleted",
-      "name": "Deleting an order",
-      "httpMethod": "GET",
-      "parameters": [
+          {
+            "name": "order[email]",
+            "description": "Email of the user that placed the order",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "description": null,
+        "name": "Deleting an order",
+        "httpMethod": "GET",
+        "parameters": [
 
-      ],
-      "path": "/orders/:id",
-      "requests": [
-        {
-          "request_method": "GET",
-          "request_path": "/orders/1",
-          "request_body": null,
-          "request_headers": {
-            "Cookie": "",
-            "Host": "example.org"
-          },
-          "request_query_parameters": {
-          },
-          "request_content_type": null,
-          "response_status": 200,
-          "response_status_text": "OK",
-          "response_body": "{\"email\":\"email@example.com\",\"name\":\"Order 1\",\"paid\":true}",
-          "response_headers": {
-            "Content-Type": "text/html;charset=utf-8",
-            "Content-Length": "58",
-            "X-XSS-Protection": "1; mode=block",
-            "X-Content-Type-Options": "nosniff",
-            "X-Frame-Options": "SAMEORIGIN"
-          },
-          "response_content_type": "text/html;charset=utf-8"
-        }
-      ],
-      "responseFields": [
+        ],
+        "path": "/orders/:id",
+        "requests": [
+          {
+            "request_method": "GET",
+            "request_path": "/orders/1",
+            "request_body": null,
+            "request_headers": {
+              "Cookie": "",
+              "Host": "example.org"
+            },
+            "request_query_parameters": {
+            },
+            "request_content_type": null,
+            "response_status": 200,
+            "response_status_text": "OK",
+            "response_body": "{\"email\":\"email@example.com\",\"name\":\"Order 1\",\"paid\":true}",
+            "response_headers": {
+              "Content-Type": "text/html;charset=utf-8",
+              "Content-Length": "58",
+              "X-XSS-Protection": "1; mode=block",
+              "X-Content-Type-Options": "nosniff",
+              "X-Frame-Options": "SAMEORIGIN"
+            },
+            "response_content_type": "text/html;charset=utf-8"
+          }
+        ],
+        "responseFields": [
 
-      ]
-    }
-  ],
-  "Characters": [
-    {
-      "description": "For getting information about a Character.",
-      "resourceDescription": null,
-      "name": "Returns a Character",
-      "httpMethod": "GET",
-      "parameters": [
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Characters",
+    "description": null,
+    "examples": [
+      {
+        "description": "For getting information about a Character.",
+        "name": "Returns a Character",
+        "httpMethod": "GET",
+        "parameters": [
 
-      ],
-      "path": "/characters/:id",
-      "requests": [
-        {
-          "request_method": "GET",
-          "request_path": "/characters/1",
-          "request_body": null,
-          "request_headers": {
-            "Cookie": "",
-            "Host": "example.org"
+        ],
+        "path": "/characters/:id",
+        "requests": [
+          {
+            "request_method": "GET",
+            "request_path": "/characters/1",
+            "request_body": null,
+            "request_headers": {
+              "Cookie": "",
+              "Host": "example.org"
+            },
+            "request_query_parameters": {
+            },
+            "request_content_type": null,
+            "response_status": 200,
+            "response_status_text": "OK",
+            "response_body": "{\"id\":\"1\",\"name\":\"Character 1\"}",
+            "response_headers": {
+              "Content-Type": "text/html;charset=utf-8",
+              "Content-Length": "31",
+              "X-XSS-Protection": "1; mode=block",
+              "X-Content-Type-Options": "nosniff",
+              "X-Frame-Options": "SAMEORIGIN"
+            },
+            "response_content_type": "text/html;charset=utf-8"
+          }
+        ],
+        "responseFields": [
+          {
+            "name": "character[id]",
+            "description": "The id of a character",
+            "type": "integer"
           },
-          "request_query_parameters": {
-          },
-          "request_content_type": null,
-          "response_status": 200,
-          "response_status_text": "OK",
-          "response_body": "{\"id\":\"1\",\"name\":\"Character 1\"}",
-          "response_headers": {
-            "Content-Type": "text/html;charset=utf-8",
-            "Content-Length": "31",
-            "X-XSS-Protection": "1; mode=block",
-            "X-Content-Type-Options": "nosniff",
-            "X-Frame-Options": "SAMEORIGIN"
-          },
-          "response_content_type": "text/html;charset=utf-8"
-        }
-      ],
-      "responseFields": [
-        {
-          "name": "character[id]",
-          "description": "The id of a character",
-          "type": "integer"
-        },
-        {
-          "name": "character[name]",
-          "description": "The character's name",
-          "type": "string"
-        }
-      ]
-    }
-  ]
-}
+          {
+            "name": "character[name]",
+            "description": "The character's name",
+            "type": "string"
+          }
+        ]
+      }
+    ]
+  }
+]

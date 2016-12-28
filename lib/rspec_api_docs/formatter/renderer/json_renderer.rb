@@ -21,13 +21,13 @@ module RspecApiDocs
       private
 
       def output
-        Hash[resources.map do |resource|
-          [
-            resource.name,
-            resource.examples.map do |example|
+        resources.map do |resource|
+          {
+            name: resource.name,
+            description: resource.description,
+            examples: resource.examples.map do |example|
               {
                 description: example.description,
-                resourceDescription: resource.description,
                 name: example.name,
                 httpMethod: example.http_method,
                 parameters: parameters(example.parameters),
@@ -36,8 +36,8 @@ module RspecApiDocs
                 responseFields: response_fields(example.response_fields),
               }
             end
-          ]
-        end]
+          }
+        end
       end
 
       def parameters(parameters)
