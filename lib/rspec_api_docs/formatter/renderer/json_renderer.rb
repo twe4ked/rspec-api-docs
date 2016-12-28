@@ -26,14 +26,14 @@ module RspecApiDocs
             name,
             resources.map do |resource|
               {
-                description: resource.example_description,
+                description: resource.example.description,
                 resourceDescription: resource.description,
-                name: resource.example_name,
-                httpMethod: resource.http_method,
-                parameters: parameters(resource.parameters),
-                path: resource.path,
-                requests: resource.requests,
-                responseFields: response_fields(resource.response_fields),
+                name: resource.example.name,
+                httpMethod: resource.example.http_method,
+                parameters: parameters(resource.example.parameters),
+                path: resource.example.path,
+                requests: resource.example.requests,
+                responseFields: response_fields(resource.example.response_fields),
               }
             end
           ]

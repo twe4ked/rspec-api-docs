@@ -12,12 +12,12 @@ module RspecApiDocs
           {
             resource: resource.name,
             resource_explanation: nil,
-            http_method: resource.http_method,
-            route: resource.path,
-            description: resource.example_name,
-            explanation: resource.example_description,
-            parameters: parameters(resource.parameters),
-            response_fields: response_fields(resource.response_fields),
+            http_method: resource.example.http_method,
+            route: resource.example.path,
+            description: resource.example.name,
+            explanation: resource.example.description,
+            parameters: parameters(resource.example.parameters),
+            response_fields: response_fields(resource.example.response_fields),
             requests: requests,
           }
         end
@@ -25,7 +25,7 @@ module RspecApiDocs
         private
 
         def requests
-          resource.requests.map { |request| request.merge(curl: nil) }
+          resource.example.requests.map { |request| request.merge(curl: nil) }
         end
 
         def parameters(parameters)

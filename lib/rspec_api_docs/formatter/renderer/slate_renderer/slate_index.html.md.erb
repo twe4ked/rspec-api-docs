@@ -7,11 +7,11 @@ search: true
 # <%= name %>
 
 <% examples.each do |resource| %>
-## <%= resource.example_name %>
+## <%= resource.example.name %>
 
-<%= resource.example_description %>
+<%= resource.example.description %>
 
-<% resource.requests.each do |request| -%>
+<% resource.example.requests.each do |request| -%>
 ```json
 <% response_body = JSON.parse(request[:response_body]) if request[:response_body] %>
 <%= JSON.pretty_generate(response_body) if response_body %>
@@ -22,22 +22,22 @@ search: true
 `<%= request[:request_method] %> http://example.com<%= request[:request_path] %>`
 
 <% end -%>
-<% unless resource.parameters.empty? -%>
+<% unless resource.example.parameters.empty? -%>
 ### Query Parameters
 
 Parameter | Required | Description
 --------- | ------- | -----------
-<% resource.parameters.each do |parameter| -%>
+<% resource.example.parameters.each do |parameter| -%>
 <%= parameter.name %> | <%= !!parameter.required %> | <%= parameter.description %>
 <% end -%>
 <% end -%>
 
-<% unless resource.response_fields.empty? -%>
+<% unless resource.example.response_fields.empty? -%>
 ### Response Fields
 
 Parameter | Type | Description
 --------- | ------- | -----------
-<% resource.response_fields.each do |parameter| -%>
+<% resource.example.response_fields.each do |parameter| -%>
 <%= parameter.name %> | <%= parameter.type %> | <%= parameter.description %>
 <% end -%>
 <% end -%>

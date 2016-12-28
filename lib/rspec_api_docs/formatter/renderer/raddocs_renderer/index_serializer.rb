@@ -1,4 +1,5 @@
 require 'rspec_api_docs/formatter/renderer/raddocs_renderer/link'
+require 'rspec_api_docs/formatter/resource'
 
 module RspecApiDocs
   module Renderer
@@ -13,15 +14,19 @@ module RspecApiDocs
 
           def to_h
             {
-              description: resource.example_name,
+              description: example.name,
               link: link,
               groups: groups,
-              route: resource.path,
-              method: resource.http_method.downcase,
+              route: example.path,
+              method: example.http_method.downcase,
             }
           end
 
           private
+
+          def example
+            resource.example
+          end
 
           def link
             Link.(resource)
