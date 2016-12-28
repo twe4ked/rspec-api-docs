@@ -24,56 +24,58 @@ RSpec.describe RspecApiDocs do
     TestApp
   end
 
-  before do
-    doc do
-      resource_name 'Orders'
-    end
-  end
-
-  it 'unrelated description' do
-    doc do
-      name 'Creating an order'
-      description 'First, create an order, then make a later request to get it back'
-
-      param :name, 'Name of order', scope: ['order'], type: 'string', required: true
-      param :paid, 'If the order has been paid for', scope: ['order'], type: 'integer', required: true
-      param :email, 'Email of the user that placed the order', scope: ['order'], type: 'string'
-
-      field :name, 'Name of order', scope: ['order'], type: 'string'
-      field :paid, 'If the order has been paid for', scope: ['order'], type: 'integer'
-      field :email, 'Email of the user that placed the order', scope: ['order'], type: 'string'
+  describe 'Orders' do
+    before do
+      doc do
+        resource_name 'Orders'
+      end
     end
 
-    post '/orders'
-    doc << [last_response, last_request] # NOTE: Wrong order
+    it 'unrelated description' do
+      doc do
+        name 'Creating an order'
+        description 'First, create an order, then make a later request to get it back'
 
-    get '/orders/1'
-  end
+        param :name, 'Name of order', scope: ['order'], type: 'string', required: true
+        param :paid, 'If the order has been paid for', scope: ['order'], type: 'integer', required: true
+        param :email, 'Email of the user that placed the order', scope: ['order'], type: 'string'
 
-  it 'Viewing an order' do
-    doc do
-      description 'Make a request to get an order'
-      path '/orders/:id'
+        field :name, 'Name of order', scope: ['order'], type: 'string'
+        field :paid, 'If the order has been paid for', scope: ['order'], type: 'integer'
+        field :email, 'Email of the user that placed the order', scope: ['order'], type: 'string'
+      end
 
-      field :name, 'Name of order', scope: ['order'], type: 'string'
-      field :paid, 'If the order has been paid for', scope: ['order'], type: 'integer'
-      field :email, 'Email of the user that placed the order', scope: ['order'], type: 'string'
+      post '/orders'
+      doc << [last_response, last_request] # NOTE: Wrong order
+
+      get '/orders/1'
     end
 
-    get '/orders/1'
-  end
+    it 'Viewing an order' do
+      doc do
+        description 'Make a request to get an order'
+        path '/orders/:id'
 
-  it 'Deleting an order' do
-    doc do
-      path '/orders/:id'
+        field :name, 'Name of order', scope: ['order'], type: 'string'
+        field :paid, 'If the order has been paid for', scope: ['order'], type: 'integer'
+        field :email, 'Email of the user that placed the order', scope: ['order'], type: 'string'
+      end
+
+      get '/orders/1'
     end
 
-    get '/orders/1'
-  end
+    it 'Deleting an order' do
+      doc do
+        path '/orders/:id'
+      end
 
-  it 'not included' do
-    no_doc
+      get '/orders/1'
+    end
 
-    get '/orders/1'
+    it 'not included' do
+      no_doc
+
+      get '/orders/1'
+    end
   end
 end
