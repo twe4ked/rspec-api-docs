@@ -3,7 +3,7 @@
     {
       "description": "First, create an order, then make a later request to get it back",
       "name": "Creating an order",
-      "http_method": "POST",
+      "httpMethod": "POST",
       "parameters": [
         {
           "name": "order[name]",
@@ -70,7 +70,7 @@
           "response_content_type": "text/html;charset=utf-8"
         }
       ],
-      "response_fields": [
+      "responseFields": [
         {
           "name": "order[name]",
           "description": "Name of order",
@@ -91,7 +91,7 @@
     {
       "description": "Make a request to get an order",
       "name": "Viewing an order",
-      "http_method": "GET",
+      "httpMethod": "GET",
       "parameters": [
 
       ],
@@ -121,7 +121,7 @@
           "response_content_type": "text/html;charset=utf-8"
         }
       ],
-      "response_fields": [
+      "responseFields": [
         {
           "name": "order[name]",
           "description": "Name of order",
@@ -142,7 +142,7 @@
     {
       "description": null,
       "name": "Deleting an order",
-      "http_method": "GET",
+      "httpMethod": "GET",
       "parameters": [
 
       ],
@@ -172,7 +172,7 @@
           "response_content_type": "text/html;charset=utf-8"
         }
       ],
-      "response_fields": [
+      "responseFields": [
 
       ]
     }
@@ -181,7 +181,7 @@
     {
       "description": "For getting information about a Character.",
       "name": "Returns a Character",
-      "http_method": "GET",
+      "httpMethod": "GET",
       "parameters": [
 
       ],
@@ -211,7 +211,7 @@
           "response_content_type": "text/html;charset=utf-8"
         }
       ],
-      "response_fields": [
+      "responseFields": [
         {
           "name": "character[id]",
           "description": "The id of a character",

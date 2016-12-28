@@ -28,11 +28,11 @@ module RspecApiDocs
               {
                 description: resource.description,
                 name: resource.example_name,
-                http_method: resource.http_method,
+                httpMethod: resource.http_method,
                 parameters: parameters(resource.parameters),
                 path: resource.path,
                 requests: resource.requests,
-                response_fields: response_fields(resource.response_fields),
+                responseFields: response_fields(resource.response_fields),
               }
             end
           ]
