@@ -5,8 +5,10 @@ require 'rspec_api_docs/formatter/resource/response_field'
 
 module RspecApiDocs
   class Resource
-    def initialize(example)
-      @example = example
+    attr_reader :rspec_example
+
+    def initialize(rspec_example)
+      @rspec_example = rspec_example
     end
 
     # The name of the resource.
@@ -15,7 +17,7 @@ module RspecApiDocs
     #
     # @return [String]
     def name
-      metadata.fetch(:resource_name, @example.metadata[:example_group][:description])
+      metadata.fetch(:resource_name, rspec_example.metadata[:example_group][:description])
     end
 
     # The description of the resource.
@@ -28,13 +30,13 @@ module RspecApiDocs
     end
 
     def example
-      Example.new(@example)
+      Example.new(rspec_example)
     end
 
     private
 
     def metadata
-      @example.metadata[METADATA_NAMESPACE]
+      rspec_example.metadata[METADATA_NAMESPACE]
     end
   end
 end
