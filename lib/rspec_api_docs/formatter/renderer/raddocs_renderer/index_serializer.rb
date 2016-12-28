@@ -6,10 +6,11 @@ module RspecApiDocs
     class RaddocsRenderer
       class IndexSerializer
         class ExampleSerializer
-          attr_reader :resource
+          attr_reader :example, :resource_name
 
-          def initialize(resource)
-            @resource = resource
+          def initialize(example, resource_name)
+            @example = example
+            @resource_name = resource_name
           end
 
           def to_h
@@ -24,12 +25,8 @@ module RspecApiDocs
 
           private
 
-          def example
-            resource.example
-          end
-
           def link
-            Link.(resource)
+            Link.(resource_name, example)
           end
 
           def groups
@@ -40,16 +37,16 @@ module RspecApiDocs
         attr_reader :resources
 
         def initialize(resources)
-          @resources = resources.group_by(&:name)
+          @resources = resources
         end
 
         def to_h
           {
-            resources: resources.map do |name, examples|
+            resources: resources.map do |resource|
               {
-                name: name,
+                name: resource.name,
                 explanation: nil,
-                examples: examples.map { |resource| ExampleSerializer.new(resource).to_h },
+                examples: resource.examples.map { |example| ExampleSerializer.new(example, resource.name).to_h },
               }
             end
           }

@@ -3,15 +3,15 @@ title: API Reference
 search: true
 ---
 
-<% resources.each do |name, examples| %>
-# <%= name %>
+<% resources.each do |resource| %>
+# <%= resource.name %>
 
-<% examples.each do |resource| %>
-## <%= resource.example.name %>
+<% resource.examples.each do |example| %>
+## <%= example.name %>
 
-<%= resource.example.description %>
+<%= example.description %>
 
-<% resource.example.requests.each do |request| -%>
+<% example.requests.each do |request| -%>
 ```json
 <% response_body = JSON.parse(request[:response_body]) if request[:response_body] %>
 <%= JSON.pretty_generate(response_body) if response_body %>
@@ -22,22 +22,22 @@ search: true
 `<%= request[:request_method] %> http://example.com<%= request[:request_path] %>`
 
 <% end -%>
-<% unless resource.example.parameters.empty? -%>
+<% unless example.parameters.empty? -%>
 ### Query Parameters
 
 Parameter | Required | Description
 --------- | ------- | -----------
-<% resource.example.parameters.each do |parameter| -%>
+<% example.parameters.each do |parameter| -%>
 <%= parameter.name %> | <%= !!parameter.required %> | <%= parameter.description %>
 <% end -%>
 <% end -%>
 
-<% unless resource.example.response_fields.empty? -%>
+<% unless example.response_fields.empty? -%>
 ### Response Fields
 
 Parameter | Type | Description
 --------- | ------- | -----------
-<% resource.example.response_fields.each do |parameter| -%>
+<% example.response_fields.each do |parameter| -%>
 <%= parameter.name %> | <%= parameter.type %> | <%= parameter.description %>
 <% end -%>
 <% end -%>

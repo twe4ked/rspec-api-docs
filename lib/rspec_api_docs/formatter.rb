@@ -21,7 +21,7 @@ module RspecApiDocs
     attr_reader :resources
 
     def initialize(*args)
-      @resources = []
+      @resources = {}
       super args
     end
 
@@ -29,15 +29,18 @@ module RspecApiDocs
     #
     # @return [void]
     def example_passed(example_notification)
-      return unless example_notification.example.metadata[METADATA_NAMESPACE]
-      resources << Resource.new(example_notification.example)
+      rspec_example = example_notification.example
+      return unless rspec_example.metadata[METADATA_NAMESPACE]
+      resource = Resource.new(rspec_example)
+      resources[resource.name] ||= resource
+      resources[resource.name].examples << Resource::Example.new(rspec_example)
     end
 
     # Calls the configured renderer with the stored {Resource}s.
     #
     # @return [void]
     def close(null_notification)
-      renderer.new(resources).render
+      renderer.new(resources.values).render
     end
 
     private

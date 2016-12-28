@@ -4,10 +4,10 @@ require 'rspec_api_docs/formatter/renderer/json_renderer/name'
 module RspecApiDocs
   module Renderer
     class JSONRenderer
-      attr_reader :resources_grouped_by_name
+      attr_reader :resources
 
       def initialize(resources)
-        @resources_grouped_by_name = resources.group_by(&:name)
+        @resources = resources
       end
 
       def render
@@ -21,19 +21,19 @@ module RspecApiDocs
       private
 
       def output
-        Hash[resources_grouped_by_name.map do |name, resources|
+        Hash[resources.map do |resource|
           [
-            name,
-            resources.map do |resource|
+            resource.name,
+            resource.examples.map do |example|
               {
-                description: resource.example.description,
+                description: example.description,
                 resourceDescription: resource.description,
-                name: resource.example.name,
-                httpMethod: resource.example.http_method,
-                parameters: parameters(resource.example.parameters),
-                path: resource.example.path,
-                requests: resource.example.requests,
-                responseFields: response_fields(resource.example.response_fields),
+                name: example.name,
+                httpMethod: example.http_method,
+                parameters: parameters(example.parameters),
+                path: example.path,
+                requests: example.requests,
+                responseFields: response_fields(example.response_fields),
               }
             end
           ]

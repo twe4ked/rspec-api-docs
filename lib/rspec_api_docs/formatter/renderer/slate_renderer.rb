@@ -4,7 +4,7 @@ module RspecApiDocs
       attr_reader :resources
 
       def initialize(resources)
-        @resources = resources.group_by(&:name)
+        @resources = resources
       end
 
       def render
