@@ -24,7 +24,7 @@ module RspecApiDocs
     # E.g. "Orders can be created, viewed, and deleted"
     #
     # @return [String]
-    def resource_description
+    def description
       metadata[:resource_description]
     end
 
