@@ -18,6 +18,13 @@ RSpec.describe RspecApiDocs do
     post '/orders' do
       status 201
     end
+
+    get '/characters/:id' do
+      JSON.dump(
+        id: params[:id],
+        name: "Character #{params[:id]}",
+      )
+    end
   end
 
   def app
@@ -76,6 +83,26 @@ RSpec.describe RspecApiDocs do
       no_doc
 
       get '/orders/1'
+    end
+  end
+
+  describe 'Characters' do
+    before do
+      doc do
+        resource_name 'Characters'
+      end
+    end
+
+    it 'Returns a Character' do
+      doc do
+        description 'For getting information about a Character.'
+        path '/characters/:id'
+
+        field :id, 'The id of a character', scope: :character, type: 'integer'
+        field :name, "The character's name", scope: :character, type: 'string'
+      end
+
+      get '/characters/1'
     end
   end
 end

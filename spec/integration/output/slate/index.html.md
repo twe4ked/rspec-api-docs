@@ -93,3 +93,30 @@ email | string | Email of the user that placed the order
 `GET http://example.com/orders/1`
 
 
+
+# Characters
+
+
+## Returns a Character
+
+For getting information about a Character.
+
+```json
+
+{
+  "id": "1",
+  "name": "Character 1"
+}
+```
+
+### HTTP Request
+
+`GET http://example.com/characters/1`
+
+
+### Response Fields
+
+Parameter | Type | Description
+--------- | ------- | -----------
+id | integer | The id of a character
+name | string | The character's name

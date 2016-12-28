@@ -1,0 +1,51 @@
+{
+  "resource": "Characters",
+  "resource_explanation": null,
+  "http_method": "GET",
+  "route": "/characters/:id",
+  "description": "Returns a Character",
+  "explanation": "For getting information about a Character.",
+  "parameters": [
+
+  ],
+  "response_fields": [
+    {
+      "scope": "character",
+      "Type": "integer",
+      "name": "id",
+      "description": "The id of a character"
+    },
+    {
+      "scope": "character",
+      "Type": "string",
+      "name": "name",
+      "description": "The character's name"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/characters/1",
+      "request_body": null,
+      "request_headers": {
+        "Cookie": "",
+        "Host": "example.org"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\"id\":\"1\",\"name\":\"Character 1\"}",
+      "response_headers": {
+        "Content-Type": "text/html;charset=utf-8",
+        "Content-Length": "31",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "SAMEORIGIN"
+      },
+      "response_content_type": "text/html;charset=utf-8",
+      "curl": null
+    }
+  ]
+}
