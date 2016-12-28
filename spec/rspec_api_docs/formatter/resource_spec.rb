@@ -40,11 +40,11 @@ module RspecApiDocs
       end
     end
 
-    describe '#description' do
+    describe '#example_description' do
       let(:_metadata) { {description: 'Characters from the Land of Ooo'} }
 
       it 'returns the description' do
-        expect(resource.description).to eq 'Characters from the Land of Ooo'
+        expect(resource.example_description).to eq 'Characters from the Land of Ooo'
       end
     end
 

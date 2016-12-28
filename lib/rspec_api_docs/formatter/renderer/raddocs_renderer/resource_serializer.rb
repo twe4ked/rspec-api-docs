@@ -15,7 +15,7 @@ module RspecApiDocs
             http_method: resource.http_method,
             route: resource.path,
             description: resource.example_name,
-            explanation: resource.description,
+            explanation: resource.example_description,
             parameters: parameters(resource.parameters),
             response_fields: response_fields(resource.response_fields),
             requests: requests,

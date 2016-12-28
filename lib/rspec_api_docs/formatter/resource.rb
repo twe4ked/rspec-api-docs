@@ -42,7 +42,7 @@ module RspecApiDocs
     # E.g. "For getting information about a Character."
     #
     # @return [String]
-    def description
+    def example_description
       metadata[:description]
     end
 
