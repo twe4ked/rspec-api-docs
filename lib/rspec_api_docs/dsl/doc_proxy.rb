@@ -25,6 +25,15 @@ module RspecApiDocs
         metadata[METADATA_NAMESPACE][:resource_name] = value
       end
 
+      # For setting the description of the resource.
+      #
+      # E.g. "Orders can be created, viewed, and deleted"
+      #
+      # @return [void]
+      def resource_description(value)
+        metadata[METADATA_NAMESPACE][:resource_description] = value
+      end
+
       # For setting a description of the example.
       #
       # E.g. "Allows you to return a single character."

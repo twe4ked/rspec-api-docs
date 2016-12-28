@@ -19,6 +19,15 @@ module RspecApiDocs
       metadata.fetch(:resource_name, example.metadata[:example_group][:description])
     end
 
+    # The description of the resource.
+    #
+    # E.g. "Orders can be created, viewed, and deleted"
+    #
+    # @return [String]
+    def resource_description
+      metadata[:resource_description]
+    end
+
     # The name of the example.
     #
     # E.g. "Returns a Character"

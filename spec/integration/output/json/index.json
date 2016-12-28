@@ -2,6 +2,7 @@
   "Orders": [
     {
       "description": "First, create an order, then make a later request to get it back",
+      "resourceDescription": "Orders can be created, viewed, and deleted",
       "name": "Creating an order",
       "httpMethod": "POST",
       "parameters": [
@@ -90,6 +91,7 @@
     },
     {
       "description": "Make a request to get an order",
+      "resourceDescription": "Orders can be created, viewed, and deleted",
       "name": "Viewing an order",
       "httpMethod": "GET",
       "parameters": [
@@ -141,6 +143,7 @@
     },
     {
       "description": null,
+      "resourceDescription": "Orders can be created, viewed, and deleted",
       "name": "Deleting an order",
       "httpMethod": "GET",
       "parameters": [
@@ -180,6 +183,7 @@
   "Characters": [
     {
       "description": "For getting information about a Character.",
+      "resourceDescription": null,
       "name": "Returns a Character",
       "httpMethod": "GET",
       "parameters": [

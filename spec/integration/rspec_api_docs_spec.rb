@@ -35,6 +35,7 @@ RSpec.describe RspecApiDocs do
     before do
       doc do
         resource_name 'Orders'
+        resource_description 'Orders can be created, viewed, and deleted'
       end
     end
 

@@ -27,6 +27,7 @@ module RspecApiDocs
             resources.map do |resource|
               {
                 description: resource.description,
+                resourceDescription: resource.resource_description,
                 name: resource.example_name,
                 httpMethod: resource.http_method,
                 parameters: parameters(resource.parameters),
