@@ -8,7 +8,7 @@ module RspecApiDocs
           @example = example
         end
 
-        def to_h
+        def to_h # rubocop:disable Metrics/AbcSize
           {
             description: example.description,
             name: example.name,

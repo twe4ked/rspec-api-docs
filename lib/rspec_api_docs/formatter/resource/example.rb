@@ -46,9 +46,8 @@ module RspecApiDocs
       # Requests stored for the example.
       #
       # @return [Array<Hash>]
-      def requests
-        reqs = metadata.fetch(:requests, []).reject { |x| x.any?(&:nil?) }
-        reqs.map do |request, response|
+      def requests # rubocop:disable Metrics/AbcSize
+        request_response_pairs.map do |request, response|
           {
             request_method: request.request_method,
             request_path: request_path(request),
@@ -70,9 +69,8 @@ module RspecApiDocs
       # @return [String, nil]
       def path
         metadata.fetch(:path) do
-          reqs = metadata.fetch(:requests, []).reject { |x| x.any?(&:nil?) }
-          return if reqs.empty?
-          reqs.first.first.path
+          return if request_response_pairs.empty?
+          request_response_pairs.first.first.path
         end
       end
 
@@ -80,12 +78,15 @@ module RspecApiDocs
       #
       # @return [String, nil]
       def http_method
-        reqs = metadata.fetch(:requests, []).reject { |x| x.any?(&:nil?) }
-        return if reqs.empty?
-        reqs.first.first.request_method
+        return if request_response_pairs.empty?
+        request_response_pairs.first.first.request_method
       end
 
       private
+
+      def request_response_pairs
+        metadata.fetch(:requests, []).reject { |pair| pair.any?(&:nil?) }
+      end
 
       # http://stackoverflow.com/a/33235714/826820
       def request_headers(env)

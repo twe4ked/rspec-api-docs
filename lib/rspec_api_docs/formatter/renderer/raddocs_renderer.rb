@@ -14,24 +14,37 @@ module RspecApiDocs
       end
 
       def render
+        write_index
+        write_examples
+      end
+
+      private
+
+      def write_index
         FileUtils.mkdir_p output_dir
 
         File.open(output_dir + 'index.json', 'w') do |f|
           f.write JSON.pretty_generate(IndexSerializer.new(resources).to_h) + "\n"
         end
+      end
 
+      def write_examples
         resources.each do |resource|
           resource.examples.each do |example|
-            FileUtils.mkdir_p output_dir + Pathname.new(Link.(resource.name, example)).dirname
-
-            File.open(output_dir + Link.(resource.name, example), 'w') do |f|
-              f.write JSON.pretty_generate(ResourceSerializer.new(resource, example).to_h) + "\n"
-            end
+            write_example(resource, example)
           end
         end
       end
 
-      private
+      def write_example(resource, example)
+        link = Link.(resource.name, example)
+
+        FileUtils.mkdir_p (output_dir + link).dirname
+
+        File.open(output_dir + link, 'w') do |f|
+          f.write JSON.pretty_generate(ResourceSerializer.new(resource, example).to_h) + "\n"
+        end
+      end
 
       def output_dir
         Pathname.new RspecApiDocs.configuration.output_dir
