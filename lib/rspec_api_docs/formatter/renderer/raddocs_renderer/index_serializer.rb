@@ -48,7 +48,7 @@ module RspecApiDocs
                 explanation: nil,
                 examples: resource.examples.map { |example| ExampleSerializer.new(example, resource.name).to_h },
               }
-            end
+            end,
           }
         end
       end

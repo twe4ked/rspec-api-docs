@@ -51,7 +51,7 @@ module RspecApiDocs
                   description: 'The name of character',
                   scope: ['character'],
                 },
-              }
+              },
             }
           end
 
@@ -90,7 +90,7 @@ module RspecApiDocs
                   scope: ['character'],
                   type: 'string',
                 },
-              }
+              },
             }
           end
 
@@ -118,7 +118,7 @@ module RspecApiDocs
             requests: [
               [last_request_1, last_response_1],
               [last_request_2, last_response_2],
-            ]
+            ],
           }
         end
 

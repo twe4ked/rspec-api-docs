@@ -10,8 +10,8 @@ module RspecApiDocs
               metadata: {
                 METADATA_NAMESPACE => {
                   requests: [
-                    [double(request_method: 'GET', path: '/characters/:id')]
-                  ]
+                    [double(request_method: 'GET', path: '/characters/:id')],
+                  ],
                 },
                 example_group: {description: 'Character'},
               },
