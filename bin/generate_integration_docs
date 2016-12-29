@@ -1,0 +1,16 @@
+#!/usr/bin/env bash -ex
+
+rm -rf spec/integration/output
+
+bundle exec rspec spec/integration/*_spec.rb --format RspecApiDocs::Formatter --require ./spec/integration/json_helper.rb
+bundle exec rspec spec/integration/*_spec.rb --format RspecApiDocs::Formatter --require ./spec/integration/raddocs_helper.rb
+bundle exec rspec spec/integration/*_spec.rb --format RspecApiDocs::Formatter --require ./spec/integration/slate_helper.rb
+
+{ set +x; } 2>/dev/null
+
+if [[ -z "$(git status -z --porcelain spec/integration/output)" ]]; then
+  echo passed
+else
+  echo failed
+  git diff spec/integration/output
+fi

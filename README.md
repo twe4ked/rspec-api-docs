@@ -31,8 +31,7 @@ See [the documentation](http://www.rubydoc.info/github/twe4ked/rspec-api-docs/ma
 See the integration specs for some examples.
 
 ```
-rm -rf spec/integration/output
-rake generate_integration_docs
+./bin/generate_integration_docs
 ```
 
 ## Development
