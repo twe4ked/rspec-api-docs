@@ -2,22 +2,23 @@ module RspecApiDocs
   module Renderer
     class RaddocsRenderer
       class ResourceSerializer
-        attr_reader :resource
+        attr_reader :resource, :example
 
-        def initialize(resource)
+        def initialize(resource, example)
           @resource = resource
+          @example = example
         end
 
         def to_h
           {
             resource: resource.name,
             resource_explanation: nil,
-            http_method: resource.example.http_method,
-            route: resource.example.path,
-            description: resource.example.name,
-            explanation: resource.example.description,
-            parameters: parameters(resource.example.parameters),
-            response_fields: response_fields(resource.example.response_fields),
+            http_method: example.http_method,
+            route: example.path,
+            description: example.name,
+            explanation: example.description,
+            parameters: parameters(example.parameters),
+            response_fields: response_fields(example.response_fields),
             requests: requests,
           }
         end
@@ -25,7 +26,7 @@ module RspecApiDocs
         private
 
         def requests
-          resource.example.requests.map { |request| request.merge(curl: nil) }
+          example.requests.map { |request| request.merge(curl: nil) }
         end
 
         def parameters(parameters)

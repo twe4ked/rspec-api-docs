@@ -21,11 +21,11 @@ module RspecApiDocs
         end
 
         resources.each do |resource|
-          resource.examples do |example|
+          resource.examples.each do |example|
             FileUtils.mkdir_p output_dir + Pathname.new(Link.(resource.name, example)).dirname
 
-            File.open(output_dir + Link.(resource), 'w') do |f|
-              f.write JSON.pretty_generate(ResourceSerializer.new(resource).to_h) + "\n"
+            File.open(output_dir + Link.(resource.name, example), 'w') do |f|
+              f.write JSON.pretty_generate(ResourceSerializer.new(resource, example).to_h) + "\n"
             end
           end
         end
