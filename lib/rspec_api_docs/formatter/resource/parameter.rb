@@ -8,18 +8,28 @@ module RspecApiDocs
         @parameter = parameter
       end
 
+      # The scope of the parameter
+      #
+      # @return [String]
       def scope
         parameter[:scope].join
       end
 
+      # If the parameter is required
+      #
+      # @return [String]
       def required
         !!parameter[:required]
       end
 
+      # The description of the parameter
+      #
+      # @return [String]
       def description
         parameter[:description]
       end
 
+      # @return [true, false]
       def ==(other)
         name == other.name &&
           parameter == other.parameter

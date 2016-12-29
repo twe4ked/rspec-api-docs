@@ -8,18 +8,28 @@ module RspecApiDocs
         @field = field
       end
 
+      # The scope of the response field
+      #
+      # @return [String]
       def scope
         field[:scope].join
       end
 
+      # The type of the response field
+      #
+      # @return [String]
       def type
         field[:type]
       end
 
+      # The description of the response field
+      #
+      # @return [String]
       def description
         field[:description]
       end
 
+      # @return [true, false]
       def ==(other)
         name == other.name &&
           field == other.field

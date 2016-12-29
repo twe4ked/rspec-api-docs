@@ -6,6 +6,10 @@ require 'rspec_api_docs/formatter/resource/response_field'
 module RspecApiDocs
   class Resource
     attr_reader :rspec_example
+
+    # Returns an array of {Example}s
+    #
+    # @return [Array<Example>]
     attr_accessor :examples
 
     def initialize(rspec_example)
