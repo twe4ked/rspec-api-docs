@@ -1,3 +1,4 @@
+require 'active_support/core_ext/string/strip'
 require 'rack/test'
 require 'sinatra'
 require 'rspec_api_docs/dsl'
@@ -75,6 +76,13 @@ RSpec.describe RspecApiDocs do
     it 'Deleting an order' do
       doc do
         path '/orders/:id'
+        description <<-EOF.strip_heredoc
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Qui est in parvis malis.
+
+          Duo Reges: constructio interrete. Luxuriam non reprehendit, modo sit vacua infinita cupiditate et timore. Non enim iam stirpis bonum quaeret, sed animalis.
+
+          Haec quo modo conveniant, non sane intellego. Verum hoc idem saepe faciamus. Nihilo beatiorem esse Metellum quam Regulum.
+        EOF
       end
 
       get '/orders/1'
@@ -91,6 +99,13 @@ RSpec.describe RspecApiDocs do
     before do
       doc do
         resource_name 'Characters'
+        resource_description <<-EOF.strip_heredoc
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Qui est in parvis malis.
+
+          Duo Reges: constructio interrete. Luxuriam non reprehendit, modo sit vacua infinita cupiditate et timore. Non enim iam stirpis bonum quaeret, sed animalis.
+
+          Haec quo modo conveniant, non sane intellego. Verum hoc idem saepe faciamus. Nihilo beatiorem esse Metellum quam Regulum.
+        EOF
       end
     end
 

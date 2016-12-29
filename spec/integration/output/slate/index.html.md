@@ -77,6 +77,11 @@ email | string | Email of the user that placed the order
 
 ## Deleting an order
 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Qui est in parvis malis.
+
+Duo Reges: constructio interrete. Luxuriam non reprehendit, modo sit vacua infinita cupiditate et timore. Non enim iam stirpis bonum quaeret, sed animalis.
+
+Haec quo modo conveniant, non sane intellego. Verum hoc idem saepe faciamus. Nihilo beatiorem esse Metellum quam Regulum.
 
 
 ```json

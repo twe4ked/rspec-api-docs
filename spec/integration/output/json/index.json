@@ -143,7 +143,7 @@
         ]
       },
       {
-        "description": null,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Qui est in parvis malis.\n\nDuo Reges: constructio interrete. Luxuriam non reprehendit, modo sit vacua infinita cupiditate et timore. Non enim iam stirpis bonum quaeret, sed animalis.\n\nHaec quo modo conveniant, non sane intellego. Verum hoc idem saepe faciamus. Nihilo beatiorem esse Metellum quam Regulum.\n",
         "name": "Deleting an order",
         "httpMethod": "GET",
         "parameters": [
@@ -183,7 +183,7 @@
   },
   {
     "name": "Characters",
-    "description": null,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Qui est in parvis malis.\n\nDuo Reges: constructio interrete. Luxuriam non reprehendit, modo sit vacua infinita cupiditate et timore. Non enim iam stirpis bonum quaeret, sed animalis.\n\nHaec quo modo conveniant, non sane intellego. Verum hoc idem saepe faciamus. Nihilo beatiorem esse Metellum quam Regulum.\n",
     "examples": [
       {
         "description": "For getting information about a Character.",
