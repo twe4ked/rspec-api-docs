@@ -5,5 +5,5 @@ require 'rspec_api_docs/after'
 require 'pry'
 
 RSpec.configure do |config|
-  config.after &RspecApiDocs::After
+  config.after &RspecApiDocs::After::Hook
 end
