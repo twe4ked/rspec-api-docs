@@ -8,9 +8,7 @@ bundle exec rspec spec/integration/*_spec.rb --format RspecApiDocs::Formatter --
 
 { set +x; } 2>/dev/null
 
-if [[ -z "$(git status -z --porcelain spec/integration/output)" ]]; then
-  echo passed
-else
-  echo failed
+if [[ -n "$(git status -z --porcelain spec/integration/output)" ]]; then
   git diff spec/integration/output
+  exit 1
 fi
