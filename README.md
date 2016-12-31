@@ -39,7 +39,7 @@ RSpec.describe 'Characters' do
 end
 ```
 
-The `doc` method works by storing data in a hash on the RSpec example metadata.
+The `doc` method stores data in a hash on the RSpec example metadata.
 
 The second stage is the formatter (`RspecApiDocs::Formatter`). The formatter
 parses the hash stored on each RSpec example and uses a renderer
@@ -136,23 +136,22 @@ end
 
 Accepts a string of the name of the resource.
 
-E.g. "Characters"
+> Characters
 
 #### `resource_description`
 
 Accepts a string that describes the resource.
 
-E.g. "Characters inhabit the Land of Ooo."
+> Characters inhabit the Land of Ooo.
 
 #### `name`
 
 Accepts a string of the name of the resource.
 
-E.g. "Fetching a character"
+> Fetching a character
 
 Note: This defaults to the "description" of the RSpec example.
 
-E.g.
 
 ``` ruby
 it 'Fetching a character' do
@@ -164,13 +163,13 @@ end
 
 Accepts a string that describes the example.
 
-E.g. "To find out information about a Character."
+> To find out information about a Character.
 
 #### `path`
 
 Accepts a string for the path requested in the example.
 
-E.g. "/characters/:id"
+> /characters/:id
 
 Note: This defaults to the path of the first route requested in the example.
 
@@ -184,8 +183,6 @@ Accepts a `name`, `description`, and optionally a `scope` and `type`.
 - `type` [`String`] _(optional)_ the type of the returned field
 
 This can be called multiple times for each response field.
-
-E.g.
 
 ``` ruby
 field :id, 'The id of a character', scope: :character, type: 'integer'
@@ -204,20 +201,12 @@ Accepts a `name`, `description`, and optionally a `scope`, `type`, and `required
 
 This can be called multiple times for each parameter.
 
-E.g.
-
 ``` ruby
 param :id, 'The id of a character', scope: :character, type: 'integer', required: true
 param :name, "The character's name", scope: :character, type: 'string'
 ```
 
 See the integration specs for more examples of the DSL in use.
-
-Regenerate this project's integration spec docs locally:
-
-```
-./bin/generate_integration_docs
-```
 
 ### Formatter
 
@@ -249,6 +238,12 @@ To install this gem onto your local machine, run `bundle exec rake install`. To
 release a new version, update the version number in `version.rb`, and then run
 `bundle exec rake release`, which will create a git tag for the version, push
 git commits and tags, and push the `.gem` file to [rubygems.org].
+
+Regenerate this project's integration spec docs locally:
+
+```
+./bin/generate_integration_docs
+```
 
 ## TODO
 
