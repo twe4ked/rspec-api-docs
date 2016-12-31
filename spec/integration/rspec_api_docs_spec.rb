@@ -30,8 +30,8 @@ RSpec.describe RspecApiDocs do
       status 404
       JSON.dump(
         errors: {
-          message: 'Character not found.'
-        }
+          message: 'Character not found.',
+        },
       )
     end
 
