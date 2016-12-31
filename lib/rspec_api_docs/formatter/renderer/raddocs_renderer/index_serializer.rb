@@ -26,7 +26,7 @@ module RspecApiDocs
           private
 
           def link
-            Link.(resource_name, example)
+            Link.(resource_name, example.name)
           end
 
           def groups

@@ -6,8 +6,7 @@ module RspecApiDocs
       RSpec.describe Link do
         describe '.call' do
           it 'returns a cleaned link' do
-            example = double :example, name: 'Returns a Character'
-            expect(Link.('Other Characters', example))
+            expect(Link.('Other Characters', 'Returns a Character'))
               .to eq 'other_characters/returns_a_character.json'
           end
         end

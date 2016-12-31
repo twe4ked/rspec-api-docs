@@ -37,17 +37,19 @@ module RspecApiDocs
       end
 
       def write_example(resource, example)
-        link = Link.(resource.name, example)
+        FileUtils.mkdir_p file(resource, example).dirname
 
-        FileUtils.mkdir_p (output_dir + link).dirname
-
-        File.open(output_dir + link, 'w') do |f|
+        File.open(file(resource, example), 'w') do |f|
           f.write JSON.pretty_generate(ResourceSerializer.new(resource, example).to_h) + "\n"
         end
       end
 
       def output_dir
         Pathname.new RspecApiDocs.configuration.output_dir
+      end
+
+      def file(resource, example)
+        output_dir + Link.(resource.name, example.name)
       end
     end
   end
