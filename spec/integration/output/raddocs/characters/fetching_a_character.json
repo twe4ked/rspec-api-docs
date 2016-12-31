@@ -3,7 +3,7 @@
   "resource_explanation": null,
   "http_method": "GET",
   "route": "/characters/:id",
-  "description": "Returns a Character",
+  "description": "Fetching a Character",
   "explanation": "For getting information about a Character.",
   "parameters": [
 

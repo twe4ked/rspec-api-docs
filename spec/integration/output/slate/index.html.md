@@ -102,7 +102,7 @@ Haec quo modo conveniant, non sane intellego. Verum hoc idem saepe faciamus. Nih
 # Characters
 
 
-## Returns a Character
+## Fetching a Character
 
 For getting information about a Character.
 

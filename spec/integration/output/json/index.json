@@ -187,7 +187,7 @@
     "examples": [
       {
         "description": "For getting information about a Character.",
-        "name": "Returns a Character",
+        "name": "Fetching a Character",
         "httpMethod": "GET",
         "parameters": [
 

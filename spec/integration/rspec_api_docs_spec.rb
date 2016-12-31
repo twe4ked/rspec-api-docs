@@ -109,7 +109,7 @@ RSpec.describe RspecApiDocs do
       end
     end
 
-    it 'Returns a Character' do
+    it 'Fetching a Character' do
       doc do
         description 'For getting information about a Character.'
         path '/characters/:id'

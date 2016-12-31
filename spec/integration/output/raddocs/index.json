@@ -32,8 +32,8 @@
       "explanation": null,
       "examples": [
         {
-          "description": "Returns a Character",
-          "link": "characters/returns_a_character.json",
+          "description": "Fetching a Character",
+          "link": "characters/fetching_a_character.json",
           "groups": "all",
           "route": "/characters/:id",
           "method": "get"
