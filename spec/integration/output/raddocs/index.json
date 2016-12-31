@@ -50,6 +50,13 @@
           "groups": "all",
           "route": "/characters/:id",
           "method": "get"
+        },
+        {
+          "description": "Deleting a Character",
+          "link": "characters/deleting_a_character.json",
+          "groups": "all",
+          "route": "/characters/:id",
+          "method": "delete"
         }
       ]
     }

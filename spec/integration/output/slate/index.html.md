@@ -143,3 +143,25 @@ Parameter | Type | Description
 --------- | ------- | -----------
 id | integer | The id of a character
 name | string | The character's name
+
+## Deleting a Character
+
+For getting information about a Character.
+
+```json
+
+{
+  "success": "Character 1 deleted"
+}
+```
+
+### HTTP Request
+
+`DELETE http://example.com/characters/1`
+
+
+### Response Fields
+
+Parameter | Type | Description
+--------- | ------- | -----------
+id | integer | The id of a character

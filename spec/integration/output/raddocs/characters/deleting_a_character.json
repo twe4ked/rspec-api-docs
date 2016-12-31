@@ -1,0 +1,45 @@
+{
+  "resource": "Characters",
+  "resource_explanation": null,
+  "http_method": "DELETE",
+  "route": "/characters/:id",
+  "description": "Deleting a Character",
+  "explanation": "For getting information about a Character.",
+  "parameters": [
+
+  ],
+  "response_fields": [
+    {
+      "scope": "character",
+      "Type": "integer",
+      "name": "id",
+      "description": "The id of a character"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "DELETE",
+      "request_path": "/characters/1",
+      "request_body": null,
+      "request_headers": {
+        "Cookie": "",
+        "Host": "example.org"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\"success\":\"Character 1 deleted\"}",
+      "response_headers": {
+        "Content-Type": "text/html;charset=utf-8",
+        "Content-Length": "33",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "SAMEORIGIN"
+      },
+      "response_content_type": "text/html;charset=utf-8",
+      "curl": null
+    }
+  ]
+}

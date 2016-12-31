@@ -27,6 +27,12 @@ RSpec.describe RspecApiDocs do
       )
     end
 
+    delete '/characters/:id' do
+      JSON.dump(
+        success: "Character #{params[:id]} deleted",
+      )
+    end
+
     get '/foo' do
       status 200
     end
@@ -133,6 +139,17 @@ RSpec.describe RspecApiDocs do
       end
 
       get '/characters/1'
+    end
+
+    it 'Deleting a Character' do
+      doc do
+        description 'For getting information about a Character.'
+        path '/characters/:id'
+
+        field :id, 'The id of a character', scope: :character, type: 'integer'
+      end
+
+      delete '/characters/1'
     end
   end
 end
