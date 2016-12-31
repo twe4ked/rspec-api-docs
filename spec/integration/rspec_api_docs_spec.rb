@@ -99,7 +99,7 @@ RSpec.describe RspecApiDocs do
     end
 
     it 'not included' do
-      no_doc
+      doc false
 
       get '/orders/1'
     end

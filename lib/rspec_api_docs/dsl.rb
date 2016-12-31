@@ -4,7 +4,7 @@ require 'rspec_api_docs/dsl/doc_proxy'
 
 module RspecApiDocs
   # This module is intended to be included in your RSpec specs to expose the
-  # {#doc} and {#no_doc} methods.
+  # {#doc} method.
   module Dsl
     # DSL method for use in your RSpec examples.
     #
@@ -27,22 +27,20 @@ module RspecApiDocs
     #
     # For more info on the methods available in the block, see {DocProxy}.
     #
-    # @return [RequestStore] an object to store request/response pairs
-    def doc(&block)
-      example.metadata[METADATA_NAMESPACE] ||= {}
+    # @param should_document [true, false] clear documentation metadata for the example
+    # @return [RequestStore, nil] an object to store request/response pairs
+    def doc(should_document = true, &block)
+      if should_document
+        example.metadata[METADATA_NAMESPACE] ||= {}
 
-      if block
-        DocProxy.new(example).instance_eval(&block)
+        if block
+          DocProxy.new(example).instance_eval(&block)
+        end
+
+        RequestStore.new(example)
+      else
+        example.metadata[METADATA_NAMESPACE] = nil
       end
-
-      RequestStore.new(example)
-    end
-
-    # Clears all rspec-api-docs data for the current example.
-    #
-    # @return [void]
-    def no_doc
-      example.metadata[METADATA_NAMESPACE] = nil
     end
 
     private
