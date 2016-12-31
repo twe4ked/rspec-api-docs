@@ -28,6 +28,19 @@
       ]
     },
     {
+      "name": "Other Resource",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "has an overriden resource name",
+          "link": "other_resource/has_an_overriden_resource_name.json",
+          "groups": "all",
+          "route": "/foo",
+          "method": "head"
+        }
+      ]
+    },
+    {
       "name": "Characters",
       "explanation": null,
       "examples": [

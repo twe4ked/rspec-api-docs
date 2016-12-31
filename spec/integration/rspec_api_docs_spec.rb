@@ -26,6 +26,10 @@ RSpec.describe RspecApiDocs do
         name: "Character #{params[:id]}",
       )
     end
+
+    get '/foo' do
+      status 200
+    end
   end
 
   def app
@@ -92,6 +96,16 @@ RSpec.describe RspecApiDocs do
       no_doc
 
       get '/orders/1'
+    end
+
+    it 'has an overriden resource name' do
+      doc do
+        resource_name 'Other Resource'
+        # NOTE: The `resource_description` will stay the same as it's set in
+        # the `before` block of this example.
+      end
+
+      head '/foo'
     end
   end
 

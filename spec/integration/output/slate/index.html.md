@@ -99,6 +99,24 @@ Haec quo modo conveniant, non sane intellego. Verum hoc idem saepe faciamus. Nih
 
 
 
+# Other Resource
+
+
+## has an overriden resource name
+
+
+
+```json
+
+
+```
+
+### HTTP Request
+
+`HEAD http://example.com/foo`
+
+
+
 # Characters
 
 
