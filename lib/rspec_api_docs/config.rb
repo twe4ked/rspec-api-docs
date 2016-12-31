@@ -15,11 +15,13 @@ module RspecApiDocs
   class Config
     attr_accessor \
       :output_dir,
-      :renderer
+      :renderer,
+      :validate_params
 
     def initialize
       @output_dir = 'docs'
       @renderer = :json
+      @validate_params = true
     end
   end
 end

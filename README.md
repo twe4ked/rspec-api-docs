@@ -224,6 +224,10 @@ RspecApiDocs.configure do |config|
   # A renderer is initialized with an array of `Resource`s and a `#render`
   # method is called.
   config.renderer = :json
+
+  # Set to false if you don't want to validate params are documented and their
+  # types in the after block.
+  config.validate_params = true
 end
 ```
 

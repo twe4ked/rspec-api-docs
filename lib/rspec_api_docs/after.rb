@@ -11,6 +11,8 @@ module RspecApiDocs
       metadata[:requests] ||= []
       metadata[:requests] << [last_request, last_response]
 
+      return unless RspecApiDocs.configuration.validate_params
+
       metadata[:requests].each do |request, response|
         request.params.each do |key, value|
           if metadata[:parameters].has_key?(key.to_sym)
