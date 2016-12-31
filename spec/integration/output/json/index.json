@@ -145,14 +145,14 @@
       {
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Qui est in parvis malis.\n\nDuo Reges: constructio interrete. Luxuriam non reprehendit, modo sit vacua infinita cupiditate et timore. Non enim iam stirpis bonum quaeret, sed animalis.\n\nHaec quo modo conveniant, non sane intellego. Verum hoc idem saepe faciamus. Nihilo beatiorem esse Metellum quam Regulum.\n",
         "name": "Deleting an order",
-        "httpMethod": "GET",
+        "httpMethod": "DELETE",
         "parameters": [
 
         ],
         "path": "/orders/:id",
         "requests": [
           {
-            "request_method": "GET",
+            "request_method": "DELETE",
             "request_path": "/orders/1",
             "request_body": null,
             "request_headers": {
@@ -161,13 +161,13 @@
             },
             "request_query_parameters": {
             },
-            "request_content_type": null,
+            "request_content_type": "application/x-www-form-urlencoded",
             "response_status": 200,
             "response_status_text": "OK",
-            "response_body": "{\"email\":\"email@example.com\",\"name\":\"Order 1\",\"paid\":true}",
+            "response_body": "{\"success\":\"Character 1 deleted\"}",
             "response_headers": {
               "Content-Type": "text/html;charset=utf-8",
-              "Content-Length": "58",
+              "Content-Length": "33",
               "X-XSS-Protection": "1; mode=block",
               "X-Content-Type-Options": "nosniff",
               "X-Frame-Options": "SAMEORIGIN"

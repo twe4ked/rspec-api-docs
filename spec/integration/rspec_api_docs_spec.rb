@@ -16,6 +16,12 @@ RSpec.describe RspecApiDocs do
       )
     end
 
+    delete '/orders/:id' do
+      JSON.dump(
+        success: "Character #{params[:id]} deleted",
+      )
+    end
+
     post '/orders' do
       status 201
     end
@@ -95,7 +101,7 @@ RSpec.describe RspecApiDocs do
         EOF
       end
 
-      get '/orders/1'
+      delete '/orders/1'
     end
 
     it 'not included' do

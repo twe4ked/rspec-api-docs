@@ -87,15 +87,13 @@ Haec quo modo conveniant, non sane intellego. Verum hoc idem saepe faciamus. Nih
 ```json
 
 {
-  "email": "email@example.com",
-  "name": "Order 1",
-  "paid": true
+  "success": "Character 1 deleted"
 }
 ```
 
 ### HTTP Request
 
-`GET http://example.com/orders/1`
+`DELETE http://example.com/orders/1`
 
 
 

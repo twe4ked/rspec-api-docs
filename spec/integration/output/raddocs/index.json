@@ -23,7 +23,7 @@
           "link": "orders/deleting_an_order.json",
           "groups": "all",
           "route": "/orders/:id",
-          "method": "get"
+          "method": "delete"
         }
       ]
     },
