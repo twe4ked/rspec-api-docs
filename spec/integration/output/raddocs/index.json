@@ -52,6 +52,13 @@
           "method": "get"
         },
         {
+          "description": "When a Character can not be found",
+          "link": "characters/when_a_character_can_not_be_found.json",
+          "groups": "all",
+          "route": "/characters/:id",
+          "method": "get"
+        },
+        {
           "description": "Deleting a Character",
           "link": "characters/deleting_a_character.json",
           "groups": "all",

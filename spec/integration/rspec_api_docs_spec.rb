@@ -26,6 +26,15 @@ RSpec.describe RspecApiDocs do
       status 201
     end
 
+    get '/characters/404' do
+      status 404
+      JSON.dump(
+        errors: {
+          message: 'Character not found.'
+        }
+      )
+    end
+
     get '/characters/:id' do
       JSON.dump(
         id: params[:id],
@@ -145,6 +154,17 @@ RSpec.describe RspecApiDocs do
       end
 
       get '/characters/1'
+    end
+
+    it 'When a Character can not be found' do
+      doc do
+        description 'Returns an error'
+        path '/characters/:id'
+
+        field :message, 'Error message', scope: :errors, type: 'string'
+      end
+
+      get '/characters/404'
     end
 
     it 'Deleting a Character' do

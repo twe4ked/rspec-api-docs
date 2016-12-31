@@ -1,0 +1,45 @@
+{
+  "resource": "Characters",
+  "resource_explanation": null,
+  "http_method": "GET",
+  "route": "/characters/:id",
+  "description": "When a Character can not be found",
+  "explanation": "Returns an error",
+  "parameters": [
+
+  ],
+  "response_fields": [
+    {
+      "scope": "errors",
+      "Type": "string",
+      "name": "message",
+      "description": "Error message"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/characters/404",
+      "request_body": null,
+      "request_headers": {
+        "Cookie": "",
+        "Host": "example.org"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": null,
+      "response_status": 404,
+      "response_status_text": "Not Found",
+      "response_body": "{\"errors\":{\"message\":\"Character not found.\"}}",
+      "response_headers": {
+        "Content-Type": "text/html;charset=utf-8",
+        "Content-Length": "45",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "SAMEORIGIN"
+      },
+      "response_content_type": "text/html;charset=utf-8",
+      "curl": null
+    }
+  ]
+}

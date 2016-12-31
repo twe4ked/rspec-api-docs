@@ -142,6 +142,30 @@ Parameter | Type | Description
 id | integer | The id of a character
 name | string | The character's name
 
+## When a Character can not be found
+
+Returns an error
+
+```json
+
+{
+  "errors": {
+    "message": "Character not found."
+  }
+}
+```
+
+### HTTP Request
+
+`GET http://example.com/characters/404`
+
+
+### Response Fields
+
+Parameter | Type | Description
+--------- | ------- | -----------
+message | string | Error message
+
 ## Deleting a Character
 
 For getting information about a Character.
