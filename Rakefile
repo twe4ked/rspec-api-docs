@@ -10,4 +10,8 @@ RuboCop::RakeTask.new :rubocop do |task|
   task.verbose = false
 end
 
-task default: [:rspec, :rubocop]
+task :generate_integration_docs do
+  system './bin/generate_integration_docs'
+end
+
+task default: [:rspec, :rubocop, :generate_integration_docs]
