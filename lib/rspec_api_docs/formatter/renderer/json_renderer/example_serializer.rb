@@ -8,22 +8,22 @@ module RspecApiDocs
           @example = example
         end
 
-        def to_h # rubocop:disable Metrics/AbcSize
+        def to_h
           {
             description: example.description,
             name: example.name,
             http_method: example.http_method,
-            parameters: parameters(example.parameters),
+            parameters: parameters,
             path: example.path,
             requests: example.requests,
-            response_fields: response_fields(example.response_fields),
+            response_fields: response_fields,
           }
         end
 
         private
 
-        def parameters(parameters)
-          parameters.map do |parameter|
+        def parameters
+          example.parameters.map do |parameter|
             {
               name: Name.(name: parameter.name, scope: parameter.scope),
               description: parameter.description,
@@ -32,8 +32,8 @@ module RspecApiDocs
           end
         end
 
-        def response_fields(fields)
-          fields.map do |field|
+        def response_fields
+          example.response_fields.map do |field|
             {
               name: Name.(name: field.name, scope: field.scope),
               description: field.description,
