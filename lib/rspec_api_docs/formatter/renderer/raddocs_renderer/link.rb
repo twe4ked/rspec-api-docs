@@ -3,7 +3,7 @@ module RspecApiDocs
     class RaddocsRenderer
       class Link
         def self.call(resource_name, example_name)
-          "#{resource_name.parameterize.underscore}/#{example_name.parameterize.underscore}.json"
+          "#{resource_name.downcase.gsub(/[^a-z]/, '_')}/#{example_name.downcase.gsub(/[^a-z]/, '_')}.json"
         end
       end
     end

@@ -1,5 +1,4 @@
 require 'json'
-require 'active_support/core_ext/hash/keys'
 require 'rspec_api_docs/formatter/renderer/json_renderer/name'
 require 'rspec_api_docs/formatter/renderer/json_renderer/resource_serializer'
 
@@ -24,18 +23,31 @@ module RspecApiDocs
 
       def output
         resources.map do |resource|
-          format_hash ResourceSerializer.new(resource).to_h
+          recursive_format_hash ResourceSerializer.new(resource).to_h
         end
       end
 
-      def format_hash(hash)
-        hash.deep_transform_keys do |key|
-          if key =~ /\A[a-z]/
-            key.to_s.camelize(:lower).to_sym
-          else
-            key
-          end
+      def recursive_format_hash(hash)
+        case hash
+        when Hash
+          Hash[
+            hash.map do |key, v|
+              [
+                key.is_a?(Symbol) && key =~ /\A[a-z]/ ? lower_camel_case(key.to_s).to_sym : key,
+                recursive_format_hash(v),
+              ]
+            end
+          ]
+        when Enumerable
+          hash.map { |value| recursive_format_hash(value) }
+        else
+          hash
         end
+      end
+
+      def lower_camel_case(string)
+        string = string.split('_').collect(&:capitalize).join
+        string[0].downcase + string[1..-1]
       end
 
       def output_file

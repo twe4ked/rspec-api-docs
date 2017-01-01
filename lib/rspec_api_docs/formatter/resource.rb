@@ -1,4 +1,3 @@
-require 'active_support/inflector'
 require 'rspec_api_docs/formatter/resource/example'
 require 'rspec_api_docs/formatter/resource/parameter'
 require 'rspec_api_docs/formatter/resource/response_field'
