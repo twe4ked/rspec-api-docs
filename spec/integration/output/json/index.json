@@ -27,50 +27,50 @@
         "path": "/orders",
         "requests": [
           {
-            "request_method": "POST",
-            "request_path": "/orders",
-            "request_body": null,
-            "request_headers": {
+            "requestMethod": "POST",
+            "requestPath": "/orders",
+            "requestBody": null,
+            "requestHeaders": {
               "Cookie": "",
               "Host": "example.org"
             },
-            "request_query_parameters": {
+            "requestQueryParameters": {
             },
-            "request_content_type": "application/x-www-form-urlencoded",
-            "response_status": 201,
-            "response_status_text": "Created",
-            "response_body": null,
-            "response_headers": {
+            "requestContentType": "application/x-www-form-urlencoded",
+            "responseStatus": 201,
+            "responseStatusText": "Created",
+            "responseBody": null,
+            "responseHeaders": {
               "Content-Type": "text/html;charset=utf-8",
               "Content-Length": "0",
               "X-XSS-Protection": "1; mode=block",
               "X-Content-Type-Options": "nosniff",
               "X-Frame-Options": "SAMEORIGIN"
             },
-            "response_content_type": "text/html;charset=utf-8"
+            "responseContentType": "text/html;charset=utf-8"
           },
           {
-            "request_method": "GET",
-            "request_path": "/orders/1",
-            "request_body": null,
-            "request_headers": {
+            "requestMethod": "GET",
+            "requestPath": "/orders/1",
+            "requestBody": null,
+            "requestHeaders": {
               "Cookie": "",
               "Host": "example.org"
             },
-            "request_query_parameters": {
+            "requestQueryParameters": {
             },
-            "request_content_type": null,
-            "response_status": 200,
-            "response_status_text": "OK",
-            "response_body": "{\"email\":\"email@example.com\",\"name\":\"Order 1\",\"paid\":true}",
-            "response_headers": {
+            "requestContentType": null,
+            "responseStatus": 200,
+            "responseStatusText": "OK",
+            "responseBody": "{\"email\":\"email@example.com\",\"name\":\"Order 1\",\"paid\":true}",
+            "responseHeaders": {
               "Content-Type": "text/html;charset=utf-8",
               "Content-Length": "58",
               "X-XSS-Protection": "1; mode=block",
               "X-Content-Type-Options": "nosniff",
               "X-Frame-Options": "SAMEORIGIN"
             },
-            "response_content_type": "text/html;charset=utf-8"
+            "responseContentType": "text/html;charset=utf-8"
           }
         ],
         "responseFields": [
@@ -101,27 +101,27 @@
         "path": "/orders/:id",
         "requests": [
           {
-            "request_method": "GET",
-            "request_path": "/orders/1",
-            "request_body": null,
-            "request_headers": {
+            "requestMethod": "GET",
+            "requestPath": "/orders/1",
+            "requestBody": null,
+            "requestHeaders": {
               "Cookie": "",
               "Host": "example.org"
             },
-            "request_query_parameters": {
+            "requestQueryParameters": {
             },
-            "request_content_type": null,
-            "response_status": 200,
-            "response_status_text": "OK",
-            "response_body": "{\"email\":\"email@example.com\",\"name\":\"Order 1\",\"paid\":true}",
-            "response_headers": {
+            "requestContentType": null,
+            "responseStatus": 200,
+            "responseStatusText": "OK",
+            "responseBody": "{\"email\":\"email@example.com\",\"name\":\"Order 1\",\"paid\":true}",
+            "responseHeaders": {
               "Content-Type": "text/html;charset=utf-8",
               "Content-Length": "58",
               "X-XSS-Protection": "1; mode=block",
               "X-Content-Type-Options": "nosniff",
               "X-Frame-Options": "SAMEORIGIN"
             },
-            "response_content_type": "text/html;charset=utf-8"
+            "responseContentType": "text/html;charset=utf-8"
           }
         ],
         "responseFields": [
@@ -152,27 +152,27 @@
         "path": "/orders/:id",
         "requests": [
           {
-            "request_method": "DELETE",
-            "request_path": "/orders/1",
-            "request_body": null,
-            "request_headers": {
+            "requestMethod": "DELETE",
+            "requestPath": "/orders/1",
+            "requestBody": null,
+            "requestHeaders": {
               "Cookie": "",
               "Host": "example.org"
             },
-            "request_query_parameters": {
+            "requestQueryParameters": {
             },
-            "request_content_type": "application/x-www-form-urlencoded",
-            "response_status": 200,
-            "response_status_text": "OK",
-            "response_body": "{\"success\":\"Character 1 deleted\"}",
-            "response_headers": {
+            "requestContentType": "application/x-www-form-urlencoded",
+            "responseStatus": 200,
+            "responseStatusText": "OK",
+            "responseBody": "{\"success\":\"Character 1 deleted\"}",
+            "responseHeaders": {
               "Content-Type": "text/html;charset=utf-8",
               "Content-Length": "33",
               "X-XSS-Protection": "1; mode=block",
               "X-Content-Type-Options": "nosniff",
               "X-Frame-Options": "SAMEORIGIN"
             },
-            "response_content_type": "text/html;charset=utf-8"
+            "responseContentType": "text/html;charset=utf-8"
           }
         ],
         "responseFields": [
@@ -195,27 +195,27 @@
         "path": "/foo",
         "requests": [
           {
-            "request_method": "HEAD",
-            "request_path": "/foo",
-            "request_body": null,
-            "request_headers": {
+            "requestMethod": "HEAD",
+            "requestPath": "/foo",
+            "requestBody": null,
+            "requestHeaders": {
               "Cookie": "",
               "Host": "example.org"
             },
-            "request_query_parameters": {
+            "requestQueryParameters": {
             },
-            "request_content_type": "application/x-www-form-urlencoded",
-            "response_status": 200,
-            "response_status_text": "OK",
-            "response_body": null,
-            "response_headers": {
+            "requestContentType": "application/x-www-form-urlencoded",
+            "responseStatus": 200,
+            "responseStatusText": "OK",
+            "responseBody": null,
+            "responseHeaders": {
               "Content-Type": "text/html;charset=utf-8",
               "Content-Length": "0",
               "X-XSS-Protection": "1; mode=block",
               "X-Content-Type-Options": "nosniff",
               "X-Frame-Options": "SAMEORIGIN"
             },
-            "response_content_type": "text/html;charset=utf-8"
+            "responseContentType": "text/html;charset=utf-8"
           }
         ],
         "responseFields": [
@@ -238,27 +238,27 @@
         "path": "/characters/:id",
         "requests": [
           {
-            "request_method": "GET",
-            "request_path": "/characters/1",
-            "request_body": null,
-            "request_headers": {
+            "requestMethod": "GET",
+            "requestPath": "/characters/1",
+            "requestBody": null,
+            "requestHeaders": {
               "Cookie": "",
               "Host": "example.org"
             },
-            "request_query_parameters": {
+            "requestQueryParameters": {
             },
-            "request_content_type": null,
-            "response_status": 200,
-            "response_status_text": "OK",
-            "response_body": "{\"id\":\"1\",\"name\":\"Character 1\"}",
-            "response_headers": {
+            "requestContentType": null,
+            "responseStatus": 200,
+            "responseStatusText": "OK",
+            "responseBody": "{\"id\":\"1\",\"name\":\"Character 1\"}",
+            "responseHeaders": {
               "Content-Type": "text/html;charset=utf-8",
               "Content-Length": "31",
               "X-XSS-Protection": "1; mode=block",
               "X-Content-Type-Options": "nosniff",
               "X-Frame-Options": "SAMEORIGIN"
             },
-            "response_content_type": "text/html;charset=utf-8"
+            "responseContentType": "text/html;charset=utf-8"
           }
         ],
         "responseFields": [
@@ -284,27 +284,27 @@
         "path": "/characters/:id",
         "requests": [
           {
-            "request_method": "GET",
-            "request_path": "/characters/404",
-            "request_body": null,
-            "request_headers": {
+            "requestMethod": "GET",
+            "requestPath": "/characters/404",
+            "requestBody": null,
+            "requestHeaders": {
               "Cookie": "",
               "Host": "example.org"
             },
-            "request_query_parameters": {
+            "requestQueryParameters": {
             },
-            "request_content_type": null,
-            "response_status": 404,
-            "response_status_text": "Not Found",
-            "response_body": "{\"errors\":{\"message\":\"Character not found.\"}}",
-            "response_headers": {
+            "requestContentType": null,
+            "responseStatus": 404,
+            "responseStatusText": "Not Found",
+            "responseBody": "{\"errors\":{\"message\":\"Character not found.\"}}",
+            "responseHeaders": {
               "Content-Type": "text/html;charset=utf-8",
               "Content-Length": "45",
               "X-XSS-Protection": "1; mode=block",
               "X-Content-Type-Options": "nosniff",
               "X-Frame-Options": "SAMEORIGIN"
             },
-            "response_content_type": "text/html;charset=utf-8"
+            "responseContentType": "text/html;charset=utf-8"
           }
         ],
         "responseFields": [
@@ -325,27 +325,27 @@
         "path": "/characters/:id",
         "requests": [
           {
-            "request_method": "DELETE",
-            "request_path": "/characters/1",
-            "request_body": null,
-            "request_headers": {
+            "requestMethod": "DELETE",
+            "requestPath": "/characters/1",
+            "requestBody": null,
+            "requestHeaders": {
               "Cookie": "",
               "Host": "example.org"
             },
-            "request_query_parameters": {
+            "requestQueryParameters": {
             },
-            "request_content_type": "application/x-www-form-urlencoded",
-            "response_status": 200,
-            "response_status_text": "OK",
-            "response_body": "{\"success\":\"Character 1 deleted\"}",
-            "response_headers": {
+            "requestContentType": "application/x-www-form-urlencoded",
+            "responseStatus": 200,
+            "responseStatusText": "OK",
+            "responseBody": "{\"success\":\"Character 1 deleted\"}",
+            "responseHeaders": {
               "Content-Type": "text/html;charset=utf-8",
               "Content-Length": "33",
               "X-XSS-Protection": "1; mode=block",
               "X-Content-Type-Options": "nosniff",
               "X-Frame-Options": "SAMEORIGIN"
             },
-            "response_content_type": "text/html;charset=utf-8"
+            "responseContentType": "text/html;charset=utf-8"
           }
         ],
         "responseFields": [

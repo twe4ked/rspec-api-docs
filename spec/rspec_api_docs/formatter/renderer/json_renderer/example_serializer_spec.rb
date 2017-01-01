@@ -21,11 +21,11 @@ module RspecApiDocs
             expect(ExampleSerializer.new(example).to_h).to eq(
               description: 'Example description',
               name: 'Example name',
-              httpMethod: 'GET',
+              http_method: 'GET',
               parameters: [],
               path: '/characters',
               requests: [],
-              responseFields: [],
+              response_fields: [],
             )
           end
         end

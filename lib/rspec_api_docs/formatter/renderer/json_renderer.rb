@@ -1,4 +1,5 @@
 require 'json'
+require 'active_support/core_ext/hash/keys'
 require 'rspec_api_docs/formatter/renderer/json_renderer/name'
 require 'rspec_api_docs/formatter/renderer/json_renderer/resource_serializer'
 
@@ -23,7 +24,17 @@ module RspecApiDocs
 
       def output
         resources.map do |resource|
-          ResourceSerializer.new(resource).to_h
+          format_hash ResourceSerializer.new(resource).to_h
+        end
+      end
+
+      def format_hash(hash)
+        hash.deep_transform_keys do |key|
+          if key =~ /\A[a-z]/
+            key.to_s.camelize(:lower).to_sym
+          else
+            key
+          end
         end
       end
 

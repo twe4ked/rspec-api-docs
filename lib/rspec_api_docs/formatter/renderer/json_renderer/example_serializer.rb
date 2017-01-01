@@ -12,11 +12,11 @@ module RspecApiDocs
           {
             description: example.description,
             name: example.name,
-            httpMethod: example.http_method,
+            http_method: example.http_method,
             parameters: parameters(example.parameters),
             path: example.path,
             requests: example.requests,
-            responseFields: response_fields(example.response_fields),
+            response_fields: response_fields(example.response_fields),
           }
         end
 
