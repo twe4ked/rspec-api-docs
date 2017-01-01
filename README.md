@@ -42,8 +42,9 @@ end
 The `doc` method stores data in a hash on the RSpec example metadata.
 
 The second stage is the formatter (`RspecApiDocs::Formatter`). The formatter
-parses the hash stored on each RSpec example and uses a renderer
-(lib/rspec_api_docs/formatter/renderer/) to write out your documentation.
+parses the hash stored on each RSpec example and uses a
+[renderer](lib/rspec_api_docs/formatter/renderer/README.md) to write out your
+documentation.
 
 ```
 $ rspec spec/requests/characters_spec.rb --formatter=RspecApiDocs::Formatter
