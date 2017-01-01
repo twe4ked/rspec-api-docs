@@ -46,7 +46,7 @@ parses the hash stored on each RSpec example and uses a renderer
 (lib/rspec_api_docs/formatter/renderer/) to write out your documentation.
 
 ```
-bundle exec rspec spec/requests/characters_spec.rb --formatter=RspecApiDocs::Formatter
+$ rspec spec/requests/characters_spec.rb --formatter=RspecApiDocs::Formatter
 ```
 
 ### DSL
@@ -246,7 +246,7 @@ git commits and tags, and push the `.gem` file to [rubygems.org].
 Regenerate this project's integration spec docs locally:
 
 ```
-./bin/generate_integration_docs
+$ ./bin/generate_integration_docs
 ```
 
 ## TODO
