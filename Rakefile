@@ -12,6 +12,7 @@ end
 
 task :generate_integration_docs do
   system './bin/generate_integration_docs'
+  exit $?.exitstatus
 end
 
 task default: [:rspec, :rubocop, :generate_integration_docs]
