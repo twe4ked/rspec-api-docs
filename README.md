@@ -207,6 +207,18 @@ param :id, 'The id of a character', scope: :character, type: 'integer', required
 param :name, "The character's name", scope: :character, type: 'string'
 ```
 
+#### `notes`
+
+Accepts a `note` and optional `level`.
+
+- `level` [`Symbol`] one of `:success`, `:info`, `:warning`, or `:danger`. Defaults to `:info`
+- `note` [`String`] the note
+
+``` ruby
+note 'You need to supply an id!'
+note :warning, "An error will be thrown if you don't supply an id!"
+```
+
 See the integration specs for more examples of the DSL in use.
 
 ### Formatter

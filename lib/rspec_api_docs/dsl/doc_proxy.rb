@@ -1,6 +1,8 @@
 module RspecApiDocs
   module Dsl
     class DocProxy
+      UnknownNoteLevel = Class.new(BaseError)
+
       attr_reader :metadata
 
       def initialize(example)
@@ -111,6 +113,13 @@ module RspecApiDocs
           type: type,
           required: required,
         }
+      end
+
+      def note(level = :info, value)
+        %i[success info warning danger].include?(level) or
+          raise UnknownNoteLevel, "unknown note level #{level.inspect}"
+        metadata[METADATA_NAMESPACE][:note] ||= {}
+        metadata[METADATA_NAMESPACE][:note][level] = value
       end
     end
   end

@@ -148,6 +148,9 @@ RSpec.describe RspecApiDocs do
         description 'For getting information about a Character.'
         path '/characters/:id'
 
+        note 'You need to supply an id!'
+        note :warning, "An error will be thrown if you don't supply an id!"
+
         field :id, 'The id of a character', scope: :character, type: 'integer'
         field :name, "The character's name", scope: :character, type: 'string'
       end

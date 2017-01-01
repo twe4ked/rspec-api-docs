@@ -89,7 +89,9 @@
             "description": "Email of the user that placed the order",
             "type": "string"
           }
-        ]
+        ],
+        "notes": {
+        }
       },
       {
         "description": "Make a request to get an order",
@@ -140,7 +142,9 @@
             "description": "Email of the user that placed the order",
             "type": "string"
           }
-        ]
+        ],
+        "notes": {
+        }
       },
       {
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Qui est in parvis malis.\n\nDuo Reges: constructio interrete. Luxuriam non reprehendit, modo sit vacua infinita cupiditate et timore. Non enim iam stirpis bonum quaeret, sed animalis.\n\nHaec quo modo conveniant, non sane intellego. Verum hoc idem saepe faciamus. Nihilo beatiorem esse Metellum quam Regulum.\n",
@@ -177,7 +181,9 @@
         ],
         "responseFields": [
 
-        ]
+        ],
+        "notes": {
+        }
       }
     ]
   },
@@ -220,7 +226,9 @@
         ],
         "responseFields": [
 
-        ]
+        ],
+        "notes": {
+        }
       }
     ]
   },
@@ -272,7 +280,11 @@
             "description": "The character's name",
             "type": "string"
           }
-        ]
+        ],
+        "notes": {
+          "info": "You need to supply an id!",
+          "warning": "An error will be thrown if you don't supply an id!"
+        }
       },
       {
         "description": "Returns an error",
@@ -313,7 +325,9 @@
             "description": "Error message",
             "type": "string"
           }
-        ]
+        ],
+        "notes": {
+        }
       },
       {
         "description": "For getting information about a Character.",
@@ -354,7 +368,9 @@
             "description": "The id of a character",
             "type": "integer"
           }
-        ]
+        ],
+        "notes": {
+        }
       }
     ]
   }

@@ -14,7 +14,8 @@ module RspecApiDocs
               parameters: [],
               path: '/characters',
               requests: [],
-              response_fields: []
+              response_fields: [],
+              notes: {}
           end
 
           it 'returns a hash' do
@@ -26,6 +27,7 @@ module RspecApiDocs
               path: '/characters',
               requests: [],
               response_fields: [],
+              notes: {},
             )
           end
         end

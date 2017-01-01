@@ -17,6 +17,7 @@ module RspecApiDocs
             path: example.path,
             requests: example.requests,
             response_fields: response_fields,
+            notes: example.notes,
           }
         end
 

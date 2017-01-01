@@ -82,6 +82,11 @@ module RspecApiDocs
         request_response_pairs.first.first.request_method
       end
 
+      # @return [Hash<Symbol,String>, nil]
+      def notes
+        metadata.fetch(:note, {})
+      end
+
       private
 
       def request_response_pairs
