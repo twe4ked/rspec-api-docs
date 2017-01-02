@@ -156,8 +156,8 @@ RSpec.describe RspecApiDocs do
     describe 'GET /places' do
       before do
         doc do
-          field :id, 'The id of the place', scope: [:data, '<Array>'], type: 'integer'
-          field :name, "The place's name", scope: [:data, '<Array>'], type: 'string'
+          field :id, 'The id of the place', scope: [:data, nil], type: 'integer'
+          field :name, "The place's name", scope: [:data, nil], type: 'string'
         end
       end
 
