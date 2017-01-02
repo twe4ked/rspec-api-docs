@@ -8,6 +8,15 @@
   <a href="http://www.rubydoc.info/github/twe4ked/rspec-api-docs/master"><img src="https://img.shields.io/badge/docs-master-lightgrey.svg?style=flat-square" /></a>
 </p>
 
+**rspec-api-docs** provides a way to generate documentation from your request
+specs. It does this by providing a simple DSL and a custom formatter.
+
+The default renderer produces a [single JSON file] which can be used by
+[api-docs] to [display your documentation].
+
+[single JSON file]: ./spec/integration/output/json/index.json
+[display your documentation]: https://twe4ked.github.io/api-docs/
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -281,3 +290,4 @@ The gem is available as open source under the terms of the [MIT License].
 [MIT License]: http://opensource.org/licenses/MIT
 [Contributor Covenant]: http://contributor-covenant.org
 [rubygems.org]: https://rubygems.org
+[api-docs]: https://github.com/twe4ked/api-docs
