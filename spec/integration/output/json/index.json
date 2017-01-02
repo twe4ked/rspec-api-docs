@@ -277,12 +277,12 @@
         ],
         "responseFields": [
           {
-            "name": "data[<Array>][id]",
+            "name": "data[][id]",
             "description": "The id of the place",
             "type": "integer"
           },
           {
-            "name": "data[<Array>][name]",
+            "name": "data[][name]",
             "description": "The place's name",
             "type": "string"
           }
@@ -353,12 +353,12 @@
         ],
         "responseFields": [
           {
-            "name": "data[<Array>][id]",
+            "name": "data[][id]",
             "description": "The id of the place",
             "type": "integer"
           },
           {
-            "name": "data[<Array>][name]",
+            "name": "data[][name]",
             "description": "The place's name",
             "type": "string"
           }
