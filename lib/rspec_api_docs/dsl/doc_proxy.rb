@@ -115,6 +115,11 @@ module RspecApiDocs
         }
       end
 
+      # For setting notes on an example
+      #
+      # @param level [Symbol] the level of the note
+      # @param value [String] the note, +:success+, +:info+, +:warning+, or +:danger+
+      # @return [void]
       def note(level = :info, value)
         %i[success info warning danger].include?(level) or
           raise UnknownNoteLevel, "unknown note level #{level.inspect}"

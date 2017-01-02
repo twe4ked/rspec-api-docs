@@ -12,6 +12,7 @@ module RspecApiDocs
     yield configuration
   end
 
+  # Used to control the behaviour of the gem.
   class Config
     attr_accessor \
       :output_dir,
