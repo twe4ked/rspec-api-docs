@@ -1,10 +1,10 @@
 {
-  "resource": "Orders",
+  "resource": "Characters",
   "resource_explanation": null,
-  "http_method": "DELETE",
-  "route": "/orders/:id",
-  "description": "Deleting an order",
-  "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Qui est in parvis malis.\n\nDuo Reges: constructio interrete. Luxuriam non reprehendit, modo sit vacua infinita cupiditate et timore. Non enim iam stirpis bonum quaeret, sed animalis.\n\nHaec quo modo conveniant, non sane intellego. Verum hoc idem saepe faciamus. Nihilo beatiorem esse Metellum quam Regulum.\n",
+  "http_method": "HEAD",
+  "route": "/characters",
+  "description": "Characters head",
+  "explanation": null,
   "parameters": [
 
   ],
@@ -13,8 +13,8 @@
   ],
   "requests": [
     {
-      "request_method": "DELETE",
-      "request_path": "/orders/1",
+      "request_method": "HEAD",
+      "request_path": "/characters",
       "request_body": null,
       "request_headers": {
         "Cookie": "",
@@ -25,10 +25,10 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"success\":\"Character 1 deleted\"}",
+      "response_body": null,
       "response_headers": {
         "Content-Type": "text/html;charset=utf-8",
-        "Content-Length": "33",
+        "Content-Length": "74",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "X-Frame-Options": "SAMEORIGIN"

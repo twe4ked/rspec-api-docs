@@ -6,14 +6,19 @@
   "description": "Deleting a Character",
   "explanation": "For getting information about a Character.",
   "parameters": [
-
+    {
+      "required": true,
+      "scope": "",
+      "name": "id",
+      "description": "The id of a character"
+    }
   ],
   "response_fields": [
     {
-      "scope": "character",
-      "Type": "integer",
-      "name": "id",
-      "description": "The id of a character"
+      "scope": "",
+      "Type": "string",
+      "name": "message",
+      "description": "Success message"
     }
   ],
   "requests": [
@@ -30,10 +35,10 @@
       "request_content_type": "application/x-www-form-urlencoded",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"success\":\"Character 1 deleted\"}",
+      "response_body": "{\"message\":\"Character not found.\"}",
       "response_headers": {
         "Content-Type": "text/html;charset=utf-8",
-        "Content-Length": "33",
+        "Content-Length": "34",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "X-Frame-Options": "SAMEORIGIN"

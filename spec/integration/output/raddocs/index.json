@@ -1,49 +1,16 @@
 {
   "resources": [
     {
-      "name": "Orders",
-      "explanation": null,
-      "examples": [
-        {
-          "description": "Creating an order",
-          "link": "orders/creating_an_order.json",
-          "groups": "all",
-          "route": "/orders",
-          "method": "post"
-        },
-        {
-          "description": "Viewing an order",
-          "link": "orders/viewing_an_order.json",
-          "groups": "all",
-          "route": "/orders/:id",
-          "method": "get"
-        },
-        {
-          "description": "Deleting an order",
-          "link": "orders/deleting_an_order.json",
-          "groups": "all",
-          "route": "/orders/:id",
-          "method": "delete"
-        }
-      ]
-    },
-    {
-      "name": "Other Resource",
-      "explanation": null,
-      "examples": [
-        {
-          "description": "has an overriden resource name",
-          "link": "other_resource/has_an_overriden_resource_name.json",
-          "groups": "all",
-          "route": "/foo",
-          "method": "head"
-        }
-      ]
-    },
-    {
       "name": "Characters",
       "explanation": null,
       "examples": [
+        {
+          "description": "Listing all characters",
+          "link": "characters/listing_all_characters.json",
+          "groups": "all",
+          "route": "/characters",
+          "method": "get"
+        },
         {
           "description": "Fetching a Character",
           "link": "characters/fetching_a_character.json",
@@ -52,8 +19,8 @@
           "method": "get"
         },
         {
-          "description": "When a Character can not be found",
-          "link": "characters/when_a_character_can_not_be_found.json",
+          "description": "When a Character cannot be found",
+          "link": "characters/when_a_character_cannot_be_found.json",
           "groups": "all",
           "route": "/characters/:id",
           "method": "get"
@@ -64,6 +31,33 @@
           "groups": "all",
           "route": "/characters/:id",
           "method": "delete"
+        },
+        {
+          "description": "Characters head",
+          "link": "characters/characters_head.json",
+          "groups": "all",
+          "route": "/characters",
+          "method": "head"
+        }
+      ]
+    },
+    {
+      "name": "Places",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "Listing all places",
+          "link": "places/listing_all_places.json",
+          "groups": "all",
+          "route": "/places",
+          "method": "get"
+        },
+        {
+          "description": "Fetching all places and page 2",
+          "link": "places/fetching_all_places_and_page__.json",
+          "groups": "all",
+          "route": "/places",
+          "method": "get"
         }
       ]
     }

@@ -7,48 +7,52 @@ RSpec.describe RspecApiDocs do
   include RspecApiDocs::Dsl
 
   class TestApp < Sinatra::Base
-    get '/orders/:id' do
-      JSON.dump(
-        email: 'email@example.com',
-        name: "Order #{params[:id]}",
-        paid: true,
-      )
-    end
+    CHARACTERS = {
+      1 => {name: 'Finn the Human'},
+      2 => {name: 'Jake the Dog'},
+    }
 
-    delete '/orders/:id' do
-      JSON.dump(
-        success: "Character #{params[:id]} deleted",
-      )
-    end
+    PLACES = {
+      1 => {name: 'Candy Kingdom'},
+      2 => {name: 'Tree Fort'},
+    }
 
-    post '/orders' do
-      status 201
-    end
+    get '/characters' do
+      characters = CHARACTERS.map { |id, character| {id: id}.merge(character) }
 
-    get '/characters/404' do
-      status 404
-      JSON.dump(
-        errors: {
-          message: 'Character not found.',
-        },
-      )
+      JSON.dump(data: characters)
     end
 
     get '/characters/:id' do
-      JSON.dump(
-        id: params[:id],
-        name: "Character #{params[:id]}",
-      )
+      id = params[:id].to_i
+      character = CHARACTERS[id]
+
+      if character
+        JSON.dump(character: {id: id}.merge(character))
+      else
+        status 404
+        JSON.dump(
+          errors: {
+            message: 'Character not found.',
+          },
+        )
+      end
     end
 
     delete '/characters/:id' do
       JSON.dump(
-        success: "Character #{params[:id]} deleted",
+        message: 'Character not found.',
       )
     end
 
-    get '/foo' do
-      status 200
+    get '/places' do
+      if params[:page]
+        JSON.dump(data: [])
+      else
+        places = PLACES.map { |id, place| {id: id}.merge(place) }
+
+        JSON.dump(data: places)
+      end
     end
   end
 
@@ -56,100 +60,44 @@ RSpec.describe RspecApiDocs do
     TestApp
   end
 
-  describe 'Orders' do
-    before do
-      doc do
-        resource_name 'Orders'
-        resource_description 'Orders can be created, viewed, and deleted'
-      end
-    end
-
-    it 'unrelated description' do
-      doc do
-        name 'Creating an order'
-        description 'First, create an order, then make a later request to get it back'
-
-        param :name, 'Name of order', scope: ['order'], type: 'string', required: true
-        param :paid, 'If the order has been paid for', scope: ['order'], type: 'integer', required: true
-        param :email, 'Email of the user that placed the order', scope: ['order'], type: 'string'
-
-        field :name, 'Name of order', scope: ['order'], type: 'string'
-        field :paid, 'If the order has been paid for', scope: ['order'], type: 'integer'
-        field :email, 'Email of the user that placed the order', scope: ['order'], type: 'string'
-      end
-
-      post '/orders'
-      doc << [last_response, last_request] # NOTE: Wrong order
-
-      get '/orders/1'
-    end
-
-    it 'Viewing an order' do
-      doc do
-        description 'Make a request to get an order'
-        path '/orders/:id'
-
-        field :name, 'Name of order', scope: ['order'], type: 'string'
-        field :paid, 'If the order has been paid for', scope: ['order'], type: 'integer'
-        field :email, 'Email of the user that placed the order', scope: ['order'], type: 'string'
-      end
-
-      get '/orders/1'
-    end
-
-    it 'Deleting an order' do
-      doc do
-        path '/orders/:id'
-        description <<-EOF.gsub(/^ {10}/, '')
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Qui est in parvis malis.
-
-          Duo Reges: constructio interrete. Luxuriam non reprehendit, modo sit vacua infinita cupiditate et timore. Non enim iam stirpis bonum quaeret, sed animalis.
-
-          Haec quo modo conveniant, non sane intellego. Verum hoc idem saepe faciamus. Nihilo beatiorem esse Metellum quam Regulum.
-        EOF
-      end
-
-      delete '/orders/1'
-    end
-
-    it 'not included' do
-      doc false
-
-      get '/orders/1'
-    end
-
-    it 'has an overriden resource name' do
-      doc do
-        resource_name 'Other Resource'
-        # NOTE: The `resource_description` will stay the same as it's set in
-        # the `before` block of this example.
-      end
-
-      head '/foo'
-    end
-  end
-
   describe 'Characters' do
     before do
       doc do
         resource_name 'Characters'
         resource_description <<-EOF.gsub(/^ {10}/, '')
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Qui est in parvis malis.
+          Characters inhabit the Land of Ooo.
 
-          Duo Reges: constructio interrete. Luxuriam non reprehendit, modo sit vacua infinita cupiditate et timore. Non enim iam stirpis bonum quaeret, sed animalis.
-
-          Haec quo modo conveniant, non sane intellego. Verum hoc idem saepe faciamus. Nihilo beatiorem esse Metellum quam Regulum.
+          Use the following endpoints to fetch information and modify them.
         EOF
       end
     end
 
-    it 'Fetching a Character' do
+    it 'returns all characters' do
       doc do
+        name 'Listing all characters'
+        description <<-EOF.gsub(/^ {10}/, '')
+          Getting all the characters.
+
+          For when you need everything!
+        EOF
+
+        field :id, 'The id of a character', scope: [:data, '<Array>'], type: 'integer'
+        field :name, "The character's name", scope: [:data, '<Array>'], type: 'string'
+      end
+
+      get '/characters'
+    end
+
+    it 'returns a character' do
+      doc do
+        name 'Fetching a Character'
         description 'For getting information about a Character.'
         path '/characters/:id'
 
         note 'You need to supply an id!'
         note :warning, "An error will be thrown if you don't supply an id!"
+
+        param :id, 'The id of a character', type: 'integer', required: true
 
         field :id, 'The id of a character', scope: :character, type: 'integer'
         field :name, "The character's name", scope: :character, type: 'string'
@@ -158,10 +106,13 @@ RSpec.describe RspecApiDocs do
       get '/characters/1'
     end
 
-    it 'When a Character can not be found' do
+    it 'returns 404' do
       doc do
+        name 'When a Character cannot be found'
         description 'Returns an error'
         path '/characters/:id'
+
+        note :danger, 'This is an error case'
 
         field :message, 'Error message', scope: :errors, type: 'string'
       end
@@ -171,13 +122,78 @@ RSpec.describe RspecApiDocs do
 
     it 'Deleting a Character' do
       doc do
+        # NOTE: name defaults to the description of the RSpec example
         description 'For getting information about a Character.'
         path '/characters/:id'
 
-        field :id, 'The id of a character', scope: :character, type: 'integer'
+        param :id, 'The id of a character', type: 'integer', required: true
+
+        field :message, 'Success message', type: 'string'
       end
 
       delete '/characters/1'
+    end
+
+    it 'is unrelated' do
+      doc false
+    end
+  end
+
+  describe 'Places' do
+    before do
+      doc do
+        resource_name 'Places'
+        resource_description <<-EOF.gsub(/^ {10}/, '')
+          This category consists of locations in the Land of Ooo.
+
+          These are all great places!
+
+          The Characters that live here are great too.
+        EOF
+      end
+    end
+
+    describe 'GET /places' do
+      before do
+        doc do
+          field :id, 'The id of the place', scope: [:data, '<Array>'], type: 'integer'
+          field :name, "The place's name", scope: [:data, '<Array>'], type: 'string'
+        end
+      end
+
+      it 'returns all places' do
+        doc do
+          name 'Listing all places'
+        end
+
+        get '/places'
+      end
+
+      it 'can store two requests' do
+        doc do
+          name 'Fetching all places and page 2'
+
+          note :success, 'You can store multiple requests in a single example.'
+
+          param :page, 'The page', type: 'integer'
+        end
+
+        get '/places'
+        doc << [last_response, last_request] # NOTE: Wrong order
+
+        get '/places?page=2'
+      end
+    end
+
+    it 'is part of another resource' do
+      doc do
+        resource_name 'Characters'
+        name 'Characters head'
+
+        note 'This example has overridden the resource name set in the `before` block.'
+      end
+
+      head '/characters'
     end
   end
 end

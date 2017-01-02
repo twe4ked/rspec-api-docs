@@ -1,110 +1,20 @@
 [
   {
-    "name": "Orders",
-    "description": "Orders can be created, viewed, and deleted",
+    "name": "Characters",
+    "description": "Characters inhabit the Land of Ooo.\n\nUse the following endpoints to fetch information and modify them.\n",
     "examples": [
       {
-        "description": "First, create an order, then make a later request to get it back",
-        "name": "Creating an order",
-        "httpMethod": "POST",
-        "parameters": [
-          {
-            "name": "order[name]",
-            "description": "Name of order",
-            "required": true
-          },
-          {
-            "name": "order[paid]",
-            "description": "If the order has been paid for",
-            "required": true
-          },
-          {
-            "name": "order[email]",
-            "description": "Email of the user that placed the order",
-            "required": false
-          }
-        ],
-        "path": "/orders",
-        "requests": [
-          {
-            "requestMethod": "POST",
-            "requestPath": "/orders",
-            "requestBody": null,
-            "requestHeaders": {
-              "Cookie": "",
-              "Host": "example.org"
-            },
-            "requestQueryParameters": {
-            },
-            "requestContentType": "application/x-www-form-urlencoded",
-            "responseStatus": 201,
-            "responseStatusText": "Created",
-            "responseBody": null,
-            "responseHeaders": {
-              "Content-Type": "text/html;charset=utf-8",
-              "Content-Length": "0",
-              "X-XSS-Protection": "1; mode=block",
-              "X-Content-Type-Options": "nosniff",
-              "X-Frame-Options": "SAMEORIGIN"
-            },
-            "responseContentType": "text/html;charset=utf-8"
-          },
-          {
-            "requestMethod": "GET",
-            "requestPath": "/orders/1",
-            "requestBody": null,
-            "requestHeaders": {
-              "Cookie": "",
-              "Host": "example.org"
-            },
-            "requestQueryParameters": {
-            },
-            "requestContentType": null,
-            "responseStatus": 200,
-            "responseStatusText": "OK",
-            "responseBody": "{\"email\":\"email@example.com\",\"name\":\"Order 1\",\"paid\":true}",
-            "responseHeaders": {
-              "Content-Type": "text/html;charset=utf-8",
-              "Content-Length": "58",
-              "X-XSS-Protection": "1; mode=block",
-              "X-Content-Type-Options": "nosniff",
-              "X-Frame-Options": "SAMEORIGIN"
-            },
-            "responseContentType": "text/html;charset=utf-8"
-          }
-        ],
-        "responseFields": [
-          {
-            "name": "order[name]",
-            "description": "Name of order",
-            "type": "string"
-          },
-          {
-            "name": "order[paid]",
-            "description": "If the order has been paid for",
-            "type": "integer"
-          },
-          {
-            "name": "order[email]",
-            "description": "Email of the user that placed the order",
-            "type": "string"
-          }
-        ],
-        "notes": {
-        }
-      },
-      {
-        "description": "Make a request to get an order",
-        "name": "Viewing an order",
+        "description": "Getting all the characters.\n\nFor when you need everything!\n",
+        "name": "Listing all characters",
         "httpMethod": "GET",
         "parameters": [
 
         ],
-        "path": "/orders/:id",
+        "path": "/characters",
         "requests": [
           {
             "requestMethod": "GET",
-            "requestPath": "/orders/1",
+            "requestPath": "/characters",
             "requestBody": null,
             "requestHeaders": {
               "Cookie": "",
@@ -115,10 +25,10 @@
             "requestContentType": null,
             "responseStatus": 200,
             "responseStatusText": "OK",
-            "responseBody": "{\"email\":\"email@example.com\",\"name\":\"Order 1\",\"paid\":true}",
+            "responseBody": "{\"data\":[{\"id\":1,\"name\":\"Finn the Human\"},{\"id\":2,\"name\":\"Jake the Dog\"}]}",
             "responseHeaders": {
               "Content-Type": "text/html;charset=utf-8",
-              "Content-Length": "58",
+              "Content-Length": "74",
               "X-XSS-Protection": "1; mode=block",
               "X-Content-Type-Options": "nosniff",
               "X-Frame-Options": "SAMEORIGIN"
@@ -128,120 +38,29 @@
         ],
         "responseFields": [
           {
-            "name": "order[name]",
-            "description": "Name of order",
-            "type": "string"
-          },
-          {
-            "name": "order[paid]",
-            "description": "If the order has been paid for",
+            "name": "data[<Array>][id]",
+            "description": "The id of a character",
             "type": "integer"
           },
           {
-            "name": "order[email]",
-            "description": "Email of the user that placed the order",
+            "name": "data[<Array>][name]",
+            "description": "The character's name",
             "type": "string"
           }
         ],
         "notes": {
         }
       },
-      {
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Qui est in parvis malis.\n\nDuo Reges: constructio interrete. Luxuriam non reprehendit, modo sit vacua infinita cupiditate et timore. Non enim iam stirpis bonum quaeret, sed animalis.\n\nHaec quo modo conveniant, non sane intellego. Verum hoc idem saepe faciamus. Nihilo beatiorem esse Metellum quam Regulum.\n",
-        "name": "Deleting an order",
-        "httpMethod": "DELETE",
-        "parameters": [
-
-        ],
-        "path": "/orders/:id",
-        "requests": [
-          {
-            "requestMethod": "DELETE",
-            "requestPath": "/orders/1",
-            "requestBody": null,
-            "requestHeaders": {
-              "Cookie": "",
-              "Host": "example.org"
-            },
-            "requestQueryParameters": {
-            },
-            "requestContentType": "application/x-www-form-urlencoded",
-            "responseStatus": 200,
-            "responseStatusText": "OK",
-            "responseBody": "{\"success\":\"Character 1 deleted\"}",
-            "responseHeaders": {
-              "Content-Type": "text/html;charset=utf-8",
-              "Content-Length": "33",
-              "X-XSS-Protection": "1; mode=block",
-              "X-Content-Type-Options": "nosniff",
-              "X-Frame-Options": "SAMEORIGIN"
-            },
-            "responseContentType": "text/html;charset=utf-8"
-          }
-        ],
-        "responseFields": [
-
-        ],
-        "notes": {
-        }
-      }
-    ]
-  },
-  {
-    "name": "Other Resource",
-    "description": "Orders can be created, viewed, and deleted",
-    "examples": [
-      {
-        "description": null,
-        "name": "has an overriden resource name",
-        "httpMethod": "HEAD",
-        "parameters": [
-
-        ],
-        "path": "/foo",
-        "requests": [
-          {
-            "requestMethod": "HEAD",
-            "requestPath": "/foo",
-            "requestBody": null,
-            "requestHeaders": {
-              "Cookie": "",
-              "Host": "example.org"
-            },
-            "requestQueryParameters": {
-            },
-            "requestContentType": "application/x-www-form-urlencoded",
-            "responseStatus": 200,
-            "responseStatusText": "OK",
-            "responseBody": null,
-            "responseHeaders": {
-              "Content-Type": "text/html;charset=utf-8",
-              "Content-Length": "0",
-              "X-XSS-Protection": "1; mode=block",
-              "X-Content-Type-Options": "nosniff",
-              "X-Frame-Options": "SAMEORIGIN"
-            },
-            "responseContentType": "text/html;charset=utf-8"
-          }
-        ],
-        "responseFields": [
-
-        ],
-        "notes": {
-        }
-      }
-    ]
-  },
-  {
-    "name": "Characters",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Qui est in parvis malis.\n\nDuo Reges: constructio interrete. Luxuriam non reprehendit, modo sit vacua infinita cupiditate et timore. Non enim iam stirpis bonum quaeret, sed animalis.\n\nHaec quo modo conveniant, non sane intellego. Verum hoc idem saepe faciamus. Nihilo beatiorem esse Metellum quam Regulum.\n",
-    "examples": [
       {
         "description": "For getting information about a Character.",
         "name": "Fetching a Character",
         "httpMethod": "GET",
         "parameters": [
-
+          {
+            "name": "id",
+            "description": "The id of a character",
+            "required": true
+          }
         ],
         "path": "/characters/:id",
         "requests": [
@@ -258,10 +77,10 @@
             "requestContentType": null,
             "responseStatus": 200,
             "responseStatusText": "OK",
-            "responseBody": "{\"id\":\"1\",\"name\":\"Character 1\"}",
+            "responseBody": "{\"character\":{\"id\":1,\"name\":\"Finn the Human\"}}",
             "responseHeaders": {
               "Content-Type": "text/html;charset=utf-8",
-              "Content-Length": "31",
+              "Content-Length": "46",
               "X-XSS-Protection": "1; mode=block",
               "X-Content-Type-Options": "nosniff",
               "X-Frame-Options": "SAMEORIGIN"
@@ -288,7 +107,7 @@
       },
       {
         "description": "Returns an error",
-        "name": "When a Character can not be found",
+        "name": "When a Character cannot be found",
         "httpMethod": "GET",
         "parameters": [
 
@@ -327,6 +146,7 @@
           }
         ],
         "notes": {
+          "danger": "This is an error case"
         }
       },
       {
@@ -334,7 +154,11 @@
         "name": "Deleting a Character",
         "httpMethod": "DELETE",
         "parameters": [
-
+          {
+            "name": "id",
+            "description": "The id of a character",
+            "required": true
+          }
         ],
         "path": "/characters/:id",
         "requests": [
@@ -351,10 +175,10 @@
             "requestContentType": "application/x-www-form-urlencoded",
             "responseStatus": 200,
             "responseStatusText": "OK",
-            "responseBody": "{\"success\":\"Character 1 deleted\"}",
+            "responseBody": "{\"message\":\"Character not found.\"}",
             "responseHeaders": {
               "Content-Type": "text/html;charset=utf-8",
-              "Content-Length": "33",
+              "Content-Length": "34",
               "X-XSS-Protection": "1; mode=block",
               "X-Content-Type-Options": "nosniff",
               "X-Frame-Options": "SAMEORIGIN"
@@ -364,12 +188,183 @@
         ],
         "responseFields": [
           {
-            "name": "character[id]",
-            "description": "The id of a character",
-            "type": "integer"
+            "name": "message",
+            "description": "Success message",
+            "type": "string"
           }
         ],
         "notes": {
+        }
+      },
+      {
+        "description": null,
+        "name": "Characters head",
+        "httpMethod": "HEAD",
+        "parameters": [
+
+        ],
+        "path": "/characters",
+        "requests": [
+          {
+            "requestMethod": "HEAD",
+            "requestPath": "/characters",
+            "requestBody": null,
+            "requestHeaders": {
+              "Cookie": "",
+              "Host": "example.org"
+            },
+            "requestQueryParameters": {
+            },
+            "requestContentType": "application/x-www-form-urlencoded",
+            "responseStatus": 200,
+            "responseStatusText": "OK",
+            "responseBody": null,
+            "responseHeaders": {
+              "Content-Type": "text/html;charset=utf-8",
+              "Content-Length": "74",
+              "X-XSS-Protection": "1; mode=block",
+              "X-Content-Type-Options": "nosniff",
+              "X-Frame-Options": "SAMEORIGIN"
+            },
+            "responseContentType": "text/html;charset=utf-8"
+          }
+        ],
+        "responseFields": [
+
+        ],
+        "notes": {
+          "info": "This example has overridden the resource name set in the `before` block."
+        }
+      }
+    ]
+  },
+  {
+    "name": "Places",
+    "description": "This category consists of locations in the Land of Ooo.\n\nThese are all great places!\n\nThe Characters that live here are great too.\n",
+    "examples": [
+      {
+        "description": null,
+        "name": "Listing all places",
+        "httpMethod": "GET",
+        "parameters": [
+
+        ],
+        "path": "/places",
+        "requests": [
+          {
+            "requestMethod": "GET",
+            "requestPath": "/places",
+            "requestBody": null,
+            "requestHeaders": {
+              "Cookie": "",
+              "Host": "example.org"
+            },
+            "requestQueryParameters": {
+            },
+            "requestContentType": null,
+            "responseStatus": 200,
+            "responseStatusText": "OK",
+            "responseBody": "{\"data\":[{\"id\":1,\"name\":\"Candy Kingdom\"},{\"id\":2,\"name\":\"Tree Fort\"}]}",
+            "responseHeaders": {
+              "Content-Type": "text/html;charset=utf-8",
+              "Content-Length": "70",
+              "X-XSS-Protection": "1; mode=block",
+              "X-Content-Type-Options": "nosniff",
+              "X-Frame-Options": "SAMEORIGIN"
+            },
+            "responseContentType": "text/html;charset=utf-8"
+          }
+        ],
+        "responseFields": [
+          {
+            "name": "data[<Array>][id]",
+            "description": "The id of the place",
+            "type": "integer"
+          },
+          {
+            "name": "data[<Array>][name]",
+            "description": "The place's name",
+            "type": "string"
+          }
+        ],
+        "notes": {
+        }
+      },
+      {
+        "description": null,
+        "name": "Fetching all places and page 2",
+        "httpMethod": "GET",
+        "parameters": [
+          {
+            "name": "page",
+            "description": "The page",
+            "required": false
+          }
+        ],
+        "path": "/places",
+        "requests": [
+          {
+            "requestMethod": "GET",
+            "requestPath": "/places",
+            "requestBody": null,
+            "requestHeaders": {
+              "Cookie": "",
+              "Host": "example.org"
+            },
+            "requestQueryParameters": {
+            },
+            "requestContentType": null,
+            "responseStatus": 200,
+            "responseStatusText": "OK",
+            "responseBody": "{\"data\":[{\"id\":1,\"name\":\"Candy Kingdom\"},{\"id\":2,\"name\":\"Tree Fort\"}]}",
+            "responseHeaders": {
+              "Content-Type": "text/html;charset=utf-8",
+              "Content-Length": "70",
+              "X-XSS-Protection": "1; mode=block",
+              "X-Content-Type-Options": "nosniff",
+              "X-Frame-Options": "SAMEORIGIN"
+            },
+            "responseContentType": "text/html;charset=utf-8"
+          },
+          {
+            "requestMethod": "GET",
+            "requestPath": "/places?page=2",
+            "requestBody": null,
+            "requestHeaders": {
+              "Cookie": "",
+              "Host": "example.org"
+            },
+            "requestQueryParameters": {
+              "page": "2"
+            },
+            "requestContentType": null,
+            "responseStatus": 200,
+            "responseStatusText": "OK",
+            "responseBody": "{\"data\":[]}",
+            "responseHeaders": {
+              "Content-Type": "text/html;charset=utf-8",
+              "Content-Length": "11",
+              "X-XSS-Protection": "1; mode=block",
+              "X-Content-Type-Options": "nosniff",
+              "X-Frame-Options": "SAMEORIGIN"
+            },
+            "responseContentType": "text/html;charset=utf-8"
+          }
+        ],
+        "responseFields": [
+          {
+            "name": "data[<Array>][id]",
+            "description": "The id of the place",
+            "type": "integer"
+          },
+          {
+            "name": "data[<Array>][name]",
+            "description": "The place's name",
+            "type": "string"
+          }
+        ],
+        "notes": {
+          "success": "You can store multiple requests in a single example."
         }
       }
     ]

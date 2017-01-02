@@ -3,34 +3,23 @@
   "resource_explanation": null,
   "http_method": "GET",
   "route": "/characters/:id",
-  "description": "Fetching a Character",
-  "explanation": "For getting information about a Character.",
+  "description": "When a Character cannot be found",
+  "explanation": "Returns an error",
   "parameters": [
-    {
-      "required": true,
-      "scope": "",
-      "name": "id",
-      "description": "The id of a character"
-    }
+
   ],
   "response_fields": [
     {
-      "scope": "character",
-      "Type": "integer",
-      "name": "id",
-      "description": "The id of a character"
-    },
-    {
-      "scope": "character",
+      "scope": "errors",
       "Type": "string",
-      "name": "name",
-      "description": "The character's name"
+      "name": "message",
+      "description": "Error message"
     }
   ],
   "requests": [
     {
       "request_method": "GET",
-      "request_path": "/characters/1",
+      "request_path": "/characters/404",
       "request_body": null,
       "request_headers": {
         "Cookie": "",
@@ -39,12 +28,12 @@
       "request_query_parameters": {
       },
       "request_content_type": null,
-      "response_status": 200,
-      "response_status_text": "OK",
-      "response_body": "{\"character\":{\"id\":1,\"name\":\"Finn the Human\"}}",
+      "response_status": 404,
+      "response_status_text": "Not Found",
+      "response_body": "{\"errors\":{\"message\":\"Character not found.\"}}",
       "response_headers": {
         "Content-Type": "text/html;charset=utf-8",
-        "Content-Length": "46",
+        "Content-Length": "45",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "X-Frame-Options": "SAMEORIGIN"

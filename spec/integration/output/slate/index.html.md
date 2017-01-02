@@ -4,135 +4,35 @@ search: true
 ---
 
 
-# Orders
-
-
-## Creating an order
-
-First, create an order, then make a later request to get it back
-
-```json
-
-
-```
-
-### HTTP Request
-
-`POST http://example.com/orders`
-
-```json
-
-{
-  "email": "email@example.com",
-  "name": "Order 1",
-  "paid": true
-}
-```
-
-### HTTP Request
-
-`GET http://example.com/orders/1`
-
-### Query Parameters
-
-Parameter | Required | Description
---------- | ------- | -----------
-name | true | Name of order
-paid | true | If the order has been paid for
-email | false | Email of the user that placed the order
-
-### Response Fields
-
-Parameter | Type | Description
---------- | ------- | -----------
-name | string | Name of order
-paid | integer | If the order has been paid for
-email | string | Email of the user that placed the order
-
-## Viewing an order
-
-Make a request to get an order
-
-```json
-
-{
-  "email": "email@example.com",
-  "name": "Order 1",
-  "paid": true
-}
-```
-
-### HTTP Request
-
-`GET http://example.com/orders/1`
-
-
-### Response Fields
-
-Parameter | Type | Description
---------- | ------- | -----------
-name | string | Name of order
-paid | integer | If the order has been paid for
-email | string | Email of the user that placed the order
-
-## Deleting an order
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Qui est in parvis malis.
-
-Duo Reges: constructio interrete. Luxuriam non reprehendit, modo sit vacua infinita cupiditate et timore. Non enim iam stirpis bonum quaeret, sed animalis.
-
-Haec quo modo conveniant, non sane intellego. Verum hoc idem saepe faciamus. Nihilo beatiorem esse Metellum quam Regulum.
-
-
-```json
-
-{
-  "success": "Character 1 deleted"
-}
-```
-
-### HTTP Request
-
-`DELETE http://example.com/orders/1`
-
-
-
-# Other Resource
-
-
-## has an overriden resource name
-
-
-
-```json
-
-
-```
-
-### HTTP Request
-
-`HEAD http://example.com/foo`
-
-
-
 # Characters
 
 
-## Fetching a Character
+## Listing all characters
 
-For getting information about a Character.
+Getting all the characters.
+
+For when you need everything!
+
 
 ```json
 
 {
-  "id": "1",
-  "name": "Character 1"
+  "data": [
+    {
+      "id": 1,
+      "name": "Finn the Human"
+    },
+    {
+      "id": 2,
+      "name": "Jake the Dog"
+    }
+  ]
 }
 ```
 
 ### HTTP Request
 
-`GET http://example.com/characters/1`
+`GET http://example.com/characters`
 
 
 ### Response Fields
@@ -142,7 +42,38 @@ Parameter | Type | Description
 id | integer | The id of a character
 name | string | The character's name
 
-## When a Character can not be found
+## Fetching a Character
+
+For getting information about a Character.
+
+```json
+
+{
+  "character": {
+    "id": 1,
+    "name": "Finn the Human"
+  }
+}
+```
+
+### HTTP Request
+
+`GET http://example.com/characters/1`
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+id | true | The id of a character
+
+### Response Fields
+
+Parameter | Type | Description
+--------- | ------- | -----------
+id | integer | The id of a character
+name | string | The character's name
+
+## When a Character cannot be found
 
 Returns an error
 
@@ -173,7 +104,7 @@ For getting information about a Character.
 ```json
 
 {
-  "success": "Character 1 deleted"
+  "message": "Character not found."
 }
 ```
 
@@ -181,9 +112,114 @@ For getting information about a Character.
 
 `DELETE http://example.com/characters/1`
 
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+id | true | The id of a character
 
 ### Response Fields
 
 Parameter | Type | Description
 --------- | ------- | -----------
-id | integer | The id of a character
+message | string | Success message
+
+## Characters head
+
+
+
+```json
+
+
+```
+
+### HTTP Request
+
+`HEAD http://example.com/characters`
+
+
+
+# Places
+
+
+## Listing all places
+
+
+
+```json
+
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Candy Kingdom"
+    },
+    {
+      "id": 2,
+      "name": "Tree Fort"
+    }
+  ]
+}
+```
+
+### HTTP Request
+
+`GET http://example.com/places`
+
+
+### Response Fields
+
+Parameter | Type | Description
+--------- | ------- | -----------
+id | integer | The id of the place
+name | string | The place's name
+
+## Fetching all places and page 2
+
+
+
+```json
+
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Candy Kingdom"
+    },
+    {
+      "id": 2,
+      "name": "Tree Fort"
+    }
+  ]
+}
+```
+
+### HTTP Request
+
+`GET http://example.com/places`
+
+```json
+
+{
+  "data": [
+
+  ]
+}
+```
+
+### HTTP Request
+
+`GET http://example.com/places?page=2`
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+page | false | The page
+
+### Response Fields
+
+Parameter | Type | Description
+--------- | ------- | -----------
+id | integer | The id of the place
+name | string | The place's name

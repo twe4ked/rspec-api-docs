@@ -1,0 +1,80 @@
+{
+  "resource": "Places",
+  "resource_explanation": null,
+  "http_method": "GET",
+  "route": "/places",
+  "description": "Fetching all places and page 2",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "",
+      "name": "page",
+      "description": "The page"
+    }
+  ],
+  "response_fields": [
+    {
+      "scope": "data<Array>",
+      "Type": "integer",
+      "name": "id",
+      "description": "The id of the place"
+    },
+    {
+      "scope": "data<Array>",
+      "Type": "string",
+      "name": "name",
+      "description": "The place's name"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/places",
+      "request_body": null,
+      "request_headers": {
+        "Cookie": "",
+        "Host": "example.org"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\"data\":[{\"id\":1,\"name\":\"Candy Kingdom\"},{\"id\":2,\"name\":\"Tree Fort\"}]}",
+      "response_headers": {
+        "Content-Type": "text/html;charset=utf-8",
+        "Content-Length": "70",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "SAMEORIGIN"
+      },
+      "response_content_type": "text/html;charset=utf-8",
+      "curl": null
+    },
+    {
+      "request_method": "GET",
+      "request_path": "/places?page=2",
+      "request_body": null,
+      "request_headers": {
+        "Cookie": "",
+        "Host": "example.org"
+      },
+      "request_query_parameters": {
+        "page": "2"
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\"data\":[]}",
+      "response_headers": {
+        "Content-Type": "text/html;charset=utf-8",
+        "Content-Length": "11",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "SAMEORIGIN"
+      },
+      "response_content_type": "text/html;charset=utf-8",
+      "curl": null
+    }
+  ]
+}
