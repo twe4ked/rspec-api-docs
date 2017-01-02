@@ -10,13 +10,13 @@
   ],
   "response_fields": [
     {
-      "scope": "data<Array>",
+      "scope": "data",
       "Type": "integer",
       "name": "id",
       "description": "The id of a character"
     },
     {
-      "scope": "data<Array>",
+      "scope": "data",
       "Type": "string",
       "name": "name",
       "description": "The character's name"

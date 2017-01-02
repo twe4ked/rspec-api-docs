@@ -81,8 +81,8 @@ RSpec.describe RspecApiDocs do
           For when you need everything!
         EOF
 
-        field :id, 'The id of a character', scope: [:data, '<Array>'], type: 'integer'
-        field :name, "The character's name", scope: [:data, '<Array>'], type: 'string'
+        field :id, 'The id of a character', scope: [:data, nil], type: 'integer'
+        field :name, "The character's name", scope: [:data, nil], type: 'string'
       end
 
       get '/characters'

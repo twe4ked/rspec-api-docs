@@ -38,12 +38,12 @@
         ],
         "responseFields": [
           {
-            "name": "data[<Array>][id]",
+            "name": "data[][id]",
             "description": "The id of a character",
             "type": "integer"
           },
           {
-            "name": "data[<Array>][name]",
+            "name": "data[][name]",
             "description": "The character's name",
             "type": "string"
           }
