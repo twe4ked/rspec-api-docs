@@ -33,7 +33,7 @@ module RspecApiDocs
           parameters.map do |parameter|
             result = {}
             result[:required] = true if parameter.required
-            result[:scope] = parameter.scope
+            result[:scope] = parameter.scope.join
             result = result.merge(
               name: parameter.name,
               description: parameter.description,
@@ -45,7 +45,7 @@ module RspecApiDocs
         def response_fields(fields)
           fields.map do |field|
             {
-              scope: field.scope,
+              scope: field.scope.join,
               Type: field.type,
               name: field.name,
               description: field.description,

@@ -10,9 +10,9 @@ module RspecApiDocs
 
       # The scope of the parameter
       #
-      # @return [String]
+      # @return [Array<String>]
       def scope
-        parameter[:scope].join
+        parameter[:scope]
       end
 
       # If the parameter is required

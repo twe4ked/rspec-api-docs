@@ -10,9 +10,9 @@ module RspecApiDocs
 
       # The scope of the response field
       #
-      # @return [String]
+      # @return [Array<String>]
       def scope
-        field[:scope].join
+        field[:scope]
       end
 
       # The type of the response field
