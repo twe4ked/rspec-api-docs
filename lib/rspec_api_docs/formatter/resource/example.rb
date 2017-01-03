@@ -95,12 +95,17 @@ module RspecApiDocs
 
       # http://stackoverflow.com/a/33235714/826820
       def request_headers(env)
-        Hash[
+        headers = Hash[
           *env.select { |k,v| k.start_with? 'HTTP_' }
             .collect { |k,v| [k.sub(/^HTTP_/, ''), v] }
             .collect { |k,v| [k.split('_').collect(&:capitalize).join('-'), v] }
             .sort.flatten
         ]
+
+        # TODO: Extract, test, and document
+        headers.reject do |k, v|
+          RspecApiDocs.configuration.exclude_request_headers.include?(k)
+        end
       end
 
       def request_path(request)
