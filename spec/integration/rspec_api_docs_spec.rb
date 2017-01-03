@@ -1,3 +1,4 @@
+require 'base64'
 require 'rack/test'
 require 'sinatra'
 require 'rspec_api_docs/dsl'
@@ -85,7 +86,7 @@ RSpec.describe RspecApiDocs do
         field :name, "The character's name", scope: [:data, nil], type: 'string'
       end
 
-      get '/characters'
+      get '/characters', {}, {'HTTP_AUTHORIZATION' => "Basic #{Base64.encode64('finn:hunter2')}"}
     end
 
     it 'returns a character' do
