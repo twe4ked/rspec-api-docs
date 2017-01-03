@@ -1,3 +1,5 @@
+require 'rspec_api_docs/formatter/resource/example/request_headers'
+
 module RspecApiDocs
   class Resource
     class Example
@@ -93,19 +95,8 @@ module RspecApiDocs
         metadata.fetch(:requests, []).reject { |pair| pair.any?(&:nil?) }
       end
 
-      # http://stackoverflow.com/a/33235714/826820
       def request_headers(env)
-        headers = Hash[
-          *env.select { |k,v| k.start_with? 'HTTP_' }
-            .collect { |k,v| [k.sub(/^HTTP_/, ''), v] }
-            .collect { |k,v| [k.split('_').collect(&:capitalize).join('-'), v] }
-            .sort.flatten
-        ]
-
-        # TODO: Extract, test, and document
-        headers.reject do |k, v|
-          RspecApiDocs.configuration.exclude_request_headers.include?(k)
-        end
+        RequestHeaders.call(env)
       end
 
       def request_path(request)
