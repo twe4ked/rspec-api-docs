@@ -40,7 +40,7 @@ module RspecApiDocs
     #
     # @return [void]
     def close(null_notification)
-      renderer.new(resources.values).render
+      renderer.new(resources.values.sort_by(&:name)).render
     end
 
     private
