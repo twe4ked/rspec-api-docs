@@ -6,11 +6,6 @@ module RspecApiDocs
   class Resource
     attr_reader :rspec_example
 
-    # Returns an array of {Example}s
-    #
-    # @return [Array<Example>]
-    attr_accessor :examples
-
     def initialize(rspec_example)
       @rspec_example = rspec_example
       @examples = []
@@ -32,6 +27,13 @@ module RspecApiDocs
     # @return [String]
     def description
       metadata[:resource_description]
+    end
+
+    # Returns an array of {Example}s
+    #
+    # @return [Array<Example>]
+    def examples
+      @examples.sort_by(&:name)
     end
 
     # Add an example

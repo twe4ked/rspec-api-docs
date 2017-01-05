@@ -5,25 +5,11 @@
       "explanation": null,
       "examples": [
         {
-          "description": "Listing all characters",
-          "link": "characters/listing_all_characters.json",
+          "description": "Characters head",
+          "link": "characters/characters_head.json",
           "groups": "all",
           "route": "/characters",
-          "method": "get"
-        },
-        {
-          "description": "Fetching a Character",
-          "link": "characters/fetching_a_character.json",
-          "groups": "all",
-          "route": "/characters/:id",
-          "method": "get"
-        },
-        {
-          "description": "When a Character cannot be found",
-          "link": "characters/when_a_character_cannot_be_found.json",
-          "groups": "all",
-          "route": "/characters/:id",
-          "method": "get"
+          "method": "head"
         },
         {
           "description": "Deleting a Character",
@@ -33,11 +19,25 @@
           "method": "delete"
         },
         {
-          "description": "Characters head",
-          "link": "characters/characters_head.json",
+          "description": "Fetching a Character",
+          "link": "characters/fetching_a_character.json",
+          "groups": "all",
+          "route": "/characters/:id",
+          "method": "get"
+        },
+        {
+          "description": "Listing all characters",
+          "link": "characters/listing_all_characters.json",
           "groups": "all",
           "route": "/characters",
-          "method": "head"
+          "method": "get"
+        },
+        {
+          "description": "When a Character cannot be found",
+          "link": "characters/when_a_character_cannot_be_found.json",
+          "groups": "all",
+          "route": "/characters/:id",
+          "method": "get"
         }
       ]
     },
@@ -46,15 +46,15 @@
       "explanation": null,
       "examples": [
         {
-          "description": "Listing all places",
-          "link": "places/listing_all_places.json",
+          "description": "Fetching all places and page 2",
+          "link": "places/fetching_all_places_and_page__.json",
           "groups": "all",
           "route": "/places",
           "method": "get"
         },
         {
-          "description": "Fetching all places and page 2",
-          "link": "places/fetching_all_places_and_page__.json",
+          "description": "Listing all places",
+          "link": "places/listing_all_places.json",
           "groups": "all",
           "route": "/places",
           "method": "get"
