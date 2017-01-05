@@ -21,7 +21,7 @@ module RspecApiDocs
           let(:index_serializer) { IndexSerializer.new([resource]) }
 
           before do
-            resource.examples << Resource::Example.new(rspec_example)
+            resource.add_example Resource::Example.new(rspec_example)
           end
 
           it 'includes a link' do

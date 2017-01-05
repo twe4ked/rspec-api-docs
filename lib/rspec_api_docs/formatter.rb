@@ -33,7 +33,7 @@ module RspecApiDocs
       return unless rspec_example.metadata[METADATA_NAMESPACE]
       resource = Resource.new(rspec_example)
       resources[resource.name] ||= resource
-      resources[resource.name].examples << Resource::Example.new(rspec_example)
+      resources[resource.name].add_example Resource::Example.new(rspec_example)
     end
 
     # Calls the configured renderer with the stored {Resource}s.

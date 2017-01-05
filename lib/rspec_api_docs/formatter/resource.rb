@@ -34,6 +34,13 @@ module RspecApiDocs
       metadata[:resource_description]
     end
 
+    # Add an example
+    #
+    # @return [void]
+    def add_example(example)
+      @examples << example
+    end
+
     private
 
     def metadata
