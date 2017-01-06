@@ -154,6 +154,12 @@ Accepts a string that describes the resource.
 
 > Characters inhabit the Land of Ooo.
 
+#### `resource_precedence`
+
+Accepts an optional integer.
+
+Lower numbers are ordered first.
+
 #### `name`
 
 Accepts a string of the name of the resource.
@@ -227,6 +233,12 @@ Accepts a `note` and optional `level`.
 note 'You need to supply an id!'
 note :warning, "An error will be thrown if you don't supply an id!"
 ```
+
+#### `precedence`
+
+Accepts an optional integer.
+
+Lower numbers are ordered first.
 
 See the integration specs for more examples of the DSL in use.
 
