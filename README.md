@@ -273,7 +273,6 @@ $ ./bin/generate_integration_docs
 
 ## TODO
 
-- Allow specifying an order (`precedence`?)
 - Store fields/params with scope so they can share names
 - Allow providing example data to fields/params to handle values that change
 

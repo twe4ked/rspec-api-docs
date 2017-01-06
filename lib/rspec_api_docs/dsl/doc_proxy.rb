@@ -36,6 +36,15 @@ module RspecApiDocs
         metadata[METADATA_NAMESPACE][:resource_description] = value
       end
 
+      # For setting the precedence of the resource
+      #
+      # Lower numbers will be ordered higher
+      #
+      # @param value [Integer] the precedence
+      def resource_precedence(value)
+        metadata[METADATA_NAMESPACE][:resource_precedence] = value
+      end
+
       # For setting a description of the example.
       #
       # E.g. "Allows you to return a single character."

@@ -43,6 +43,11 @@ module RspecApiDocs
       @examples << example
     end
 
+    # @return [String, nil]
+    def precedence
+      metadata[:resource_precedence]
+    end
+
     def inspect
       "#<RspecApiDocs::Resource #{name.inspect}, @examples=#{examples.inspect}>"
     end
