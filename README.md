@@ -267,6 +267,34 @@ end
 
 See [the documentation](http://www.rubydoc.info/github/twe4ked/rspec-api-docs/master).
 
+## Rake tasks
+
+``` ruby
+require 'rspec_api_docs/rake_task'
+
+RspecApiDocs::Rake.new do |task| # docs:generate
+  # Pattern for where to find the specs
+  task.pattern = 'spec/requests/**/*_spec.rb'
+
+  # Extra RSpec options
+  task.rspec_opts = ['--format progress']
+end
+
+RspecApiDocs::Rake.new do |task| # docs:ensure_updated
+  # Same as options above with some extras for when verify is true
+
+  # Raise an error if the generated docs don't match the existing docs
+  # The verify option only works with the :json renderer.
+  task.verify = true
+
+  # The existing (committed) output file
+  task.existing_file = 'docs/index.json'
+end
+
+# Non-verify task with custom name
+RspecApiDocs::Rake.new :custom_task_name
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run
