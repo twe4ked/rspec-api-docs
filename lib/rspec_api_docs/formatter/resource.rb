@@ -43,6 +43,10 @@ module RspecApiDocs
       @examples << example
     end
 
+    def inspect
+      "#<RspecApiDocs::Resource #{name.inspect}, @examples=#{examples.inspect}>"
+    end
+
     private
 
     def metadata

@@ -89,6 +89,10 @@ module RspecApiDocs
         metadata.fetch(:note, {})
       end
 
+      def inspect
+        "#<RspecApiDocs::Resource::Example #{name.inspect}>"
+      end
+
       private
 
       def request_response_pairs
