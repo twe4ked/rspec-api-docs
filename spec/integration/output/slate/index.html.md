@@ -7,6 +7,41 @@ search: true
 # Characters
 
 
+## Listing all characters
+
+Getting all the characters.
+
+For when you need everything!
+
+
+```json
+
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Finn the Human"
+    },
+    {
+      "id": 2,
+      "name": "Jake the Dog"
+    }
+  ]
+}
+```
+
+### HTTP Request
+
+`GET http://example.com/characters`
+
+
+### Response Fields
+
+Parameter | Type | Description
+--------- | ------- | -----------
+id | integer | The id of a character
+name | string | The character's name
+
 ## Characters head
 
 
@@ -72,41 +107,6 @@ For getting information about a Character.
 Parameter | Required | Description
 --------- | ------- | -----------
 id | true | The id of a character
-
-### Response Fields
-
-Parameter | Type | Description
---------- | ------- | -----------
-id | integer | The id of a character
-name | string | The character's name
-
-## Listing all characters
-
-Getting all the characters.
-
-For when you need everything!
-
-
-```json
-
-{
-  "data": [
-    {
-      "id": 1,
-      "name": "Finn the Human"
-    },
-    {
-      "id": 2,
-      "name": "Jake the Dog"
-    }
-  ]
-}
-```
-
-### HTTP Request
-
-`GET http://example.com/characters`
-
 
 ### Response Fields
 

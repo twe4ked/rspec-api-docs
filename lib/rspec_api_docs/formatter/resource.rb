@@ -33,7 +33,7 @@ module RspecApiDocs
     #
     # @return [Array<Example>]
     def examples
-      @examples.sort_by(&:name)
+      @examples.sort_by { |example| [example.precedence, example.name].join }
     end
 
     # Add an example

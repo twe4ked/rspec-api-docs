@@ -5,6 +5,13 @@
       "explanation": null,
       "examples": [
         {
+          "description": "Listing all characters",
+          "link": "characters/listing_all_characters.json",
+          "groups": "all",
+          "route": "/characters",
+          "method": "get"
+        },
+        {
           "description": "Characters head",
           "link": "characters/characters_head.json",
           "groups": "all",
@@ -23,13 +30,6 @@
           "link": "characters/fetching_a_character.json",
           "groups": "all",
           "route": "/characters/:id",
-          "method": "get"
-        },
-        {
-          "description": "Listing all characters",
-          "link": "characters/listing_all_characters.json",
-          "groups": "all",
-          "route": "/characters",
           "method": "get"
         },
         {

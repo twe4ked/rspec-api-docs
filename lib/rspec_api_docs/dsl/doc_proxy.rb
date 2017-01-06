@@ -126,6 +126,15 @@ module RspecApiDocs
         metadata[METADATA_NAMESPACE][:note] ||= {}
         metadata[METADATA_NAMESPACE][:note][level] = value
       end
+
+      # For setting the precedence of an example
+      #
+      # Lower numbers will be ordered higher
+      #
+      # @param value [Integer] the precedence
+      def precedence(value)
+        metadata[METADATA_NAMESPACE][:example_precedence] = value
+      end
     end
   end
 end

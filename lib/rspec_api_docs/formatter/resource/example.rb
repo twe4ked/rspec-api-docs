@@ -89,6 +89,11 @@ module RspecApiDocs
         metadata.fetch(:note, {})
       end
 
+      # @return [String, nil]
+      def precedence
+        metadata[:example_precedence]
+      end
+
       def inspect
         "#<RspecApiDocs::Resource::Example #{name.inspect}>"
       end
