@@ -274,7 +274,6 @@ $ ./bin/generate_integration_docs
 ## TODO
 
 - Allow specifying an order (`precedence`?)
-- Order Resources and Examples alphabetically
 
 ## Contributing
 
