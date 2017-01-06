@@ -10,23 +10,23 @@ module RspecApiDocs
       extend RSpec::Matchers
     end
 
-    attr_reader :name
-
     attr_accessor \
       :verbose,
       :pattern,
       :rspec_opts,
       :existing_file,
-      :dir
+      :dir,
+      :verify
 
     def initialize(name = nil, &block)
-      @name = name || :'docs:ensure_updated'
+      @name = name
       @verbose = true
       @pattern = 'spec/requests/**/*_spec.rb'
       @rspec_opts = []
       @existing_file = 'docs/index.json'
+      @verify = false
 
-      block.call(self)
+      block.call(self) if block
 
       define
     end
@@ -34,17 +34,13 @@ module RspecApiDocs
     private
 
     def define
-      desc 'Ensure API docs are up to date'
+      desc default_desc
       task name do
-        @dir = Dir.mktmpdir
+        @dir = Dir.mktmpdir if verify
 
         rspec_task.run_task(verbose)
 
-        configure_rspec
-
-        RSpecMatchers.expect(generated).to RSpecMatchers.eq(existing)
-
-        remove_dir
+        verify! if verify
       end
     end
 
@@ -59,11 +55,7 @@ module RspecApiDocs
     def rspec_task
       RSpec::Core::RakeTask.new.tap do |task|
         task.pattern = pattern
-        task.rspec_opts = rspec_opts + [
-          '--format RspecApiDocs::Formatter',
-          '--order defined',
-          "--require #{spec_helper.path}",
-        ]
+        task.rspec_opts = task_rspec_opts
       end
     end
 
@@ -86,6 +78,32 @@ module RspecApiDocs
 
     def remove_dir
       FileUtils.remove_entry dir
+    end
+
+    def verify!
+      configure_rspec
+
+      RSpecMatchers.expect(generated).to RSpecMatchers.eq(existing)
+
+      remove_dir
+    end
+
+    def task_rspec_opts
+      arr = rspec_opts + [
+        '--format RspecApiDocs::Formatter',
+        '--order defined',
+      ]
+      arr += ["--require #{spec_helper.path}"] if verify
+      arr
+    end
+
+    def name
+      @name ||
+        verify ? :'docs:ensure_updated' : :'docs:generate'
+    end
+
+    def default_desc
+      verify ? 'Ensure API docs are up to date' : 'Generate API docs'
     end
   end
 end

@@ -24,6 +24,15 @@ RspecApiDocs::RakeTask.new do |task|
   ]
   task.pattern = 'spec/integration/rspec_api_docs_spec.rb'
   task.existing_file = 'spec/integration/output/json/index.json'
+  task.verify = true
+end
+
+RspecApiDocs::RakeTask.new do |task|
+  task.verbose = false
+  task.rspec_opts = [
+    '--format progress',
+  ]
+  task.pattern = 'spec/integration/rspec_api_docs_spec.rb'
 end
 
 task default: [:rspec, :rubocop, :generate_integration_docs]
