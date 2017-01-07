@@ -1,3 +1,5 @@
+# TODO: Move Resource out of formatter dir
+require 'rspec_api_docs/formatter/resource'
 require 'rspec_api_docs/after/type_checker'
 
 module RspecApiDocs
@@ -15,8 +17,11 @@ module RspecApiDocs
 
       metadata[:requests].each do |request, response|
         request.params.each do |key, value|
-          if metadata[:parameters] && metadata[:parameters].has_key?(key.to_sym)
-            After::TypeChecker.call(type: metadata[:parameters][key.to_sym][:type], value: value)
+          parameter = RspecApiDocs::Resource::Example.new(example).parameters
+            .select { |parameter| parameter.name == key.to_sym }.first
+
+          if parameter
+            After::TypeChecker.call(type: parameter.type, value: value)
           else
             raise UndocumentedParameter, "undocumented parameter included in request #{key.inspect}"
           end

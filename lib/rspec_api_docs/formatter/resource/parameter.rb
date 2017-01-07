@@ -34,6 +34,11 @@ module RspecApiDocs
         name == other.name &&
           parameter == other.parameter
       end
+
+      # @return [String, nil]
+      def type
+        parameter[:type]
+      end
     end
   end
 end

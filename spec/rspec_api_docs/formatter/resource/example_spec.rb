@@ -42,12 +42,12 @@ module RspecApiDocs
           let(:_metadata) do
             {
               parameters: {
-                id: {
+                {name: :id} => {
                   description: 'The character id',
                   scope: ['character'],
                   required: true,
                 },
-                name: {
+                {name: :name} => {
                   description: 'The name of character',
                   scope: ['character'],
                 },
@@ -80,12 +80,12 @@ module RspecApiDocs
           let(:_metadata) do
             {
               fields: {
-                id: {
+                {name: :id} => {
                   description: 'The character id',
                   scope: ['character'],
                   type: 'integer',
                 },
-                name: {
+                {name: :name} => {
                   description: 'The name of character',
                   scope: ['character'],
                   type: 'string',

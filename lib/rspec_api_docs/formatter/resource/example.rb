@@ -31,8 +31,8 @@ module RspecApiDocs
       #
       # @return [Array<Parameter>]
       def parameters
-        metadata.fetch(:parameters, []).map do |name, parameter|
-          Parameter.new(name, parameter)
+        metadata.fetch(:parameters, []).map do |name_hash, parameter|
+          Parameter.new(name_hash[:name], parameter)
         end
       end
 
@@ -40,8 +40,8 @@ module RspecApiDocs
       #
       # @return [Array<ResponseField>]
       def response_fields
-        metadata.fetch(:fields, []).map do |name, field|
-          ResponseField.new(name, field)
+        metadata.fetch(:fields, []).map do |name_hash, field|
+          ResponseField.new(name_hash[:name], field)
         end
       end
 

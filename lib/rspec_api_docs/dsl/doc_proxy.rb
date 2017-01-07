@@ -88,7 +88,7 @@ module RspecApiDocs
       # @return [void]
       def field(name, description, scope: [], type: nil)
         metadata[METADATA_NAMESPACE][:fields] ||= {}
-        metadata[METADATA_NAMESPACE][:fields][name] = {
+        metadata[METADATA_NAMESPACE][:fields][{name: name, scope: scope}] = {
           description: description,
           scope: Array(scope),
           type: type,
@@ -116,7 +116,7 @@ module RspecApiDocs
       # @return [void]
       def param(name, description, scope: [], type: nil, required: false)
         metadata[METADATA_NAMESPACE][:parameters] ||= {}
-        metadata[METADATA_NAMESPACE][:parameters][name] = {
+        metadata[METADATA_NAMESPACE][:parameters][{name: name, scope: scope}] = {
           description: description,
           scope: Array(scope),
           type: type,
