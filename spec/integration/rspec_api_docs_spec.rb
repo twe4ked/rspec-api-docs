@@ -29,7 +29,7 @@ RSpec.describe RspecApiDocs do
       character = CHARACTERS[id]
 
       if character
-        JSON.dump(character: {id: id}.merge(character))
+        JSON.dump(character: {id: (1..100).to_a.sample}.merge(character))
       else
         status 404
         JSON.dump(
@@ -101,7 +101,7 @@ RSpec.describe RspecApiDocs do
 
         param :id, 'The id of a character', type: 'integer', required: true
 
-        field :id, 'The id of a character', scope: :character, type: 'integer'
+        field :id, 'The id of a character', scope: :character, type: 'integer', example: 42
         field :name, "The character's name", scope: :character, type: 'string'
       end
 

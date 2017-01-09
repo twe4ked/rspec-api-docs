@@ -92,7 +92,7 @@ For getting information about a Character.
 
 {
   "character": {
-    "id": 1,
+    "id": 42,
     "name": "Finn the Human"
   }
 }

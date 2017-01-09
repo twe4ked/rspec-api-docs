@@ -29,6 +29,11 @@ module RspecApiDocs
         field[:description]
       end
 
+      # Example value
+      def example
+        field[:example]
+      end
+
       # @return [true, false]
       def ==(other)
         name == other.name &&

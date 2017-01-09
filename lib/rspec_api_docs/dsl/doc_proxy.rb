@@ -85,13 +85,15 @@ module RspecApiDocs
       # @param description [String] a description of the response field
       # @param scope [Symbol, Array<Symbol>] how the field is scoped
       # @param type [String]
+      # @param example an example value
       # @return [void]
-      def field(name, description, scope: [], type: nil)
+      def field(name, description, scope: [], type: nil, example: nil)
         metadata[METADATA_NAMESPACE][:fields] ||= {}
         metadata[METADATA_NAMESPACE][:fields][{name: name, scope: scope}] = {
           description: description,
           scope: Array(scope),
           type: type,
+          example: example,
         }
       end
 

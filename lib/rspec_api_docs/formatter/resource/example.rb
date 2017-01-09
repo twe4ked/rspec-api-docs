@@ -1,4 +1,5 @@
 require 'rspec_api_docs/formatter/resource/example/request_headers'
+require 'rspec_api_docs/formatter/resource/example/deep_hash_set'
 
 module RspecApiDocs
   class Resource
@@ -120,7 +121,15 @@ module RspecApiDocs
       end
 
       def response_body(body)
-        body.empty? ? nil : body
+        unless body.empty?
+          parsed_body = JSON.parse(body, symbolize_names: true)
+          response_fields.each do |f|
+            unless f.example.nil?
+              DeepHashSet.call(parsed_body, f.scope + [f.name], f.example)
+            end
+          end
+          JSON.dump(parsed_body)
+        end
       end
 
       def response_status_text(status)

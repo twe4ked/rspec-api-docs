@@ -191,19 +191,23 @@ Note: This defaults to the path of the first route requested in the example.
 
 #### `field`
 
-Accepts a `name`, `description`, and optionally a `scope` and `type`.
+Accepts a `name`, `description`, and optionally a `scope`, `type`, and `example`.
 
 - `name` [`Symbol`] the name of the response field
 - `description` [`String`] a description of the response field
 - `scope` [`Symbol`, `Array<Symbol>`] _(optional)_ how the field is scoped
 - `type` [`String`] _(optional)_ the type of the returned field
+- `example` _(optional)_ an example value
 
 This can be called multiple times for each response field.
 
 ``` ruby
-field :id, 'The id of a character', scope: :character, type: 'integer'
+field :id, 'The id of a character', scope: :character, type: 'integer', example: 42
 field :name, "The character's name", scope: :character, type: 'string'
 ```
+
+The `example` is useful if the data might change (i.e. a database ID column).
+The value will be substituted in the resulting JSON.
 
 #### `param`
 

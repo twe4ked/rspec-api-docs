@@ -164,10 +164,10 @@
             "requestContentType": null,
             "responseStatus": 200,
             "responseStatusText": "OK",
-            "responseBody": "{\"character\":{\"id\":1,\"name\":\"Finn the Human\"}}",
+            "responseBody": "{\"character\":{\"id\":42,\"name\":\"Finn the Human\"}}",
             "responseHeaders": {
               "Content-Type": "text/html;charset=utf-8",
-              "Content-Length": "46",
+              "Content-Length": "47",
               "X-XSS-Protection": "1; mode=block",
               "X-Content-Type-Options": "nosniff",
               "X-Frame-Options": "SAMEORIGIN"
