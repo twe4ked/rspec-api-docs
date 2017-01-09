@@ -35,7 +35,8 @@ module RspecApiDocs
         attr_reader :node
 
         def deep_set_value_at_array(index)
-          deep_find(hash, node).each do |inner_hash|
+          array = deep_find(hash, node)
+          array && array.each do |inner_hash|
             DeepHashSet.call(inner_hash, keys[index+1..-1], value)
           end
         end
@@ -48,7 +49,11 @@ module RspecApiDocs
         end
 
         def deep_find(hash, keys)
-          keys.inject(hash) { |h, k| h && h[k] }
+          begin
+            keys.inject(hash) { |h, k| h && h[k] }
+          rescue TypeError
+            # TODO: Is there a nicer way to do this?
+          end
         end
       end
     end
