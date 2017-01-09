@@ -29,7 +29,7 @@ RSpec.describe RspecApiDocs do
       character = CHARACTERS[id]
 
       if character
-        JSON.dump(character: {id: (1..100).to_a.sample}.merge(character))
+        JSON.dump(character: {id: (10..99).to_a.sample}.merge(character))
       else
         status 404
         JSON.dump(
