@@ -43,7 +43,7 @@ module RspecApiDocs
           context 'pointing at a hash within an array' do
             let(:keys) { [:foo, :qux, [], :foo] }
 
-            it 'works with an array' do
+            it 'changes the value' do
               expect(call).to eq(
                 foo: {
                   bar: {
