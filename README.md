@@ -317,7 +317,7 @@ $ ./bin/generate_integration_docs
 
 ## TODO
 
-- Allow providing example data to fields/params to handle values that change
+- Allow providing example data to params to handle values that change
 
 ## Contributing
 
