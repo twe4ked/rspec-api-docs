@@ -20,6 +20,7 @@ module RspecApiDocs
             case
             when key.empty? # TODO: should this require `key == []`?
               deep_set_value_at_array(index)
+              break
             when index == keys.size - 1
               set_value_at(key)
             else
@@ -49,11 +50,7 @@ module RspecApiDocs
         end
 
         def deep_find(hash, keys)
-          begin
-            keys.inject(hash) { |h, k| h && h[k] }
-          rescue TypeError
-            # TODO: Is there a nicer way to do this?
-          end
+          keys.inject(hash) { |h, k| h && h[k] }
         end
       end
     end
