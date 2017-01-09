@@ -315,10 +315,6 @@ Regenerate this project's integration spec docs locally:
 $ ./bin/generate_integration_docs
 ```
 
-## TODO
-
-- Allow providing example data to params to handle values that change
-
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at
