@@ -10,7 +10,14 @@ module RspecApiDocs
 
     def [](rspec_example)
       resource = Resource.new(rspec_example)
-      @resources[resource.name] ||= resource
+
+      existing_resource = @resources[resource.name]
+      if existing_resource
+        existing_resource.precedence = [existing_resource.precedence, resource.precedence].min
+        existing_resource
+      else
+        @resources[resource.name] = resource
+      end
     end
   end
 end

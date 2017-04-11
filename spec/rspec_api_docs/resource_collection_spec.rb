@@ -32,5 +32,43 @@ module RspecApiDocs
         )
       end
     end
+
+    describe '#[]' do
+      it 'stores the resource' do
+        collection = ResourceCollection.new
+
+        rspec_example = double metadata: {
+          METADATA_NAMESPACE => {
+            resource_name: 'foo',
+          },
+        }
+
+        collection[rspec_example]
+
+        expect(collection.all.map(&:name)).to eq ['foo']
+      end
+
+      it 'maintains the lowest precedence' do
+        collection = ResourceCollection.new
+
+        rspec_example_1 = double metadata: {
+          METADATA_NAMESPACE => {
+            resource_name: 'foo',
+          },
+        }
+        collection[rspec_example_1]
+
+        rspec_example_1 = double metadata: {
+          METADATA_NAMESPACE => {
+            resource_name: 'foo',
+            resource_precedence: 10,
+          },
+        }
+        collection[rspec_example_1]
+
+        expect(collection.all.map(&:name)).to eq ['foo']
+        expect(collection.all.map(&:precedence)).to eq [10]
+      end
+    end
   end
 end

@@ -47,7 +47,14 @@ module RspecApiDocs
 
     # @return [Integer]
     def precedence
-      metadata.fetch(:resource_precedence, MAX_PRECEDENCE)
+      @precedence ||= metadata.fetch(:resource_precedence, MAX_PRECEDENCE)
+    end
+
+    # Set the resource precedence
+    #
+    # @return [void]
+    def precedence=(value)
+      @precedence = value
     end
 
     def inspect
