@@ -8,12 +8,9 @@ module RspecApiDocs
       @resources.values.sort_by { |resource| [resource.precedence, resource.name] }
     end
 
-    def []=(name, resource)
-      @resources[name] = resource
-    end
-
-    def [](value)
-      @resources[value]
+    def [](rspec_example)
+      resource = Resource.new(rspec_example)
+      @resources[resource.name] ||= resource
     end
   end
 end

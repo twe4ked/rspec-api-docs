@@ -32,9 +32,7 @@ module RspecApiDocs
     def example_passed(example_notification)
       rspec_example = example_notification.example
       return unless rspec_example.metadata[METADATA_NAMESPACE]
-      resource = Resource.new(rspec_example)
-      resource_collection[resource.name] ||= resource
-      resource_collection[resource.name].add_example Resource::Example.new(rspec_example)
+      resource_collection[rspec_example].add_example Resource::Example.new(rspec_example)
     end
 
     # Calls the configured renderer with the stored {Resource}s.
