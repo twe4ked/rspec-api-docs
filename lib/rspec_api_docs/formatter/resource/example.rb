@@ -98,7 +98,7 @@ module RspecApiDocs
       end
 
       def inspect
-        "#<RspecApiDocs::Resource::Example #{name.inspect}>"
+        "#<RspecApiDocs::Resource::Example #{name.inspect}, precedence: #{precedence.inspect}>"
       end
 
       private
