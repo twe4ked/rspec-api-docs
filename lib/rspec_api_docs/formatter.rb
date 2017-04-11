@@ -18,10 +18,11 @@ module RspecApiDocs
   class Formatter < RSpec::Core::Formatters::BaseFormatter
     RSpec::Core::Formatters.register self, :example_passed, :close
 
-    attr_reader :resources
+    attr_reader :renderer, :resources
 
-    def initialize(*args)
+    def initialize(*args, renderer: default_renderer)
       @resources = {}
+      @renderer = renderer
       super args
     end
 
@@ -45,7 +46,7 @@ module RspecApiDocs
 
     private
 
-    def renderer
+    def default_renderer
       value = RspecApiDocs.configuration.renderer
 
       case value
