@@ -4,6 +4,8 @@ require 'rspec_api_docs/formatter/resource/example/deep_hash_set'
 module RspecApiDocs
   class Resource
     class Example
+      MAX_PRECEDENCE = 9_999
+
       attr_reader :example
 
       def initialize(example)
@@ -90,9 +92,9 @@ module RspecApiDocs
         metadata.fetch(:note, {})
       end
 
-      # @return [String, nil]
+      # @return [Integer]
       def precedence
-        metadata[:example_precedence]
+        metadata.fetch(:example_precedence, MAX_PRECEDENCE)
       end
 
       def inspect
