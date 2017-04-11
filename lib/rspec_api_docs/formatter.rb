@@ -41,7 +41,7 @@ module RspecApiDocs
     #
     # @return [void]
     def close(null_notification)
-      renderer.new(resources.values.sort_by { |resource| [resource.precedence, resource.name].join }).render
+      renderer.new(resources.values.sort_by { |resource| [resource.precedence, resource.name] }).render
     end
 
     private

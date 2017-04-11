@@ -4,6 +4,8 @@ require 'rspec_api_docs/formatter/resource/response_field'
 
 module RspecApiDocs
   class Resource
+    MAX_PRECEDENCE = 9_999
+
     attr_reader :rspec_example
 
     def initialize(rspec_example)
@@ -43,9 +45,9 @@ module RspecApiDocs
       @examples << example
     end
 
-    # @return [String, nil]
+    # @return [Integer]
     def precedence
-      metadata[:resource_precedence]
+      metadata.fetch(:resource_precedence, MAX_PRECEDENCE)
     end
 
     def inspect
