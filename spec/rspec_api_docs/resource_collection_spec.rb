@@ -33,19 +33,21 @@ module RspecApiDocs
       end
     end
 
-    describe '#[]' do
-      it 'stores the resource' do
+    describe '#add_example' do
+      it 'stores the resource and example' do
         collection = ResourceCollection.new
 
-        rspec_example = double metadata: {
-          METADATA_NAMESPACE => {
-            resource_name: 'foo',
-          },
-        }
+        rspec_example = double :rspec_example
 
-        collection[rspec_example]
+        resource = instance_double Resource, name: 'foo'
+        expect(Resource).to receive(:new).with(rspec_example).and_return(resource)
 
-        expect(collection.all.map(&:name)).to eq ['foo']
+        _example = instance_double Resource::Example
+        expect(Resource::Example).to receive(:new).with(rspec_example).and_return(_example)
+
+        expect(resource).to receive(:add_example).with(_example)
+
+        collection.add_example(rspec_example)
       end
 
       it 'maintains the lowest precedence' do
@@ -56,7 +58,7 @@ module RspecApiDocs
             resource_name: 'foo',
           },
         }
-        collection[rspec_example_1]
+        collection.add_example(rspec_example_1)
 
         rspec_example_1 = double metadata: {
           METADATA_NAMESPACE => {
@@ -64,7 +66,7 @@ module RspecApiDocs
             resource_precedence: 10,
           },
         }
-        collection[rspec_example_1]
+        collection.add_example(rspec_example_1)
 
         expect(collection.all.map(&:name)).to eq ['foo']
         expect(collection.all.map(&:precedence)).to eq [10]
