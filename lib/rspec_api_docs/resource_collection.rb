@@ -1,7 +1,7 @@
 module RspecApiDocs
   class ResourceCollection
-    def initialize
-      @resources = {}
+    def initialize(resources = {})
+      @resources = resources
     end
 
     def all
