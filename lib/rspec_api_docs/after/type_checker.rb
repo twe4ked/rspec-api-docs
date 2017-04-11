@@ -1,5 +1,5 @@
 module RspecApiDocs
-  class After
+  module After
     class TypeChecker
       UnknownType = Class.new(BaseError)
       TypeError = Class.new(BaseError)

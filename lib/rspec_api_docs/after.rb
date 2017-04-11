@@ -5,7 +5,7 @@ require 'rspec_api_docs/after/type_checker'
 module RspecApiDocs
   UndocumentedParameter = Class.new(BaseError)
 
-  class After
+  module After
     Hook = -> (example) do
       metadata = example.metadata[METADATA_NAMESPACE]
       return unless metadata

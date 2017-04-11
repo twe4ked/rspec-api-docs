@@ -1,7 +1,7 @@
 require 'rspec_api_docs/after/type_checker'
 
 module RspecApiDocs
-  class After
+  module After
     RSpec.describe TypeChecker do
       describe '.call' do
         def call(value)
