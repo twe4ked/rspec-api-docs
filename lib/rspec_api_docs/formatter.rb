@@ -1,6 +1,7 @@
 require 'rspec/core/formatters/base_formatter'
 
 require 'rspec_api_docs'
+require 'rspec_api_docs/resource_collection'
 require 'rspec_api_docs/formatter/resource'
 require 'rspec_api_docs/formatter/renderer/json_renderer'
 require 'rspec_api_docs/formatter/renderer/raddocs_renderer'
@@ -18,10 +19,9 @@ module RspecApiDocs
   class Formatter < RSpec::Core::Formatters::BaseFormatter
     RSpec::Core::Formatters.register self, :example_passed, :close
 
-    attr_reader :renderer, :resources
+    attr_reader :renderer
 
     def initialize(*args, renderer: default_renderer)
-      @resources = {}
       @renderer = renderer
       super args
     end
@@ -33,18 +33,22 @@ module RspecApiDocs
       rspec_example = example_notification.example
       return unless rspec_example.metadata[METADATA_NAMESPACE]
       resource = Resource.new(rspec_example)
-      resources[resource.name] ||= resource
-      resources[resource.name].add_example Resource::Example.new(rspec_example)
+      resource_collection[resource.name] ||= resource
+      resource_collection[resource.name].add_example Resource::Example.new(rspec_example)
     end
 
     # Calls the configured renderer with the stored {Resource}s.
     #
     # @return [void]
     def close(null_notification)
-      renderer.new(resources.values.sort_by { |resource| [resource.precedence, resource.name] }).render
+      renderer.new(resource_collection.all).render
     end
 
     private
+
+    def resource_collection
+      @resource_collection ||= ResourceCollection.new
+    end
 
     def default_renderer
       value = RspecApiDocs.configuration.renderer

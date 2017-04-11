@@ -1,9 +1,9 @@
 require 'rspec_api_docs/formatter'
 
 module RspecApiDocs
-  RSpec.describe Formatter do
-    describe '#close' do
-      it 'passes the resources to the renderer ordered by precedence then name' do
+  RSpec.describe ResourceCollection do
+    describe '#all' do
+      it 'returns resources ordered by precedence then name' do
         resource_1 = Resource.new(
           double(metadata: {METADATA_NAMESPACE => {
             resource_name: 'Xyz',
@@ -27,23 +27,18 @@ module RspecApiDocs
           }}),
         )
 
-        renderer = double
-        formatter = Formatter.new(renderer: renderer)
-        formatter.instance_variable_set('@resources', {
-          resource_1: resource_1,
-          resource_2: resource_2,
-          resource_3: resource_3,
-          resource_4: resource_4,
-        })
+        collection = ResourceCollection.new
+        collection[:resource_1] = resource_1
+        collection[:resource_2] = resource_2
+        collection[:resource_3] = resource_3
+        collection[:resource_4] = resource_4
 
-        expect(renderer).to receive(:new).with([
+        expect(collection.all).to eq [
           resource_2,
           resource_4,
           resource_3,
           resource_1,
-        ]).and_return(double.as_null_object)
-
-        formatter.close(nil)
+        ]
       end
     end
   end
