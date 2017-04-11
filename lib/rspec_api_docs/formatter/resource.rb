@@ -17,7 +17,7 @@ module RspecApiDocs
     #
     # @return [String]
     def name
-      metadata.fetch(:resource_name, rspec_example.metadata[:example_group][:description])
+      metadata.fetch(:resource_name) { rspec_example.metadata[:example_group][:description] }
     end
 
     # The description of the resource.
