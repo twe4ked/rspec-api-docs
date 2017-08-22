@@ -366,6 +366,54 @@
         ],
         "notes": {
         }
+      },
+      {
+        "description": null,
+        "name": "Listing all places with a modified response bod,",
+        "httpMethod": "GET",
+        "parameters": [
+
+        ],
+        "path": "/places",
+        "requests": [
+          {
+            "requestMethod": "GET",
+            "requestPath": "/places",
+            "requestBody": null,
+            "requestHeaders": {
+              "Cookie": "",
+              "Host": "example.org"
+            },
+            "requestQueryParameters": {
+            },
+            "requestContentType": null,
+            "responseStatus": 200,
+            "responseStatusText": "OK",
+            "responseBody": "{\"data\":[{\"id\":2,\"name\":\"Tree Fort\"}]}",
+            "responseHeaders": {
+              "Content-Type": "text/html;charset=utf-8",
+              "Content-Length": "70",
+              "X-XSS-Protection": "1; mode=block",
+              "X-Content-Type-Options": "nosniff",
+              "X-Frame-Options": "SAMEORIGIN"
+            },
+            "responseContentType": "text/html;charset=utf-8"
+          }
+        ],
+        "responseFields": [
+          {
+            "name": "data[][id]",
+            "description": "The id of the place",
+            "type": "integer"
+          },
+          {
+            "name": "data[][name]",
+            "description": "The place's name",
+            "type": "string"
+          }
+        ],
+        "notes": {
+        }
       }
     ]
   }
