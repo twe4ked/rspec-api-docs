@@ -58,6 +58,13 @@
           "groups": "all",
           "route": "/places",
           "method": "get"
+        },
+        {
+          "description": "Listing all places with a modified response bod,",
+          "link": "places/listing_all_places_with_a_modified_response_bod_.json",
+          "groups": "all",
+          "route": "/places",
+          "method": "get"
         }
       ]
     }

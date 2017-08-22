@@ -1,30 +1,31 @@
 {
-  "resource": "Characters",
+  "resource": "Places",
   "resource_explanation": null,
-  "http_method": "DELETE",
-  "route": "/characters/:id",
-  "description": "Deleting a Character",
-  "explanation": "For getting information about a Character.",
+  "http_method": "GET",
+  "route": "/places",
+  "description": "Listing all places with a modified response bod,",
+  "explanation": null,
   "parameters": [
-    {
-      "required": true,
-      "scope": "",
-      "name": "id",
-      "description": "The id of a character"
-    }
+
   ],
   "response_fields": [
     {
-      "scope": "",
+      "scope": "data",
+      "Type": "integer",
+      "name": "id",
+      "description": "The id of the place"
+    },
+    {
+      "scope": "data",
       "Type": "string",
-      "name": "message",
-      "description": "Success message"
+      "name": "name",
+      "description": "The place's name"
     }
   ],
   "requests": [
     {
-      "request_method": "DELETE",
-      "request_path": "/characters/1",
+      "request_method": "GET",
+      "request_path": "/places",
       "request_body": null,
       "request_headers": {
         "Cookie": "",
@@ -35,10 +36,10 @@
       "request_content_type": null,
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\"message\":\"Character not found.\"}",
+      "response_body": "{\"data\":[{\"id\":2,\"name\":\"Tree Fort\"}]}",
       "response_headers": {
         "Content-Type": "text/html;charset=utf-8",
-        "Content-Length": "34",
+        "Content-Length": "70",
         "X-XSS-Protection": "1; mode=block",
         "X-Content-Type-Options": "nosniff",
         "X-Frame-Options": "SAMEORIGIN"

@@ -6,16 +6,13 @@ AllCops:
 Metrics/LineLength:
   Max: 120
 
-Metrics/AbcSize:
-  Enabled: true
-
-Style/DotPosition:
+Layout/DotPosition:
   EnforcedStyle: leading
 
-Style/AlignHash:
+Layout/AlignHash:
   Enabled: true
 
-Style/ExtraSpacing:
+Layout/ExtraSpacing:
   AllowForAlignment: false
 
 Style/HashSyntax:
@@ -33,10 +30,10 @@ Style/PercentLiteralDelimiters:
     '%W': '[]'
     '%x': '[]'
 
-Style/SpaceInsideHashLiteralBraces:
+Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
 
-Style/SpaceInsideBlockBraces:
+Layout/SpaceInsideBlockBraces:
   EnforcedStyleForEmptyBraces: space
 
 Style/StringLiterals:
@@ -51,5 +48,5 @@ Style/TrailingCommaInArguments:
 Style/ClassAndModuleChildren:
   EnforcedStyle: nested
 
-Style/MultilineOperationIndentation:
+Layout/MultilineOperationIndentation:
   EnforcedStyle: indented

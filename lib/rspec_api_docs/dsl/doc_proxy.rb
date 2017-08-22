@@ -146,6 +146,41 @@ module RspecApiDocs
       def precedence(value)
         metadata[METADATA_NAMESPACE][:example_precedence] = value
       end
+
+      # For passing a lambda to modify the response body
+      #
+      # This is useful if the entire body of the response isn't relevant to the
+      # documentation example.
+      #
+      # With a response body of:
+      #
+      #     {
+      #       characters: [
+      #         {
+      #           id: 1,
+      #           name: 'Finn The Human',
+      #         },
+      #         {
+      #           id: 2,
+      #           name: 'Jake The Dog',
+      #         },
+      #       ],
+      #     }
+      #
+      # Usage:
+      #
+      #     doc do
+      #       response_body_after_hook -> (parsed_response_body) {
+      #         parsed_response_body[:characters].delete_if { |character| character[:id] != 1 }
+      #         parsed_response_body
+      #       }
+      #     end
+      #
+      # @param value [Lambda] after hook lambda
+      # @return [void]
+      def response_body_after_hook(value)
+        metadata[METADATA_NAMESPACE][:response_body_after_hook] = value
+      end
     end
   end
 end

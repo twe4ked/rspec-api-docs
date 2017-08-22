@@ -171,6 +171,20 @@ RSpec.describe RspecApiDocs do
         get '/places'
       end
 
+      context 'when only a part of the response is relevant' do
+        it 'returns all places but only shows one' do
+          doc do
+            name 'Listing all places with a modified response bod,'
+            response_body_after_hook -> (parsed_response_body) {
+              parsed_response_body[:data].delete_if { |i| i[:id] == 1 }
+              parsed_response_body
+            }
+          end
+
+          get '/places'
+        end
+      end
+
       it 'can store two requests' do
         doc do
           name 'Fetching all places and page 2'

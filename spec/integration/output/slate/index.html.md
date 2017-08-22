@@ -223,3 +223,31 @@ Parameter | Type | Description
 --------- | ------- | -----------
 id | integer | The id of the place
 name | string | The place's name
+
+## Listing all places with a modified response bod,
+
+
+
+```json
+
+{
+  "data": [
+    {
+      "id": 2,
+      "name": "Tree Fort"
+    }
+  ]
+}
+```
+
+### HTTP Request
+
+`GET http://example.com/places`
+
+
+### Response Fields
+
+Parameter | Type | Description
+--------- | ------- | -----------
+id | integer | The id of the place
+name | string | The place's name

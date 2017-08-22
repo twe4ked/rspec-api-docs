@@ -130,6 +130,9 @@ module RspecApiDocs
               DeepHashSet.call(parsed_body, f.scope + [f.name], f.example)
             end
           end
+          if metadata[:response_body_after_hook]
+            parsed_body = metadata[:response_body_after_hook].call(parsed_body)
+          end
           JSON.dump(parsed_body)
         end
       end
