@@ -6,9 +6,6 @@ AllCops:
 Metrics/LineLength:
   Max: 120
 
-Metrics/AbcSize:
-  Enabled: true
-
 Style/DotPosition:
   EnforcedStyle: leading
 
