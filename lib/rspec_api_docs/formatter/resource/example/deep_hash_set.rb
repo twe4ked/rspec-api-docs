@@ -18,7 +18,7 @@ module RspecApiDocs
         def call
           keys.each_with_index do |key, index|
             case
-            when key.empty? # TODO: should this require `key == []`?
+            when key.nil?
               deep_set_value_at_array(index)
               break
             when index == keys.size - 1

@@ -226,7 +226,7 @@ param :id, 'The id of a character', scope: :character, type: 'integer', required
 param :name, "The character's name", scope: :character, type: 'string'
 ```
 
-#### `notes`
+#### `note`
 
 Accepts a `note` and optional `level`.
 
