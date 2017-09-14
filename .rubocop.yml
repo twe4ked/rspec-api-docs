@@ -48,5 +48,9 @@ Style/TrailingCommaInArguments:
 Style/ClassAndModuleChildren:
   EnforcedStyle: nested
 
-Layout/MultilineOperationIndentation:
-  EnforcedStyle: indented
+# NOTE: Cop seems to be broken at the moment:
+#
+#   An error occurred while Layout/MultilineOperationIndentation cop was
+#   inspecting ./lib/rspec_api_docs/rake_task.rb:101:6
+# Layout/MultilineOperationIndentation:
+#   EnforcedStyle: indented
