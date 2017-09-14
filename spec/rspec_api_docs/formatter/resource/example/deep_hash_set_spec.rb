@@ -41,7 +41,7 @@ module RspecApiDocs
           end
 
           context 'pointing at a hash within an array' do
-            let(:keys) { [:foo, :qux, [], :foo] }
+            let(:keys) { [:foo, :qux, nil, :foo] }
 
             it 'changes the value' do
               expect(call).to eq(
@@ -82,7 +82,7 @@ module RspecApiDocs
             end
 
             context 'changing a nested hash inside an array' do
-              let(:keys) { [:foo, :qux, [], :foo, :bar] }
+              let(:keys) { [:foo, :qux, nil, :foo, :bar] }
 
               it 'changes the value' do
                 expect(call).to eq(
@@ -110,7 +110,7 @@ module RspecApiDocs
             end
 
             context 'changing a hash inside an array inside a hash inside an array' do
-              let(:keys) { [:foo, :qux, [], :bar, [], :qux] }
+              let(:keys) { [:foo, :qux, nil, :bar, nil, :qux] }
 
               it 'changes the value' do
                 expect(call).to eq(
