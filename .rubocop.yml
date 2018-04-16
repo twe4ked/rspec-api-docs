@@ -39,7 +39,10 @@ Layout/SpaceInsideBlockBraces:
 Style/StringLiterals:
   EnforcedStyle: single_quotes
 
-Style/TrailingCommaInLiteral:
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: comma
 
 Style/TrailingCommaInArguments:
