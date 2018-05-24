@@ -1,4 +1,3 @@
-require 'pry'
 require 'rake'
 require 'rspec'
 require 'json'
