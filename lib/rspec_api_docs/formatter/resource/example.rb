@@ -63,7 +63,7 @@ module RspecApiDocs
             response_status: response.status,
             response_status_text: response_status_text(response.status),
             response_body: response_body(response.body),
-            response_headers: response.headers,
+            response_headers: response_headers(response.headers),
             response_content_type: response.content_type,
           }
         end
@@ -109,6 +109,14 @@ module RspecApiDocs
 
       def request_headers(env)
         RequestHeaders.call(env)
+      end
+
+      def response_headers(headers)
+        excluded_headers = RspecApiDocs.configuration.exclude_response_headers
+
+        headers.reject do |k, v|
+          excluded_headers.include?(k)
+        end
       end
 
       def request_path(request)

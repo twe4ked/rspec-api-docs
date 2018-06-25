@@ -18,13 +18,15 @@ module RspecApiDocs
       :output_dir,
       :renderer,
       :validate_params,
-      :exclude_request_headers
+      :exclude_request_headers,
+      :exclude_response_headers
 
     def initialize
       @output_dir = 'docs'
       @renderer = :json
       @validate_params = true
       @exclude_request_headers = []
+      @exclude_response_headers = []
     end
   end
 end

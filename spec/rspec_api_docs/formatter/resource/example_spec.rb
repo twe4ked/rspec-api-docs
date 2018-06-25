@@ -133,11 +133,12 @@ module RspecApiDocs
             content_type: 'application/json',
           )
         end
+        let(:last_response_1_headers) { {} }
         let(:last_response_1) do
           double(:last_response,
             status: 201,
             body: JSON.dump(character: {id: 1, name: 'Earl of Lemongrab'}),
-            headers: {},
+            headers: last_response_1_headers,
             content_type: 'application/json',
           )
         end
@@ -191,6 +192,31 @@ module RspecApiDocs
               response_content_type: 'application/json',
             },
           ]
+        end
+
+        context 'with excluded response headers' do
+          let(:_metadata) do
+            {
+              requests: [
+                [last_request_1, last_response_1],
+              ],
+            }
+          end
+          let(:last_response_1_headers) do
+            {
+              'Authorization' => 'Basic foo',
+              'Accept' => 'application/json',
+            }
+          end
+
+          it 'excludes the specified response headers' do
+            allow(RspecApiDocs).to receive(:configuration)
+              .and_return(double(exclude_response_headers: %w[Authorization]))
+
+            expect(subject.requests.first[:response_headers]).to eq(
+              'Accept' => 'application/json',
+            )
+          end
         end
       end
     end
