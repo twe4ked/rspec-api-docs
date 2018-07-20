@@ -200,6 +200,12 @@ module RspecApiDocs
           ]
         end
 
+        it 'rewinds the request body' do
+          subject.requests
+
+          expect(request_1_body.pos).to eq 0
+        end
+
         context 'with excluded response headers' do
           let(:_metadata) do
             {
