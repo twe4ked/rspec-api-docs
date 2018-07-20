@@ -122,11 +122,17 @@ module RspecApiDocs
           }
         end
 
+        let(:request_1_body) do
+          body = JSON.dump(character: {name: 'Earl of Lemongrab'})
+          StringIO.new(body).tap do |io|
+            io.read
+          end
+        end
         let(:last_request_1) do
           double(:last_request,
             request_method: 'POST',
             path: '/characters',
-            body: StringIO.new,
+            body: request_1_body,
             query_string: '',
             env: {},
             params: {},
@@ -168,7 +174,7 @@ module RspecApiDocs
             {
               request_method: 'POST',
               request_path: '/characters',
-              request_body: nil,
+              request_body: '{"character":{"name":"Earl of Lemongrab"}}',
               request_headers: {},
               request_query_parameters: {},
               request_content_type: 'application/json',
@@ -192,6 +198,12 @@ module RspecApiDocs
               response_content_type: 'application/json',
             },
           ]
+        end
+
+        it 'rewinds the request body' do
+          subject.requests
+
+          expect(request_1_body.pos).to eq 0
         end
 
         context 'with excluded response headers' do

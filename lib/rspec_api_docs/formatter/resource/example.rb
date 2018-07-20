@@ -126,8 +126,10 @@ module RspecApiDocs
       end
 
       def request_body(body)
-        body = body.read
-        body.empty? ? nil : body
+        body.rewind if body.respond_to?(:rewind)
+        body_content = body.read
+        body.rewind if body.respond_to?(:rewind)
+        body_content.empty? ? nil : body_content
       end
 
       def response_body(body)
