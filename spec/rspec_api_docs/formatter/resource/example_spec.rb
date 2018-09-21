@@ -200,10 +200,46 @@ module RspecApiDocs
           ]
         end
 
-        it 'rewinds the request body' do
-          subject.requests
+        context 'when the response does not contain JSON' do
+          let(:last_response_2) do
+            double(:last_response,
+              status: 200,
+              body: 'BINARY PDF DATA',
+              headers: {},
+              content_type: 'application/pdf',
+            )
+          end
 
-          expect(request_1_body.pos).to eq 0
+          it 'returns requests but excludes the PDF body' do
+            expect(subject.requests).to eq [
+              {
+                request_method: 'POST',
+                request_path: '/characters',
+                request_body: '{"character":{"name":"Earl of Lemongrab"}}',
+                request_headers: {},
+                request_query_parameters: {},
+                request_content_type: 'application/json',
+                response_status: 201,
+                response_status_text: 'Created',
+                response_body: '{"character":{"id":1,"name":"Earl of Lemongrab"}}',
+                response_headers: {},
+                response_content_type: 'application/json',
+              },
+              {
+                request_method: 'GET',
+                request_path: '/characters/1',
+                request_body: nil,
+                request_headers: {},
+                request_query_parameters: {},
+                request_content_type: 'application/json',
+                response_status: 200,
+                response_status_text: 'OK',
+                response_body: nil,
+                response_headers: {},
+                response_content_type: 'application/pdf',
+              },
+            ]
+          end
         end
 
         context 'with excluded response headers' do

@@ -1,3 +1,4 @@
+require 'rack/utils'
 require 'rspec_api_docs/formatter/resource/example/request_headers'
 require 'rspec_api_docs/formatter/resource/example/deep_hash_set'
 
@@ -62,7 +63,7 @@ module RspecApiDocs
             request_content_type: request.content_type,
             response_status: response.status,
             response_status_text: response_status_text(response.status),
-            response_body: response_body(response.body),
+            response_body: response_body(response.body, response.content_type),
             response_headers: response_headers(response.headers),
             response_content_type: response.content_type,
           }
@@ -132,19 +133,28 @@ module RspecApiDocs
         body_content.empty? ? nil : body_content
       end
 
-      def response_body(body)
+      def response_body(body, content_type=nil)
         unless body.empty?
-          parsed_body = JSON.parse(body, symbolize_names: true)
-          response_fields.each do |f|
-            unless f.example.nil?
-              DeepHashSet.call(parsed_body, f.scope + [f.name], f.example)
-            end
+          case content_type
+            when 'application/json'
+              json_response_body(body)
+            else
+              nil
           end
-          if metadata[:response_body_after_hook]
-            parsed_body = metadata[:response_body_after_hook].call(parsed_body)
-          end
-          JSON.dump(parsed_body)
         end
+      end
+
+      def json_response_body(body)
+        parsed_body = JSON.parse(body, symbolize_names: true)
+        response_fields.each do |f|
+          unless f.example.nil?
+            DeepHashSet.call(parsed_body, f.scope + [f.name], f.example)
+          end
+        end
+        if metadata[:response_body_after_hook]
+          parsed_body = metadata[:response_body_after_hook].call(parsed_body)
+        end
+        JSON.dump(parsed_body)
       end
 
       def response_status_text(status)
