@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - This CHANGELOG file.
 
 ### Changed
-- Include the request body in the generated JSON [#9] ([@2potatocakes])
+- The JSON response body will only be documented when the content type is `application/json` [#9] ([@2potatocakes])
 
 [Unreleased]: https://github.com/twe4ked/rspec-api-docs/compare/v0.14.0...HEAD
 [0.14.0]: https://github.com/twe4ked/rspec-api-docs/compare/v0.13.0...v0.14.0
