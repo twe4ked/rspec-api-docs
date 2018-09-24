@@ -206,6 +206,26 @@ module RspecApiDocs
           expect(request_1_body.pos).to eq 0
         end
 
+        context 'when the response does not contain JSON' do
+          let(:last_response_2) do
+            double(:last_response,
+              status: 200,
+              body: 'BINARY PDF DATA',
+              headers: {},
+              content_type: 'application/pdf',
+            )
+          end
+
+          it 'returns requests but excludes the PDF body' do
+            expect(subject.requests).to include(
+              hash_including(
+                response_body: nil,
+                response_content_type: 'application/pdf',
+              ),
+            )
+          end
+        end
+
         context 'with excluded response headers' do
           let(:_metadata) do
             {

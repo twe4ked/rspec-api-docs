@@ -62,7 +62,7 @@ module RspecApiDocs
             request_content_type: request.content_type,
             response_status: response.status,
             response_status_text: response_status_text(response.status),
-            response_body: response_body(response.body),
+            response_body: response_body(response.body, content_type: response.content_type),
             response_headers: response_headers(response.headers),
             response_content_type: response.content_type,
           }
@@ -132,8 +132,8 @@ module RspecApiDocs
         body_content.empty? ? nil : body_content
       end
 
-      def response_body(body)
-        unless body.empty?
+      def response_body(body, content_type:)
+        unless body.empty? || content_type != 'application/json'
           parsed_body = JSON.parse(body, symbolize_names: true)
           response_fields.each do |f|
             unless f.example.nil?
