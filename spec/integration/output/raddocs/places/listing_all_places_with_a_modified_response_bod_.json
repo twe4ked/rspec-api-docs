@@ -38,13 +38,11 @@
       "response_status_text": "OK",
       "response_body": "{\"data\":[{\"id\":2,\"name\":\"Tree Fort\"}]}",
       "response_headers": {
-        "Content-Type": "text/html;charset=utf-8",
+        "Content-Type": "application/json",
         "Content-Length": "70",
-        "X-XSS-Protection": "1; mode=block",
-        "X-Content-Type-Options": "nosniff",
-        "X-Frame-Options": "SAMEORIGIN"
+        "X-Content-Type-Options": "nosniff"
       },
-      "response_content_type": "text/html;charset=utf-8",
+      "response_content_type": "application/json",
       "curl": null
     }
   ]
