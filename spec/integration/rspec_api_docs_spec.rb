@@ -18,6 +18,10 @@ RSpec.describe RspecApiDocs do
       2 => {name: 'Tree Fort'},
     }
 
+    before do
+      content_type 'application/json'
+    end
+
     get '/characters' do
       characters = CHARACTERS.map { |id, character| {id: id}.merge(character) }
 
