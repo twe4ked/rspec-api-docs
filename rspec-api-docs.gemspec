@@ -23,6 +23,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'rack-test'
-  spec.add_development_dependency 'sinatra', '2.0.0.beta2'
+  spec.add_development_dependency 'sinatra', '~> 2.0.0'
   spec.add_development_dependency 'rubocop'
 end
