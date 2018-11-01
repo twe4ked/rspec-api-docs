@@ -133,7 +133,7 @@ module RspecApiDocs
       end
 
       def response_body(body, content_type:)
-        unless body.empty? || content_type != 'application/json'
+        unless body.empty? || !content_type.to_s.include?('json')
           parsed_body = JSON.parse(body, symbolize_names: true)
           response_fields.each do |f|
             unless f.example.nil?
