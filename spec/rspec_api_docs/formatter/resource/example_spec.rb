@@ -145,7 +145,7 @@ module RspecApiDocs
             status: 201,
             body: JSON.dump(character: {id: 1, name: 'Earl of Lemongrab'}),
             headers: last_response_1_headers,
-            content_type: 'application/json',
+            content_type: 'application/vnd.api+json; charset=utf-8',
           )
         end
 
@@ -182,7 +182,7 @@ module RspecApiDocs
               response_status_text: 'Created',
               response_body: '{"character":{"id":1,"name":"Earl of Lemongrab"}}',
               response_headers: {},
-              response_content_type: 'application/json',
+              response_content_type: 'application/vnd.api+json; charset=utf-8',
             },
             {
               request_method: 'GET',
